@@ -1,0 +1,403 @@
+(() => {
+  "use strict";
+
+  const data = window.BI_DATA;
+  if (!data || !Array.isArray(data.events)) {
+    document.body.innerHTML = '<main><section class="panel"><h1>数据文件未生成</h1><p>请先运行“刷新BI.command”。</p></section></main>';
+    return;
+  }
+
+  const $ = (selector) => document.querySelector(selector);
+  const elements = {
+    region: $("#region-filter"),
+    product: $("#product-filter"),
+    status: $("#status-filter"),
+    search: $("#search-filter"),
+    reset: $("#reset-filters"),
+    summary: $("#filter-summary"),
+    eventBody: $("#event-table-body"),
+    eventEmpty: $("#event-empty"),
+    eventCount: $("#event-count"),
+    coverageBody: $("#coverage-table-body"),
+    coverageEmpty: $("#coverage-empty"),
+    coverageCount: $("#coverage-count"),
+    impactList: $("#impact-list"),
+    trendSelector: $("#trend-selector"),
+    trendChart: $("#trend-chart"),
+    trendSubtitle: $("#trend-subtitle"),
+    trendTooltip: $("#trend-tooltip"),
+  };
+
+  const state = { region: "all", product: "all", status: "all", search: "", trendKey: "" };
+  const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
+  const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
+  const numberFormat = new Intl.NumberFormat("zh-CN");
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function firstIsoDate(value) {
+    return String(value || "").match(/\d{4}-\d{2}-\d{2}/)?.[0] || "";
+  }
+
+  function formatTimestamp(value) {
+    if (!value) return "暂无刷新时间";
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) return value;
+    return `数据生成 ${new Intl.DateTimeFormat("zh-CN", {
+      timeZone: "Asia/Tokyo", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit",
+    }).format(parsed)}（日本时间）`;
+  }
+
+  function eventStatusKind(event) {
+    return /进行中|预告/.test(event.status) ? "active" : "ended";
+  }
+
+  function statusClass(value) {
+    if (String(value).startsWith("已读取")) return "read";
+    if (String(value).startsWith("未入榜")) return "unranked";
+    if (String(value).startsWith("未读取")) return "unread";
+    if (String(value).startsWith("待抓取")) return "pending";
+    return "";
+  }
+
+  function rankChangeHtml(change) {
+    if (typeof change?.delta === "number") {
+      const direction = change.delta < 0 ? "up" : change.delta > 0 ? "down" : "";
+      const arrow = change.delta < 0 ? "↑" : change.delta > 0 ? "↓" : "→";
+      return `<span class="rank-change ${direction}">${arrow}${Math.abs(change.delta)} 位</span><span class="table-secondary">${escapeHtml(change.display)}</span>`;
+    }
+    return `<span class="rank-change missing">${escapeHtml(change?.display || "—")}</span>`;
+  }
+
+  function populateFilters() {
+    for (const region of data.regions) {
+      elements.region.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(region.name)}">${escapeHtml(region.name)}</option>`);
+    }
+    for (const product of data.products) {
+      elements.product.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(product.key)}">${escapeHtml(product.name)}</option>`);
+    }
+  }
+
+  function filteredEvents() {
+    const query = state.search.trim().toLocaleLowerCase("zh-CN");
+    return data.events.filter((event) => {
+      if (state.region !== "all" && event.region !== state.region) return false;
+      if (state.product !== "all" && event.productKey !== state.product) return false;
+      if (state.status !== "all" && eventStatusKind(event) !== state.status) return false;
+      if (query && !`${event.product} ${event.ip}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
+      return true;
+    });
+  }
+
+  function filteredVersions() {
+    const query = state.search.trim().toLocaleLowerCase("zh-CN");
+    return data.versions.filter((version) => {
+      if (state.region !== "all" && version.region !== state.region) return false;
+      if (state.product !== "all" && version.productKey !== state.product) return false;
+      if (query && !version.product.toLocaleLowerCase("zh-CN").includes(query)) return false;
+      return true;
+    });
+  }
+
+  function renderKpis(events, versions) {
+    const products = new Set(events.map((event) => event.productKey || event.product));
+    const readVersions = versions.filter((version) => {
+      const statuses = [version.freeStatus, version.grossingStatus];
+      return statuses.some((status) => /^已读取|^未入榜/.test(status));
+    });
+    const best = events
+      .filter((event) => typeof event.grossing?.delta === "number")
+      .sort((a, b) => a.grossing.delta - b.grossing.delta)[0];
+
+    $("#kpi-events").textContent = numberFormat.format(events.length);
+    $("#kpi-events-note").textContent = state.region === "all" ? "全部地区" : state.region;
+    $("#kpi-products").textContent = numberFormat.format(products.size);
+    $("#kpi-read").textContent = numberFormat.format(readVersions.length);
+    $("#kpi-read-note").textContent = `筛选内共 ${versions.length} 个配置`;
+    $("#kpi-best").textContent = best ? `${best.grossing.delta < 0 ? "↑" : "↓"}${Math.abs(best.grossing.delta)}` : "—";
+    $("#kpi-best-note").textContent = best ? `${best.region} · ${best.product}` : "暂无完整差值";
+  }
+
+  function renderImpact(events) {
+    const ranked = events
+      .filter((event) => typeof event.grossing?.delta === "number")
+      .sort((a, b) => a.grossing.delta - b.grossing.delta)
+      .slice(0, 7);
+    if (!ranked.length) {
+      elements.impactList.innerHTML = '<div class="empty-state">当前范围没有可计算的畅销榜差值。</div>';
+      return;
+    }
+    const max = Math.max(...ranked.map((event) => Math.abs(event.grossing.delta)), 1);
+    elements.impactList.innerHTML = ranked.map((event) => {
+      const delta = event.grossing.delta;
+      const decline = delta > 0;
+      const width = Math.max(5, Math.round(Math.abs(delta) / max * 100));
+      return `
+        <div class="impact-row">
+          <div class="impact-label">
+            <div class="impact-name">
+              <strong>${escapeHtml(event.product)}</strong>
+              <span>${escapeHtml(event.region)} · ${escapeHtml(event.ip)}</span>
+            </div>
+            <span class="impact-delta ${decline ? "decline" : ""}">${decline ? "↓" : "↑"}${Math.abs(delta)} 位</span>
+          </div>
+          <div class="impact-track"><div class="impact-bar ${decline ? "decline" : ""}" style="width:${width}%"></div></div>
+        </div>`;
+    }).join("");
+  }
+
+  function renderEvents(events) {
+    const sorted = [...events].sort((a, b) => firstIsoDate(b.start).localeCompare(firstIsoDate(a.start)) || a.product.localeCompare(b.product));
+    elements.eventCount.textContent = `${sorted.length} 条`;
+    elements.eventEmpty.hidden = sorted.length > 0;
+    elements.eventBody.innerHTML = sorted.map((event) => {
+      const sources = event.sources.length
+        ? event.sources.map((source, index) => `<a href="${escapeHtml(source)}" target="_blank" rel="noopener">来源 ${index + 1}</a>`).join("")
+        : '<span class="table-secondary">暂无链接</span>';
+      const kind = eventStatusKind(event);
+      return `
+        <tr>
+          <td><span class="table-primary">${escapeHtml(event.region)}</span><span class="table-secondary">${escapeHtml(event.serverVersion)}</span></td>
+          <td><span class="table-primary">${escapeHtml(event.product)}</span><span class="table-secondary">${escapeHtml(event.ip)}</span></td>
+          <td><span class="table-primary">${escapeHtml(event.start)}</span><span class="table-secondary">至 ${escapeHtml(event.end)}</span></td>
+          <td><span class="status-chip ${kind}">${escapeHtml(event.status)}</span></td>
+          <td>${rankChangeHtml(event.free)}</td>
+          <td>${rankChangeHtml(event.grossing)}</td>
+          <td><div class="verification">${escapeHtml(event.verification)}</div><div class="source-list">${sources}</div></td>
+        </tr>`;
+    }).join("");
+  }
+
+  function renderCoverage(versions) {
+    const sorted = [...versions].sort((a, b) => a.region.localeCompare(b.region) || a.product.localeCompare(b.product));
+    elements.coverageCount.textContent = `${sorted.length} 项`;
+    elements.coverageEmpty.hidden = sorted.length > 0;
+    elements.coverageBody.innerHTML = sorted.map((version) => `
+      <tr>
+        <td><span class="table-primary">${escapeHtml(version.product)}</span><span class="table-secondary">${escapeHtml(version.productKey)}</span></td>
+        <td><span class="table-primary">${escapeHtml(version.region)}</span><span class="table-secondary">${escapeHtml(version.serverVersion)}</span></td>
+        <td>${escapeHtml(version.appId || "—")}</td>
+        <td><span class="status-chip ${statusClass(version.freeStatus)}">${escapeHtml(version.freeStatus || "待抓取")}</span></td>
+        <td><span class="status-chip ${statusClass(version.grossingStatus)}">${escapeHtml(version.grossingStatus || "待抓取")}</span></td>
+        <td>${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">打开页面</a>` : "—"}</td>
+      </tr>`).join("");
+  }
+
+  function trendGroups() {
+    const groups = new Map();
+    for (const point of data.trends) {
+      if (state.region !== "all" && point.region !== state.region) continue;
+      if (state.product !== "all" && point.productKey !== state.product) continue;
+      const key = `${point.productKey}|${point.region}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(point);
+    }
+    return [...groups.entries()]
+      .map(([key, points]) => {
+        const sorted = points.sort((a, b) => a.date.localeCompare(b.date));
+        const freeCount = sorted.filter((point) => typeof point.free === "number").length;
+        const grossingCount = sorted.filter((point) => typeof point.grossing === "number").length;
+        return {
+          key,
+          points: sorted,
+          seriesCount: Number(freeCount > 0) + Number(grossingCount > 0),
+          numericCount: freeCount + grossingCount,
+        };
+      })
+      .sort((a, b) => b.seriesCount - a.seriesCount || b.numericCount - a.numericCount || b.points.length - a.points.length || a.key.localeCompare(b.key));
+  }
+
+  function rebuildTrendSelector() {
+    const groups = trendGroups();
+    if (!groups.some((group) => group.key === state.trendKey)) state.trendKey = groups[0]?.key || "";
+    elements.trendSelector.innerHTML = groups.length
+      ? groups.map((group) => {
+          const first = group.points[0];
+          return `<option value="${escapeHtml(group.key)}" ${group.key === state.trendKey ? "selected" : ""}>${escapeHtml(first.product)}｜${escapeHtml(first.region)}</option>`;
+        }).join("")
+      : '<option value="">当前筛选没有趋势点</option>';
+    elements.trendSelector.disabled = !groups.length;
+    renderTrend(groups.find((group) => group.key === state.trendKey));
+  }
+
+  function lineSegments(points, field, x, y) {
+    const segments = [];
+    let current = [];
+    let previousDate = null;
+    for (const point of points) {
+      const value = point[field];
+      const day = new Date(`${point.date}T00:00:00Z`);
+      const gap = previousDate ? (day - previousDate) / 86400000 : 0;
+      if (typeof value !== "number" || gap > 5) {
+        if (current.length) segments.push(current);
+        current = [];
+      }
+      if (typeof value === "number") current.push(`${x(day).toFixed(1)},${y(value).toFixed(1)}`);
+      previousDate = day;
+    }
+    if (current.length) segments.push(current);
+    return segments;
+  }
+
+  function renderTrend(group) {
+    const container = elements.trendChart;
+    elements.trendTooltip.hidden = true;
+    if (!group?.points?.length) {
+      elements.trendSubtitle.textContent = "当前筛选范围没有可绘制的趋势点";
+      container.innerHTML = '<svg viewBox="0 0 720 320" aria-label="没有趋势数据"><text class="empty-label" x="360" y="160" text-anchor="middle">暂无免费下载榜或畅销榜游戏分类排名</text></svg>';
+      return;
+    }
+
+    const points = group.points;
+    const first = points[0];
+    elements.trendSubtitle.textContent = `${first.product} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date}`;
+    const width = Math.max(container.clientWidth || 720, 360);
+    const height = width < 560 ? 300 : 330;
+    const margin = { top: 18, right: 18, bottom: 36, left: 54 };
+    const plotWidth = width - margin.left - margin.right;
+    const plotHeight = height - margin.top - margin.bottom;
+    const dates = points.map((point) => new Date(`${point.date}T00:00:00Z`));
+    const ranks = points.flatMap((point) => [point.free, point.grossing]).filter((value) => typeof value === "number");
+    const minTime = Math.min(...dates.map(Number));
+    const maxTime = Math.max(...dates.map(Number));
+    const minRank = Math.max(1, Math.floor(Math.min(...ranks) * 0.9));
+    const maxRank = Math.max(minRank + 10, Math.ceil(Math.max(...ranks) * 1.08));
+    const x = (day) => margin.left + ((Number(day) - minTime) / Math.max(1, maxTime - minTime)) * plotWidth;
+    const y = (rank) => margin.top + ((rank - minRank) / Math.max(1, maxRank - minRank)) * plotHeight;
+
+    const yTicks = Array.from({ length: 5 }, (_, index) => Math.round(minRank + (maxRank - minRank) * index / 4));
+    const xTickCount = width < 560 ? 3 : 5;
+    const xTicks = Array.from({ length: xTickCount }, (_, index) => {
+      const pointIndex = Math.round((points.length - 1) * index / Math.max(1, xTickCount - 1));
+      return points[pointIndex];
+    });
+    const formatDay = (value) => value.slice(5).replace("-", "/");
+
+    const selectedEvents = data.events.filter((event) => event.productKey === first.productKey && event.region === first.region);
+    const bands = selectedEvents.map((event) => {
+      const start = firstIsoDate(event.start);
+      const end = firstIsoDate(event.end) || start;
+      if (!start) return "";
+      const bandStart = Math.max(minTime, Number(new Date(`${start}T00:00:00Z`)));
+      const bandEnd = Math.min(maxTime, Number(new Date(`${end}T00:00:00Z`)));
+      if (bandEnd < minTime || bandStart > maxTime) return "";
+      const left = x(new Date(bandStart));
+      const right = x(new Date(bandEnd));
+      return `<rect class="event-band" x="${left.toFixed(1)}" y="${margin.top}" width="${Math.max(2, right - left).toFixed(1)}" height="${plotHeight}"><title>${escapeHtml(event.ip)} 联动期</title></rect>`;
+    }).join("");
+
+    const grid = yTicks.map((tick) => `
+      <line class="grid-line" x1="${margin.left}" x2="${width - margin.right}" y1="${y(tick)}" y2="${y(tick)}"></line>
+      <text class="axis-label" x="${margin.left - 10}" y="${y(tick) + 4}" text-anchor="end">${tick}</text>`).join("");
+    const xLabels = xTicks.map((point) => `
+      <text class="axis-label" x="${x(new Date(`${point.date}T00:00:00Z`))}" y="${height - 10}" text-anchor="middle">${formatDay(point.date)}</text>`).join("");
+    const freeLines = lineSegments(points, "free", x, y).map((segment) => `<polyline class="series-free" points="${segment.join(" ")}"></polyline>`).join("");
+    const grossingLines = lineSegments(points, "grossing", x, y).map((segment) => `<polyline class="series-grossing" points="${segment.join(" ")}"></polyline>`).join("");
+    const showPoints = points.length <= 35;
+    const marks = showPoints ? points.map((point) => {
+      const px = x(new Date(`${point.date}T00:00:00Z`));
+      return `${typeof point.free === "number" ? `<circle class="point-free" cx="${px}" cy="${y(point.free)}" r="2.5"></circle>` : ""}${typeof point.grossing === "number" ? `<circle class="point-grossing" cx="${px}" cy="${y(point.grossing)}" r="2.5"></circle>` : ""}`;
+    }).join("") : "";
+
+    container.innerHTML = `
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(first.product)} ${escapeHtml(first.region)} 榜单趋势">
+        <text class="axis-title" x="${margin.left}" y="10">RANK</text>
+        ${grid}${bands}${freeLines}${grossingLines}${marks}${xLabels}
+        <line id="trend-hover-line" class="hover-line" x1="0" x2="0" y1="${margin.top}" y2="${margin.top + plotHeight}" visibility="hidden"></line>
+        <circle id="trend-hover-free" class="hover-dot-free" r="4" visibility="hidden"></circle>
+        <circle id="trend-hover-grossing" class="hover-dot-grossing" r="4" visibility="hidden"></circle>
+        <rect id="trend-hit" x="${margin.left}" y="${margin.top}" width="${plotWidth}" height="${plotHeight}" fill="transparent"></rect>
+      </svg>`;
+
+    const svg = container.querySelector("svg");
+    const hit = container.querySelector("#trend-hit");
+    const hoverLine = container.querySelector("#trend-hover-line");
+    const hoverFree = container.querySelector("#trend-hover-free");
+    const hoverGrossing = container.querySelector("#trend-hover-grossing");
+    hit.addEventListener("pointermove", (event) => {
+      const rect = svg.getBoundingClientRect();
+      const cursor = (event.clientX - rect.left) / rect.width * width;
+      const nearest = points.reduce((best, point) => {
+        const distance = Math.abs(x(new Date(`${point.date}T00:00:00Z`)) - cursor);
+        return !best || distance < best.distance ? { point, distance } : best;
+      }, null).point;
+      const px = x(new Date(`${nearest.date}T00:00:00Z`));
+      hoverLine.setAttribute("x1", px); hoverLine.setAttribute("x2", px); hoverLine.setAttribute("visibility", "visible");
+      for (const [element, field] of [[hoverFree, "free"], [hoverGrossing, "grossing"]]) {
+        if (typeof nearest[field] === "number") {
+          element.setAttribute("cx", px); element.setAttribute("cy", y(nearest[field])); element.setAttribute("visibility", "visible");
+        } else {
+          element.setAttribute("visibility", "hidden");
+        }
+      }
+      elements.trendTooltip.innerHTML = `<strong>${escapeHtml(nearest.date)}</strong><span><b>免费下载榜</b><em>${nearest.free ?? "未入榜"}</em></span><span><b>畅销榜</b><em>${nearest.grossing ?? "未入榜"}</em></span>`;
+      elements.trendTooltip.hidden = false;
+      const panelRect = container.closest(".trend-panel").getBoundingClientRect();
+      const tooltipX = Math.min(event.clientX - panelRect.left + 12, panelRect.width - 200);
+      const tooltipY = Math.max(92, event.clientY - panelRect.top - 30);
+      elements.trendTooltip.style.left = `${Math.max(12, tooltipX)}px`;
+      elements.trendTooltip.style.top = `${tooltipY}px`;
+    });
+    hit.addEventListener("pointerleave", () => {
+      hoverLine.setAttribute("visibility", "hidden");
+      hoverFree.setAttribute("visibility", "hidden");
+      hoverGrossing.setAttribute("visibility", "hidden");
+      elements.trendTooltip.hidden = true;
+    });
+  }
+
+  function updateFilterSummary(events, versions) {
+    const region = state.region === "all" ? "全部地区" : state.region;
+    const product = state.product === "all" ? "全部产品" : (productByKey.get(state.product) || state.product);
+    elements.summary.textContent = `${region} · ${product} · ${events.length} 条联动 · ${versions.length} 个地区版本配置`;
+  }
+
+  function render() {
+    const events = filteredEvents();
+    const versions = filteredVersions();
+    renderKpis(events, versions);
+    renderImpact(events);
+    renderEvents(events);
+    renderCoverage(versions);
+    rebuildTrendSelector();
+    updateFilterSummary(events, versions);
+  }
+
+  function bindControls() {
+    elements.region.addEventListener("change", () => { state.region = elements.region.value; state.trendKey = ""; render(); });
+    elements.product.addEventListener("change", () => { state.product = elements.product.value; state.trendKey = ""; render(); });
+    elements.status.addEventListener("change", () => { state.status = elements.status.value; render(); });
+    elements.search.addEventListener("input", () => { state.search = elements.search.value; render(); });
+    elements.trendSelector.addEventListener("change", () => {
+      state.trendKey = elements.trendSelector.value;
+      renderTrend(trendGroups().find((group) => group.key === state.trendKey));
+    });
+    elements.reset.addEventListener("click", () => {
+      Object.assign(state, { region: "all", product: "all", status: "all", search: "", trendKey: "" });
+      elements.region.value = "all";
+      elements.product.value = "all";
+      elements.status.value = "all";
+      elements.search.value = "";
+      render();
+    });
+    let resizeTimer = 0;
+    new ResizeObserver(() => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => renderTrend(trendGroups().find((group) => group.key === state.trendKey)), 80);
+    }).observe(elements.trendChart);
+  }
+
+  $("#generated-at").textContent = formatTimestamp(data.meta.generatedAt);
+  $("#latest-rank-date").textContent = data.meta.latestRankDate || "暂无";
+  $("#definition-text").textContent = `${data.meta.definitions.delta}；${data.meta.definitions.missing}`;
+  populateFilters();
+  bindControls();
+  render();
+})();

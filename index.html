@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="日本娱乐 IP 与手游联动地区表现 BI">
+  <title>日本 IP × 手游联动 BI</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="返回仪表盘首页">
+      <span class="brand-mark" aria-hidden="true">IP</span>
+      <span>
+        <strong>Collab Radar</strong>
+        <small>日本 IP × 手游联动 BI</small>
+      </span>
+    </a>
+    <div class="freshness">
+      <span class="freshness-dot" aria-hidden="true"></span>
+      <span id="generated-at">正在读取数据…</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">GLOBAL MOBILE COLLAB TRACKER</p>
+        <h1 id="page-title">地区联动与榜单影响</h1>
+        <p class="intro-copy">按地区查看不同产品的联动项目，并比较联动前后的免费下载榜·游戏榜与畅销榜·游戏榜变化。</p>
+      </div>
+      <div class="data-date">
+        <span>榜单最新日期</span>
+        <strong id="latest-rank-date">—</strong>
+      </div>
+    </section>
+
+    <section class="filter-panel" aria-labelledby="filter-title">
+      <div class="section-heading compact">
+        <div>
+          <p class="section-kicker">FILTERS</p>
+          <h2 id="filter-title">筛选条件</h2>
+        </div>
+        <button id="reset-filters" class="button secondary" type="button">重置</button>
+      </div>
+      <div class="filters">
+        <label>
+          <span>地区</span>
+          <select id="region-filter">
+            <option value="all">全部地区</option>
+          </select>
+        </label>
+        <label>
+          <span>产品</span>
+          <select id="product-filter">
+            <option value="all">全部产品</option>
+          </select>
+        </label>
+        <label>
+          <span>联动状态</span>
+          <select id="status-filter">
+            <option value="all">全部状态</option>
+            <option value="active">进行中 / 预告</option>
+            <option value="ended">已结束</option>
+          </select>
+        </label>
+        <label class="search-field">
+          <span>产品或 IP</span>
+          <input id="search-filter" type="search" placeholder="输入名称搜索">
+        </label>
+      </div>
+      <p id="filter-summary" class="filter-summary" aria-live="polite"></p>
+    </section>
+
+    <section class="kpi-grid" aria-label="关键指标">
+      <article class="kpi-card">
+        <span>筛选内联动数</span>
+        <strong id="kpi-events">—</strong>
+        <small id="kpi-events-note">—</small>
+      </article>
+      <article class="kpi-card">
+        <span>涉及产品</span>
+        <strong id="kpi-products">—</strong>
+        <small>按产品去重</small>
+      </article>
+      <article class="kpi-card">
+        <span>已读取产品×地区</span>
+        <strong id="kpi-read">—</strong>
+        <small id="kpi-read-note">—</small>
+      </article>
+      <article class="kpi-card accent">
+        <span>畅销榜最大提升</span>
+        <strong id="kpi-best">—</strong>
+        <small id="kpi-best-note">暂无完整差值</small>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel trend-panel" aria-labelledby="trend-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">RANK TREND</p>
+            <h2 id="trend-title">榜单趋势</h2>
+            <p id="trend-subtitle" class="section-note">自动选择筛选范围内数据最完整的产品与地区</p>
+          </div>
+          <label class="compact-select">
+            <span class="sr-only">趋势产品与地区</span>
+            <select id="trend-selector"></select>
+          </label>
+        </div>
+        <div class="legend" aria-label="榜单图例">
+          <span><i class="legend-line free"></i>免费下载榜·游戏榜</span>
+          <span><i class="legend-line grossing"></i>畅销榜·游戏榜</span>
+          <span class="rank-hint">排名数字越小越好</span>
+        </div>
+        <div id="trend-chart" class="chart-area" role="img" aria-label="榜单趋势折线图"></div>
+        <div id="trend-tooltip" class="chart-tooltip" hidden></div>
+      </article>
+
+      <article class="panel impact-panel" aria-labelledby="impact-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">COLLAB IMPACT</p>
+            <h2 id="impact-title">畅销榜变化排行</h2>
+            <p class="section-note">差值越负，代表联动后排名提升越明显</p>
+          </div>
+        </div>
+        <div id="impact-list" class="impact-list" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="panel table-panel" aria-labelledby="event-table-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">COLLABORATIONS</p>
+          <h2 id="event-table-title">联动项目明细</h2>
+        </div>
+        <span id="event-count" class="count-badge">0 条</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>地区</th>
+              <th>产品 / IP</th>
+              <th>联动时间</th>
+              <th>状态</th>
+              <th>免费下载榜·游戏榜</th>
+              <th>畅销榜·游戏榜</th>
+              <th>核验与来源</th>
+            </tr>
+          </thead>
+          <tbody id="event-table-body"></tbody>
+        </table>
+      </div>
+      <div id="event-empty" class="empty-state" hidden>当前筛选条件下没有联动项目。</div>
+    </section>
+
+    <section class="panel table-panel" aria-labelledby="coverage-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">DATA COVERAGE</p>
+          <h2 id="coverage-title">地区版本与读取状态</h2>
+          <p class="section-note">用于区分“未入榜”“未读取”和“待抓取”，不会用估算值补齐。</p>
+        </div>
+        <span id="coverage-count" class="count-badge">0 项</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>产品</th>
+              <th>地区 / 版本</th>
+              <th>App ID</th>
+              <th>免费下载榜·游戏榜</th>
+              <th>畅销榜·游戏榜</th>
+              <th>七麦页面</th>
+            </tr>
+          </thead>
+          <tbody id="coverage-table-body"></tbody>
+        </table>
+      </div>
+      <div id="coverage-empty" class="empty-state" hidden>当前筛选条件下没有地区版本配置。</div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>口径说明</strong>
+    <span id="definition-text">联动后排名－联动前排名；负数代表排名上升。</span>
+  </footer>
+
+  <script src="data/dashboard.js?v=20260827"></script>
+  <script src="app.js?v=20260827-2"></script>
+</body>
+</html>
