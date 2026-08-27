@@ -11,7 +11,7 @@
   const elements = {
     region: $("#region-filter"),
     product: $("#product-filter"),
-    status: $("#status-filter"),
+    ip: $("#ip-filter"),
     search: $("#search-filter"),
     reset: $("#reset-filters"),
     summary: $("#filter-summary"),
@@ -22,13 +22,15 @@
     coverageEmpty: $("#coverage-empty"),
     coverageCount: $("#coverage-count"),
     impactList: $("#impact-list"),
+    ipRankingList: $("#ip-ranking-list"),
+    rankingScope: $("#ranking-scope"),
     trendSelector: $("#trend-selector"),
     trendChart: $("#trend-chart"),
     trendSubtitle: $("#trend-subtitle"),
     trendTooltip: $("#trend-tooltip"),
   };
 
-  const state = { region: "all", product: "all", status: "all", search: "", trendKey: "" };
+  const state = { region: "all", product: "all", ip: "all", search: "", trendKey: "" };
   const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
   const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
   const numberFormat = new Intl.NumberFormat("zh-CN");
@@ -83,6 +85,10 @@
     for (const product of data.products) {
       elements.product.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(product.key)}">${escapeHtml(product.name)}</option>`);
     }
+    const ipFamilies = [...new Set(data.events.map((event) => event.ipFamily || event.ip))].sort((a, b) => a.localeCompare(b));
+    for (const ip of ipFamilies) {
+      elements.ip.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(ip)}">${escapeHtml(ip)}</option>`);
+    }
   }
 
   function filteredEvents() {
@@ -90,39 +96,183 @@
     return data.events.filter((event) => {
       if (state.region !== "all" && event.region !== state.region) return false;
       if (state.product !== "all" && event.productKey !== state.product) return false;
-      if (state.status !== "all" && eventStatusKind(event) !== state.status) return false;
-      if (query && !`${event.product} ${event.ip}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
+      if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
+      if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
       return true;
     });
   }
 
   function filteredVersions() {
     const query = state.search.trim().toLocaleLowerCase("zh-CN");
+    const relatedProducts = new Set(data.events.filter((event) => {
+      if (state.region !== "all" && event.region !== state.region) return false;
+      if (state.product !== "all" && event.productKey !== state.product) return false;
+      if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
+      if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
+      return true;
+    }).map((event) => event.productKey));
     return data.versions.filter((version) => {
       if (state.region !== "all" && version.region !== state.region) return false;
       if (state.product !== "all" && version.productKey !== state.product) return false;
-      if (query && !version.product.toLocaleLowerCase("zh-CN").includes(query)) return false;
+      if ((state.ip !== "all" || query) && !relatedProducts.has(version.productKey)) return false;
       return true;
     });
   }
 
-  function renderKpis(events, versions) {
-    const products = new Set(events.map((event) => event.productKey || event.product));
+  function average(values) {
+    return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+  }
+
+  function clamp(value, minimum, maximum) {
+    return Math.max(minimum, Math.min(maximum, value));
+  }
+
+  function impactMetric(deltas) {
+    if (!deltas.length) return null;
+    const lifts = deltas.map((delta) => -delta);
+    const best = Math.max(...lifts);
+    const mean = average(lifts);
+    return { best, mean, score: clamp(best * 0.55 + mean * 0.45, 0, 100) };
+  }
+
+  function scoreGrade(score) {
+    if (score === null) return { label: "数据不足", className: "insufficient" };
+    if (score >= 75) return { label: "现象级", className: "phenomenon" };
+    if (score >= 55) return { label: "强势", className: "strong" };
+    if (score >= 30) return { label: "有效", className: "effective" };
+    return { label: "一般", className: "ordinary" };
+  }
+
+  function buildIpRankings(events) {
+    const groups = new Map();
+    for (const event of events) {
+      const ip = event.ipFamily || event.ip;
+      if (!groups.has(ip)) groups.set(ip, []);
+      groups.get(ip).push(event);
+    }
+    return [...groups.entries()].map(([ip, ipEvents]) => {
+      const projects = new Set(ipEvents.map((event) => `${event.productKey || event.product}|${firstIsoDate(event.start)}|${ip}`));
+      const regions = new Set(ipEvents.map((event) => event.region));
+      const grossingDeltas = ipEvents.map((event) => event.grossing?.delta).filter((value) => typeof value === "number");
+      const freeDeltas = ipEvents.map((event) => event.free?.delta).filter((value) => typeof value === "number");
+      const grossingMetric = impactMetric(grossingDeltas);
+      const freeMetric = impactMetric(freeDeltas);
+      const availableWeight = (grossingMetric ? 0.8 : 0) + (freeMetric ? 0.2 : 0);
+      const rawEffect = availableWeight
+        ? ((grossingMetric?.score || 0) * 0.8 + (freeMetric?.score || 0) * 0.2) / availableWeight
+        : null;
+      const effectSamples = ipEvents.filter((event) => typeof event.grossing?.delta === "number" || typeof event.free?.delta === "number").length;
+      const confidence = Math.min(1, effectSamples / 3);
+      const effectScore = rawEffect === null ? null : rawEffect * (0.75 + 0.25 * confidence);
+      const activityScore = Math.min(1, projects.size / 3) * 100;
+      const breadthScore = Math.min(1, regions.size / 6) * 100;
+      const score = effectScore === null ? null : Math.round(effectScore * 0.65 + activityScore * 0.20 + breadthScore * 0.15);
+      const grade = scoreGrade(score);
+
+      const regionHighlights = [...regions].map((region) => {
+        const regionEvents = ipEvents.filter((event) => event.region === region);
+        const grossing = regionEvents.map((event) => event.grossing?.delta).filter((value) => typeof value === "number").sort((a, b) => a - b)[0];
+        const free = regionEvents.map((event) => event.free?.delta).filter((value) => typeof value === "number").sort((a, b) => a - b)[0];
+        const delta = typeof grossing === "number" ? grossing : free;
+        return { region, delta, metric: typeof grossing === "number" ? "畅销" : "免费" };
+      }).sort((a, b) => {
+        if (typeof a.delta !== "number") return 1;
+        if (typeof b.delta !== "number") return -1;
+        return a.delta - b.delta;
+      });
+
+      return {
+        ip,
+        score,
+        grade,
+        projects: projects.size,
+        regions: regions.size,
+        samples: effectSamples,
+        effectScore: effectScore === null ? null : Math.round(effectScore),
+        activityScore: Math.round(activityScore),
+        breadthScore: Math.round(breadthScore),
+        bestGrossingLift: grossingMetric?.best ?? null,
+        averageGrossingLift: grossingMetric?.mean ?? null,
+        bestFreeLift: freeMetric?.best ?? null,
+        regionHighlights,
+      };
+    }).sort((a, b) => {
+      if (a.score === null && b.score !== null) return 1;
+      if (a.score !== null && b.score === null) return -1;
+      if (a.score !== b.score) return (b.score || 0) - (a.score || 0);
+      return b.projects - a.projects || b.regions - a.regions || a.ip.localeCompare(b.ip);
+    });
+  }
+
+  function renderKpis(events, versions, rankings) {
+    const projects = new Set(events.map((event) => `${event.productKey || event.product}|${firstIsoDate(event.start)}|${event.ipFamily || event.ip}`));
     const readVersions = versions.filter((version) => {
       const statuses = [version.freeStatus, version.grossingStatus];
       return statuses.some((status) => /^已读取|^未入榜/.test(status));
     });
-    const best = events
-      .filter((event) => typeof event.grossing?.delta === "number")
-      .sort((a, b) => a.grossing.delta - b.grossing.delta)[0];
+    const best = rankings.find((ranking) => ranking.score !== null);
 
-    $("#kpi-events").textContent = numberFormat.format(events.length);
-    $("#kpi-events-note").textContent = state.region === "all" ? "全部地区" : state.region;
-    $("#kpi-products").textContent = numberFormat.format(products.size);
+    $("#kpi-events").textContent = numberFormat.format(rankings.length);
+    $("#kpi-events-note").textContent = state.region === "all" ? "全部地区 · 按IP家族去重" : `${state.region} · 按IP家族去重`;
+    $("#kpi-products").textContent = numberFormat.format(projects.size);
     $("#kpi-read").textContent = numberFormat.format(readVersions.length);
     $("#kpi-read-note").textContent = `筛选内共 ${versions.length} 个配置`;
-    $("#kpi-best").textContent = best ? `${best.grossing.delta < 0 ? "↑" : "↓"}${Math.abs(best.grossing.delta)}` : "—";
-    $("#kpi-best-note").textContent = best ? `${best.region} · ${best.product}` : "暂无完整差值";
+    $("#kpi-best").textContent = best ? `${best.score}` : "—";
+    $("#kpi-best-note").textContent = best ? `${best.ip} · ${best.grade.label}` : "暂无可评分IP";
+  }
+
+  function liftLabel(value) {
+    if (typeof value !== "number") return "—";
+    return value > 0 ? `↑${Math.round(value)}` : value < 0 ? `↓${Math.abs(Math.round(value))}` : "持平";
+  }
+
+  function renderIpRankings(rankings) {
+    const firstDay = [...data.events.map((event) => firstIsoDate(event.start)).filter(Boolean)].sort()[0] || "";
+    const scope = state.region === "all" ? "全部地区" : state.region;
+    elements.rankingScope.textContent = `${scope} · ${firstDay || "当前窗口"} 至 ${data.meta.latestRankDate || "最新"} · 综合联动活跃度、地区覆盖和榜单提升`;
+    if (!rankings.length) {
+      elements.ipRankingList.innerHTML = '<div class="empty-state">当前筛选条件下没有可排行的IP。</div>';
+      return;
+    }
+    elements.ipRankingList.innerHTML = rankings.slice(0, 10).map((ranking, index) => {
+      const score = ranking.score === null ? "—" : ranking.score;
+      const barWidth = ranking.score === null ? 3 : Math.max(3, ranking.score);
+      const regions = ranking.regionHighlights.slice(0, 4).map((item) => {
+        const effect = typeof item.delta === "number"
+          ? `${item.delta < 0 ? "↑" : item.delta > 0 ? "↓" : "→"}${Math.abs(item.delta)}`
+          : "无数字";
+        return `<span>${escapeHtml(item.region)} ${effect}</span>`;
+      }).join("");
+      return `
+        <article class="ip-rank-row">
+          <div class="ip-rank-position">${index + 1}</div>
+          <div class="ip-rank-main">
+            <div class="ip-rank-head">
+              <button type="button" class="ip-rank-name" data-ip-filter="${escapeHtml(ranking.ip)}">${escapeHtml(ranking.ip)}</button>
+              <span class="grade ${ranking.grade.className}">${ranking.grade.label}</span>
+            </div>
+            <div class="ip-rank-meta">${ranking.projects} 个项目 · ${ranking.regions} 个地区 · ${ranking.samples} 个有效效果样本</div>
+            <div class="ip-score-track"><div class="ip-score-bar ${ranking.grade.className}" style="width:${barWidth}%"></div></div>
+            <div class="ip-region-effects">${regions || '<span>地区榜单数据不足</span>'}</div>
+          </div>
+          <div class="ip-rank-metrics">
+            <div class="ip-score"><strong>${score}</strong><span>影响力分</span></div>
+            <dl>
+              <div><dt>畅销最佳</dt><dd>${liftLabel(ranking.bestGrossingLift)}</dd></div>
+              <div><dt>畅销均值</dt><dd>${liftLabel(ranking.averageGrossingLift)}</dd></div>
+              <div><dt>免费最佳</dt><dd>${liftLabel(ranking.bestFreeLift)}</dd></div>
+            </dl>
+          </div>
+        </article>`;
+    }).join("");
+    elements.ipRankingList.querySelectorAll("[data-ip-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.ip = button.dataset.ipFilter;
+        elements.ip.value = state.ip;
+        render();
+        elements.ip.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
   }
 
   function renderImpact(events) {
@@ -192,9 +342,11 @@
 
   function trendGroups() {
     const groups = new Map();
+    const relatedProducts = new Set(filteredEvents().map((event) => event.productKey));
     for (const point of data.trends) {
       if (state.region !== "all" && point.region !== state.region) continue;
       if (state.product !== "all" && point.productKey !== state.product) continue;
+      if ((state.ip !== "all" || state.search.trim()) && !relatedProducts.has(point.productKey)) continue;
       const key = `${point.productKey}|${point.region}`;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(point);
@@ -356,13 +508,16 @@
   function updateFilterSummary(events, versions) {
     const region = state.region === "all" ? "全部地区" : state.region;
     const product = state.product === "all" ? "全部产品" : (productByKey.get(state.product) || state.product);
-    elements.summary.textContent = `${region} · ${product} · ${events.length} 条联动 · ${versions.length} 个地区版本配置`;
+    const ip = state.ip === "all" ? "全部IP" : state.ip;
+    elements.summary.textContent = `${region} · ${product} · ${ip} · ${events.length} 条地区联动记录 · ${versions.length} 个地区版本配置`;
   }
 
   function render() {
     const events = filteredEvents();
     const versions = filteredVersions();
-    renderKpis(events, versions);
+    const rankings = buildIpRankings(events);
+    renderKpis(events, versions, rankings);
+    renderIpRankings(rankings);
     renderImpact(events);
     renderEvents(events);
     renderCoverage(versions);
@@ -373,17 +528,17 @@
   function bindControls() {
     elements.region.addEventListener("change", () => { state.region = elements.region.value; state.trendKey = ""; render(); });
     elements.product.addEventListener("change", () => { state.product = elements.product.value; state.trendKey = ""; render(); });
-    elements.status.addEventListener("change", () => { state.status = elements.status.value; render(); });
+    elements.ip.addEventListener("change", () => { state.ip = elements.ip.value; state.trendKey = ""; render(); });
     elements.search.addEventListener("input", () => { state.search = elements.search.value; render(); });
     elements.trendSelector.addEventListener("change", () => {
       state.trendKey = elements.trendSelector.value;
       renderTrend(trendGroups().find((group) => group.key === state.trendKey));
     });
     elements.reset.addEventListener("click", () => {
-      Object.assign(state, { region: "all", product: "all", status: "all", search: "", trendKey: "" });
+      Object.assign(state, { region: "all", product: "all", ip: "all", search: "", trendKey: "" });
       elements.region.value = "all";
       elements.product.value = "all";
-      elements.status.value = "all";
+      elements.ip.value = "all";
       elements.search.value = "";
       render();
     });

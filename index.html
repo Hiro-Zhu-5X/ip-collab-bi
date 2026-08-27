@@ -58,15 +58,13 @@
           </select>
         </label>
         <label>
-          <span>联动状态</span>
-          <select id="status-filter">
-            <option value="all">全部状态</option>
-            <option value="active">进行中 / 预告</option>
-            <option value="ended">已结束</option>
+          <span>联动IP</span>
+          <select id="ip-filter">
+            <option value="all">全部IP</option>
           </select>
         </label>
         <label class="search-field">
-          <span>产品或 IP</span>
+          <span>关键词</span>
           <input id="search-filter" type="search" placeholder="输入名称搜索">
         </label>
       </div>
@@ -75,14 +73,14 @@
 
     <section class="kpi-grid" aria-label="关键指标">
       <article class="kpi-card">
-        <span>筛选内联动数</span>
+        <span>近期活跃IP</span>
         <strong id="kpi-events">—</strong>
-        <small id="kpi-events-note">—</small>
+        <small id="kpi-events-note">按IP家族去重</small>
       </article>
       <article class="kpi-card">
-        <span>涉及产品</span>
+        <span>近期联动项目</span>
         <strong id="kpi-products">—</strong>
-        <small>按产品去重</small>
+        <small>同一项目跨地区只计一次</small>
       </article>
       <article class="kpi-card">
         <span>已读取产品×地区</span>
@@ -90,10 +88,28 @@
         <small id="kpi-read-note">—</small>
       </article>
       <article class="kpi-card accent">
-        <span>畅销榜最大提升</span>
+        <span>最高IP影响力</span>
         <strong id="kpi-best">—</strong>
-        <small id="kpi-best-note">暂无完整差值</small>
+        <small id="kpi-best-note">暂无可评分IP</small>
       </article>
+    </section>
+
+    <section class="panel ip-ranking-panel" aria-labelledby="ip-ranking-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">IP MOMENTUM</p>
+          <h2 id="ip-ranking-title">近期IP影响力排行榜</h2>
+          <p id="ranking-scope" class="section-note">综合近期联动活跃度、地区覆盖和榜单提升</p>
+        </div>
+        <div class="ranking-grades" aria-label="影响力分级">
+          <span class="grade phenomenon">现象级 75+</span>
+          <span class="grade strong">强势 55–74</span>
+          <span class="grade effective">有效 30–54</span>
+          <span class="grade ordinary">一般 / 数据不足</span>
+        </div>
+      </div>
+      <div id="ip-ranking-list" class="ip-ranking-list" aria-live="polite"></div>
+      <p class="ranking-method">影响力分 = 65%榜单效果 + 20%近期项目活跃度 + 15%地区覆盖。榜单效果以畅销榜为主、免费下载榜为辅；缺少数字的IP不会被当作0分。</p>
     </section>
 
     <section class="dashboard-grid">
@@ -190,7 +206,7 @@
     <span id="definition-text">联动后排名－联动前排名；负数代表排名上升。</span>
   </footer>
 
-  <script src="data/dashboard.js?v=20260827"></script>
-  <script src="app.js?v=20260827-2"></script>
+  <script src="data/dashboard.js?v=20260827-ip1"></script>
+  <script src="app.js?v=20260827-ip1"></script>
 </body>
 </html>
