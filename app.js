@@ -14,6 +14,12 @@
     ip: $("#ip-filter"),
     startDate: $("#start-date-filter"),
     endDate: $("#end-date-filter"),
+    startRange: $("#start-date-range"),
+    endRange: $("#end-date-range"),
+    rangeTrack: $("#date-range-track"),
+    rangeLabel: $("#date-range-label"),
+    rangeMin: $("#date-range-min"),
+    rangeMax: $("#date-range-max"),
     search: $("#search-filter"),
     reset: $("#reset-filters"),
     summary: $("#filter-summary"),
@@ -43,6 +49,10 @@
   const recentStartText = recentStart ? recentStart.toISOString().slice(0, 10) : "";
   const defaultStartDate = minimumDate && recentStartText ? (minimumDate > recentStartText ? minimumDate : recentStartText) : minimumDate;
   const defaultEndDate = maximumDate;
+  const dayMilliseconds = 24 * 60 * 60 * 1000;
+  const minimumTime = minimumDate ? Date.parse(`${minimumDate}T00:00:00Z`) : 0;
+  const maximumTime = maximumDate ? Date.parse(`${maximumDate}T00:00:00Z`) : minimumTime;
+  const dateRangeDays = Math.max(0, Math.round((maximumTime - minimumTime) / dayMilliseconds));
   const state = {
     region: "all", product: "all", ip: "all", search: "", trendKey: "",
     startDate: defaultStartDate, endDate: defaultEndDate,
@@ -62,6 +72,31 @@
 
   function firstIsoDate(value) {
     return String(value || "").match(/\d{4}-\d{2}-\d{2}/)?.[0] || "";
+  }
+
+  function dateToRangeValue(value) {
+    if (!value || !minimumTime) return 0;
+    return Math.max(0, Math.min(dateRangeDays, Math.round((Date.parse(`${value}T00:00:00Z`) - minimumTime) / dayMilliseconds)));
+  }
+
+  function rangeValueToDate(value) {
+    return new Date(minimumTime + Number(value) * dayMilliseconds).toISOString().slice(0, 10);
+  }
+
+  function syncRangeControls() {
+    const startValue = dateToRangeValue(state.startDate || minimumDate);
+    const endValue = dateToRangeValue(state.endDate || maximumDate);
+    elements.startRange.value = startValue;
+    elements.endRange.value = endValue;
+    elements.startDate.value = state.startDate;
+    elements.endDate.value = state.endDate;
+    elements.rangeLabel.textContent = `${state.startDate || minimumDate || "最早"} — ${state.endDate || maximumDate || "最新"}`;
+    elements.rangeMin.textContent = minimumDate || "—";
+    elements.rangeMax.textContent = maximumDate || "—";
+    const startPercent = dateRangeDays ? startValue / dateRangeDays * 100 : 0;
+    const endPercent = dateRangeDays ? endValue / dateRangeDays * 100 : 100;
+    elements.rangeTrack.style.background = `linear-gradient(to right, #dce4ee 0%, #dce4ee ${startPercent}%, var(--blue) ${startPercent}%, var(--teal) ${endPercent}%, #dce4ee ${endPercent}%, #dce4ee 100%)`;
+    elements.startRange.style.zIndex = startValue >= dateRangeDays - 1 ? "4" : "3";
   }
 
   function eventInPeriod(event) {
@@ -124,8 +159,12 @@
       input.min = minimumDate;
       input.max = maximumDate;
     }
-    elements.startDate.value = state.startDate;
-    elements.endDate.value = state.endDate;
+    for (const input of [elements.startRange, elements.endRange]) {
+      input.min = 0;
+      input.max = dateRangeDays;
+      input.step = 1;
+    }
+    syncRangeControls();
   }
 
   function filteredEvents() {
@@ -573,6 +612,7 @@
         elements.endDate.value = state.endDate;
       }
       state.trendKey = "";
+      syncRangeControls();
       render();
     });
     elements.endDate.addEventListener("change", () => {
@@ -582,8 +622,28 @@
         elements.startDate.value = state.startDate;
       }
       state.trendKey = "";
+      syncRangeControls();
       render();
     });
+    let rangeRenderTimer = 0;
+    const handleRangeInput = (changed) => {
+      let startValue = Number(elements.startRange.value);
+      let endValue = Number(elements.endRange.value);
+      if (startValue > endValue) {
+        if (changed === "start") startValue = endValue;
+        else endValue = startValue;
+      }
+      state.startDate = rangeValueToDate(startValue);
+      state.endDate = rangeValueToDate(endValue);
+      state.trendKey = "";
+      syncRangeControls();
+      window.clearTimeout(rangeRenderTimer);
+      rangeRenderTimer = window.setTimeout(render, 90);
+    };
+    elements.startRange.addEventListener("input", () => handleRangeInput("start"));
+    elements.endRange.addEventListener("input", () => handleRangeInput("end"));
+    elements.startRange.addEventListener("change", render);
+    elements.endRange.addEventListener("change", render);
     elements.search.addEventListener("input", () => { state.search = elements.search.value; render(); });
     elements.trendSelector.addEventListener("change", () => {
       state.trendKey = elements.trendSelector.value;
@@ -597,6 +657,7 @@
       elements.startDate.value = defaultStartDate;
       elements.endDate.value = defaultEndDate;
       elements.search.value = "";
+      syncRangeControls();
       render();
     });
     let resizeTimer = 0;

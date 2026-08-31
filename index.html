@@ -6,7 +6,7 @@
   <meta name="description" content="日本娱乐 IP 与手游联动地区表现 BI">
   <title>日本 IP × 手游联动 BI</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260831-history3">
+  <link rel="stylesheet" href="styles.css?v=20260831-range1">
 </head>
 <body>
   <header class="topbar">
@@ -45,6 +45,34 @@
         </div>
         <button id="reset-filters" class="button secondary" type="button">重置</button>
       </div>
+      <div class="date-range-panel" role="group" aria-labelledby="date-range-title">
+        <div class="date-range-header">
+          <div>
+            <span id="date-range-title">筛选日期范围</span>
+            <strong id="date-range-label">—</strong>
+          </div>
+          <div class="date-range-fields">
+            <label>
+              <span>开始</span>
+              <input id="start-date-filter" type="date">
+            </label>
+            <span class="date-range-separator" aria-hidden="true">—</span>
+            <label>
+              <span>结束</span>
+              <input id="end-date-filter" type="date">
+            </label>
+          </div>
+        </div>
+        <div class="range-slider">
+          <div id="date-range-track" class="range-slider-track" aria-hidden="true"></div>
+          <input id="start-date-range" type="range" aria-label="筛选开始日期">
+          <input id="end-date-range" type="range" aria-label="筛选结束日期">
+        </div>
+        <div class="range-extents" aria-hidden="true">
+          <span id="date-range-min">—</span>
+          <span id="date-range-max">—</span>
+        </div>
+      </div>
       <div class="filters">
         <label>
           <span>地区</span>
@@ -63,14 +91,6 @@
           <select id="ip-filter">
             <option value="all">全部IP</option>
           </select>
-        </label>
-        <label>
-          <span>开始日期</span>
-          <input id="start-date-filter" type="date">
-        </label>
-        <label>
-          <span>结束日期</span>
-          <input id="end-date-filter" type="date">
         </label>
         <label class="search-field">
           <span>关键词</span>
@@ -224,7 +244,7 @@
     <span id="history-coverage-text" class="footer-source">正在读取历史库覆盖范围…</span>
   </footer>
 
-  <script src="data/dashboard.js?v=20260831-history3"></script>
-  <script src="app.js?v=20260831-history3"></script>
+  <script src="data/dashboard.js?v=20260831-range1"></script>
+  <script src="app.js?v=20260831-range1"></script>
 </body>
 </html>
