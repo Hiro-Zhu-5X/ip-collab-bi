@@ -6,7 +6,7 @@
   <meta name="description" content="日本娱乐 IP 与手游联动地区表现 BI">
   <title>日本 IP × 手游联动 BI</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260831-score1">
 </head>
 <body>
   <header class="topbar">
@@ -108,8 +108,16 @@
           <span class="grade ordinary">一般 / 数据不足</span>
         </div>
       </div>
+      <aside class="score-standard" aria-label="IP影响力评分标准">
+        <strong>评分标准</strong>
+        <span><b>70%</b> 榜单表现</span>
+        <span class="score-plus" aria-hidden="true">＋</span>
+        <span><b>30%</b> 近期联动活跃度</span>
+        <span class="score-detail">榜单表现内部：畅销榜80%＋免费下载榜20%</span>
+        <span class="score-exclusion">地区覆盖仅展示，不计分</span>
+      </aside>
       <div id="ip-ranking-list" class="ip-ranking-list" aria-live="polite"></div>
-      <p class="ranking-method">影响力分 = 70%榜单表现 + 30%近期联动活跃度。地区覆盖仅作观察维度，不参与评分；榜单表现以畅销榜为主、免费下载榜为辅，缺少数字的IP不会被当作0分。</p>
+      <p class="ranking-method">没有有效榜单数字的IP显示为“数据不足”，不会按0分处理。</p>
     </section>
 
     <section class="dashboard-grid">

@@ -267,6 +267,31 @@ input[type="search"] {
 .grade.ordinary { color: #526075; background: #edf1f6; }
 .grade.insufficient { color: var(--muted); background: var(--surface-soft); }
 
+.score-standard {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px 10px;
+  margin: 15px 0 10px;
+  padding: 11px 13px;
+  border-radius: 10px;
+  background: var(--blue-soft);
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.score-standard strong { color: var(--blue); }
+.score-standard b { font-size: 14px; }
+.score-plus { color: var(--muted); }
+.score-detail,
+.score-exclusion {
+  padding-left: 10px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.score-exclusion { font-weight: 700; }
+
 .ip-ranking-list { display: grid; }
 
 .ip-rank-row {
@@ -514,6 +539,10 @@ footer strong { color: var(--ink); }
   .section-heading.compact { flex-direction: row; align-items: center; }
   .compact-select select { min-width: 0; max-width: none; }
   .ranking-grades { justify-content: flex-start; }
+  .score-standard { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .score-plus { display: none; }
+  .score-detail,
+  .score-exclusion { padding-left: 0; border-left: 0; }
   .ip-rank-row { grid-template-columns: 32px minmax(0, 1fr); gap: 10px; }
   .ip-rank-position { width: 28px; height: 28px; border-radius: 9px; }
   .ip-rank-metrics { grid-column: 2; grid-template-columns: 62px 1fr; }
