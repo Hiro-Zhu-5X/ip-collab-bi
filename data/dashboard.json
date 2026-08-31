@@ -1,10 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-08-31T11:38:00+09:00",
+    "generatedAt": "2026-08-31T13:37:32+09:00",
     "latestRankDate": "2026-08-27",
     "workbook": "2026年7月起日本IP手游联动.xlsx",
-    "eventCount": 49,
-    "historicalEventCount": 27,
+    "eventCount": 121,
+    "historicalEventCount": 99,
+    "historicalProjectCount": 63,
     "appMagicValidationCount": 3,
     "productCount": 15,
     "versionCount": 90,
@@ -14,8 +15,10 @@
       "grossing": "App Store iPhone 畅销榜·游戏榜",
       "delta": "联动后排名－联动前排名；负数代表排名上升",
       "missing": "页面读取成功但没有排名显示为未入榜；读取失败显示为未读取；未尝试显示为待抓取",
-      "impactScore": "IP影响力分=70%榜单表现+30%筛选期联动活跃度；地区覆盖仅作观察维度、不参与评分；榜单表现同时考虑畅销榜与免费下载榜提升",
-      "dataSources": "七麦用于App Store榜单主数据；AppMagic用于版本历史、榜单交叉验证及下载/收入估算补充；官方公告用于联动时间核验"
+      "impactScore": "IP影响力分=70%榜单表现+30%筛选期联动活跃度；地区覆盖仅作观察维度、不参与评分；榜单表现同时考虑畅销榜与免费下载榜提升；待官方/地区核验或缺少历史榜单的记录不参与评分",
+      "dataSources": "七麦用于App Store榜单主数据；AppMagic用于版本历史、榜单交叉验证及下载/收入估算补充；官方公告用于联动时间核验",
+      "historyCoverage": "第一批历史回填：NIKKE、荒野行動、白猫Project、ぷよぷよ!!クエスト、カゲマス；主要覆盖2023-01-01至2026-06-30。未穷尽全球，后续按产品和地区继续扩充。",
+      "historyRankPolicy": "历史记录尚未补齐联动前后榜单时显示数据不足，不按0分处理，也不参与IP影响力评分。"
     }
   },
   "regions": [
@@ -153,6 +156,8 @@
         "https://www.qimai.cn/app/rank/appid/927420451/country/jp"
       ],
       "notes": "官方 Love Live 新闻；联动结束时间为主活动结束时间。；免费分类：动作138→165、角色扮演116→131；畅销分类：动作77→45、角色扮演191→110。总榜均未入榜。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -190,6 +195,8 @@
         "https://www.qimai.cn/app/rank/appid/1312031248/country/jp"
       ],
       "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜163→69，畅销总榜33→4。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -227,6 +234,8 @@
         "https://www.qimai.cn/app/rank/appid/1478990007/country/jp"
       ],
       "notes": "4Gamer/厂商稿；联动家具活动截止7/27 03:59。；免费总榜未入榜；免费分类卡牌82→79、策略142→128；畅销总榜53→59。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -264,6 +273,8 @@
         "https://www.qimai.cn/app/rank/appid/1314816647/country/jp"
       ],
       "notes": "主活动/登录奖励结束7/22；召唤札使用期限延至8/2。；畅销总榜未入榜；冒险分类95→34、角色扮演分类未入榜→97。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -301,6 +312,8 @@
         "https://www.qimai.cn/app/rank/appid/1245550834/country/jp"
       ],
       "notes": "Colopl 官方活动页；部分抽奖活动另于7/31结束。；免费总榜未入榜；免费动作分类未入榜→113、模拟未入榜→158；畅销总榜未入榜→57。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -338,6 +351,8 @@
         "https://www.qimai.cn/app/rank/appid/1475221397/country/jp"
       ],
       "notes": "ENSAPIA/PR TIMES 新闻稿经 TRAICY 发布；原文日期字段有“202026”排版错误，按上下文校正为2026。；七麦三个月曲线未返回可用总榜/分类点位，保留为未入榜。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -375,6 +390,8 @@
         "https://www.qimai.cn/app/rank/appid/1312031248/country/jp"
       ],
       "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜102→84，畅销总榜22→17。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -413,6 +430,8 @@
         "https://www.qimai.cn/app/rank/appid/1511118477/country/jp"
       ],
       "notes": "PR TIMES 原稿经Koubo转载；第三弹Sanrio联动。；免费曲线未完成校准；畅销总榜未入榜，动作分类亦未入榜。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -450,6 +469,8 @@
         "https://www.qimai.cn/app/rank/appid/1629373124/country/jp"
       ],
       "notes": "Aiming 官方新闻稿PDF；结束时间按公告“8/13维护前”。；免费总榜未入榜→241；畅销总榜未入榜→63。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -488,6 +509,8 @@
         "https://www.qimai.cn/app/rank/appid/6474962684/country/jp"
       ],
       "notes": "官方 Racing Master JP X确认限定奖励；结束日由Hololive联动汇总页交叉确认，标为二手补充。；免费总榜未入榜；竞速分类6→6、体育11→9；畅销总榜116→94。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -525,6 +548,8 @@
         "https://www.qimai.cn/app/rank/appid/595291824/country/jp"
       ],
       "notes": "SEGA 官方；部分登录奖励延长至8/18 03:59。；免费总榜未入榜；益智解谜分类127→112、角色扮演44→35；畅销总榜未入榜→111。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -562,6 +587,8 @@
         "https://www.qimai.cn/app/rank/appid/767265270/country/jp"
       ],
       "notes": "LINE GAME 官方博客；活动各子项目均以维护时间为边界。；免费总榜未入榜；策略分类183→109；畅销总榜未入榜→116，模拟分类87→24、策略95→22。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -599,6 +626,8 @@
         "https://www.qimai.cn/app/rank/appid/1312031248/country/jp"
       ],
       "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜71→30，畅销总榜43→3。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -636,6 +665,8 @@
         "https://www.qimai.cn/app/rank/appid/6467825646/country/cn"
       ],
       "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_cn.csv; data/raw/qimai/2026-08-26/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -673,6 +704,8 @@
         "https://www.qimai.cn/app/rank/appid/1630883882/country/hk"
       ],
       "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_hk.csv; data/raw/qimai/2026-08-26/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -711,6 +744,8 @@
         "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
       ],
       "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_jp.csv; data/raw/qimai/2026-08-26/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -766,6 +801,8 @@
         "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
       ],
       "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_kr.csv; data/raw/qimai/2026-08-26/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -820,6 +857,8 @@
         "https://www.qimai.cn/app/rank/appid/1630883882/country/tw"
       ],
       "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_tw.csv; data/raw/qimai/2026-08-26/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -858,6 +897,8 @@
         "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
       ],
       "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_us.csv; data/raw/qimai/2026-08-26/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -912,6 +953,8 @@
         "https://www.qimai.cn/app/rank/appid/1549646582/country/jp"
       ],
       "notes": "Poker Chase 官方活动页。；免费/畅销总榜均未入榜；免费卡牌33→27、娱乐场20→18；畅销卡牌57→24、娱乐场35→9。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -950,6 +993,8 @@
         "https://www.qimai.cn/app/rank/appid/985100673/country/jp"
       ],
       "notes": "官方活动页确认开始日；GameWith厂商信息汇总确认结束日。；免费总榜未入榜；桌面分类66→63、角色扮演87→85；畅销总榜158→67。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -987,6 +1032,8 @@
         "https://www.qimai.cn/app/rank/appid/895687962/country/jp"
       ],
       "notes": "Colopl 官方预告；截至8/27尚未开始，结束日未公布。；联动预告8/31，当前日期8/27，无法读取联动前后点位。",
+      "scoreEligible": true,
+      "historical": false,
       "sourceProviders": [
         "七麦",
         "官方公告/媒体"
@@ -994,844 +1041,82 @@
       "rankSource": "七麦"
     },
     {
-      "id": "d4e1fe497cf7",
+      "id": "6459ef2699d0",
       "productKey": "nikke",
       "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "リコリス・リコイル（Lycoris Recoil）",
-      "ipFamily": "リコリス・リコイル",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2026-02-11",
+      "ip": "チェンソーマン（Chainsaw Man）",
+      "ipFamily": "チェンソーマン",
+      "ipType": "动漫/漫画",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2023-02-21",
       "end": "",
       "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
       "free": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
         "status": "unknown"
       },
       "grossing": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
         "status": "unknown"
       },
       "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
       ],
       "sourceProviders": [
         "AppMagic"
       ],
+      "evidenceLevel": "B：App Store版本历史",
       "rankSource": "待补",
-      "notes": "AppMagic版本 143.10(2)；Lie cause Recoil；SSR 千束、泷奈，SR 胡桃；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+      "notes": "版本 104.6(2)；BULLET X CHAINSAW；Makima、Power、Himeno及剧情/登录/协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
     },
     {
-      "id": "c2ba3016efee",
+      "id": "866fdfda7e07",
       "productKey": "nikke",
       "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "リコリス・リコイル（Lycoris Recoil）",
-      "ipFamily": "リコリス・リコイル",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2026-02-11",
+      "ip": "チェンソーマン（Chainsaw Man）",
+      "ipFamily": "チェンソーマン",
+      "ipType": "动漫/漫画",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2023-02-21",
       "end": "",
       "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
       "free": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
         "status": "unknown"
       },
       "grossing": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
         "status": "unknown"
       },
       "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
       ],
       "sourceProviders": [
         "AppMagic"
       ],
+      "evidenceLevel": "B：App Store版本历史",
       "rankSource": "待补",
-      "notes": "AppMagic版本 143.10(2)；Lie cause Recoil；SSR 千束、泷奈，SR 胡桃；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "5c93b825f5fc",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "リコリス・リコイル（Lycoris Recoil）",
-      "ipFamily": "リコリス・リコイル",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2026-02-11",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 143.10(2)；Lie cause Recoil；SSR 千束、泷奈，SR 胡桃；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "3a1bb48a27ff",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "バイオハザード（Resident Evil）",
-      "ipFamily": "バイオハザード",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2025-09-23",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 138.8(14)；REBORN EVIL；SSR Ada、Jill，SR Claire；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "b0d261dfade3",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "バイオハザード（Resident Evil）",
-      "ipFamily": "バイオハザード",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2025-09-23",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 138.8(14)；REBORN EVIL；SSR Ada、Jill，SR Claire；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "cf4275b04a63",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "バイオハザード（Resident Evil）",
-      "ipFamily": "バイオハザード",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2025-09-23",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 138.8(14)；REBORN EVIL；SSR Ada、Jill，SR Claire；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "1f5d2841a0f5",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "Stellar Blade",
-      "ipFamily": "Stellar Blade",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2025-06-11",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 134.8(13)；MEMORIES TELLER；SSR EVE、Raven，SR Lily；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "64f5157b4cb2",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "Stellar Blade",
-      "ipFamily": "Stellar Blade",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2025-06-11",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 134.8(13)；MEMORIES TELLER；SSR EVE、Raven，SR Lily；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "74da3f879f26",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "Stellar Blade",
-      "ipFamily": "Stellar Blade",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2025-06-11",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 134.8(13)；MEMORIES TELLER；SSR EVE、Raven，SR Lily；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "2676b97bedf4",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "エヴァンゲリオン（Evangelion）",
-      "ipFamily": "エヴァンゲリオン",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2025-02-19",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 130.8(13)；SECOND QUEST；SSR Asuka: WILLE、Rei (Tentative Name)，SR Sakura；剧情活动及小游戏。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "6977c5f70c0a",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "エヴァンゲリオン（Evangelion）",
-      "ipFamily": "エヴァンゲリオン",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2025-02-19",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 130.8(13)；SECOND QUEST；SSR Asuka: WILLE、Rei (Tentative Name)，SR Sakura；剧情活动及小游戏。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "b5ee5ec0736c",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "エヴァンゲリオン（Evangelion）",
-      "ipFamily": "エヴァンゲリオン",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2025-02-19",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 130.8(13)；SECOND QUEST；SSR Asuka: WILLE、Rei (Tentative Name)，SR Sakura；剧情活动及小游戏。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "da264da9697a",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "エヴァンゲリオン（Evangelion）",
-      "ipFamily": "エヴァンゲリオン",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2024-08-21",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 124.6(11)；YOU CAN (NOT) EVADE；SSR Asuka、Rei、Mari；联动活动、小游戏及联动Boss。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "abbcf55ec044",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "エヴァンゲリオン（Evangelion）",
-      "ipFamily": "エヴァンゲリオン",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2024-08-21",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 124.6(11)；YOU CAN (NOT) EVADE；SSR Asuka、Rei、Mari；联动活动、小游戏及联动Boss。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "8df2e236a4e1",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "エヴァンゲリオン（Evangelion）",
-      "ipFamily": "エヴァンゲリオン",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2024-08-21",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 124.6(11)；YOU CAN (NOT) EVADE；SSR Asuka、Rei、Mari；联动活动、小游戏及联动Boss。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "1a52b3685f47",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "DAVE THE DIVER",
-      "ipFamily": "DAVE THE DIVER",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2024-07-03",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 122.8(20)；Aegis The Diver 联动小游戏及相关服装内容。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "33c2a6af98d4",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "DAVE THE DIVER",
-      "ipFamily": "DAVE THE DIVER",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2024-07-03",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 122.8(20)；Aegis The Diver 联动小游戏及相关服装内容。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "91f2e63bdc8d",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "DAVE THE DIVER",
-      "ipFamily": "DAVE THE DIVER",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2024-07-03",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 122.8(20)；Aegis The Diver 联动小游戏及相关服装内容。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "28e0047c67b6",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
-      "ipFamily": "Re:ゼロから始める異世界生活",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2024-03-20",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 118.4(17)；Re:CIPE FOR YOU；SSR Emilia、Rem，SR Ram；剧情活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "670ec6270b92",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
-      "ipFamily": "Re:ゼロから始める異世界生活",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2024-03-20",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 118.4(17)；Re:CIPE FOR YOU；SSR Emilia、Rem，SR Ram；剧情活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "9b40dd01396d",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
-      "ipFamily": "Re:ゼロから始める異世界生活",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2024-03-20",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 118.4(17)；Re:CIPE FOR YOU；SSR Emilia、Rem，SR Ram；剧情活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "12d55a48b762",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "NieR:Automata",
-      "ipFamily": "NieR:Automata",
-      "region": "日本",
-      "serverVersion": "日本版",
-      "start": "2023-08-31",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 111.10(10)；OuteR:Automata；SSR 2B、A2，SR Pascal；剧情、小游戏、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "fd15e231a076",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "NieR:Automata",
-      "ipFamily": "NieR:Automata",
-      "region": "韩国",
-      "serverVersion": "韩国版/待核验",
-      "start": "2023-08-31",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 111.10(10)；OuteR:Automata；SSR 2B、A2，SR Pascal；剧情、小游戏、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
-    },
-    {
-      "id": "c5875990a593",
-      "productKey": "nikke",
-      "product": "NIKKE（胜利女神：妮姬）",
-      "ip": "NieR:Automata",
-      "ipFamily": "NieR:Automata",
-      "region": "美国",
-      "serverVersion": "全球服",
-      "start": "2023-08-31",
-      "end": "",
-      "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
-      "free": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "grossing": {
-        "display": "历史榜单待补",
-        "before": null,
-        "after": null,
-        "delta": null,
-        "status": "unknown"
-      },
-      "sources": [
-        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
-      ],
-      "sourceProviders": [
-        "AppMagic"
-      ],
-      "rankSource": "待补",
-      "notes": "AppMagic版本 111.10(10)；OuteR:Automata；SSR 2B、A2，SR Pascal；剧情、小游戏、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+      "notes": "版本 104.6(2)；BULLET X CHAINSAW；Makima、Power、Himeno及剧情/登录/协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
     },
     {
       "id": "877553df5e43",
@@ -1839,21 +1124,22 @@
       "product": "NIKKE（胜利女神：妮姬）",
       "ip": "チェンソーマン（Chainsaw Man）",
       "ipFamily": "チェンソーマン",
+      "ipType": "动漫/漫画",
       "region": "日本",
       "serverVersion": "日本版",
       "start": "2023-02-21",
       "end": "",
       "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
       "free": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
         "status": "unknown"
       },
       "grossing": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
@@ -1865,8 +1151,11 @@
       "sourceProviders": [
         "AppMagic"
       ],
+      "evidenceLevel": "B：App Store版本历史",
       "rankSource": "待补",
-      "notes": "AppMagic版本 104.6(2)；BULLET X CHAINSAW；SSR Makima、Power，SR Himeno；剧情、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+      "notes": "版本 104.6(2)；BULLET X CHAINSAW；Makima、Power、Himeno及剧情/登录/协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
     },
     {
       "id": "2ee3248fffc9",
@@ -1874,21 +1163,22 @@
       "product": "NIKKE（胜利女神：妮姬）",
       "ip": "チェンソーマン（Chainsaw Man）",
       "ipFamily": "チェンソーマン",
+      "ipType": "动漫/漫画",
       "region": "韩国",
       "serverVersion": "韩国版/待核验",
       "start": "2023-02-21",
       "end": "",
       "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
       "free": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
         "status": "unknown"
       },
       "grossing": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
@@ -1900,8 +1190,11 @@
       "sourceProviders": [
         "AppMagic"
       ],
+      "evidenceLevel": "B：App Store版本历史",
       "rankSource": "待补",
-      "notes": "AppMagic版本 104.6(2)；BULLET X CHAINSAW；SSR Makima、Power，SR Himeno；剧情、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+      "notes": "版本 104.6(2)；BULLET X CHAINSAW；Makima、Power、Himeno及剧情/登录/协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
     },
     {
       "id": "6c294db97518",
@@ -1909,21 +1202,22 @@
       "product": "NIKKE（胜利女神：妮姬）",
       "ip": "チェンソーマン（Chainsaw Man）",
       "ipFamily": "チェンソーマン",
+      "ipType": "动漫/漫画",
       "region": "美国",
       "serverVersion": "全球服",
       "start": "2023-02-21",
       "end": "",
       "status": "已结束（结束日待核验）",
-      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
       "free": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
         "status": "unknown"
       },
       "grossing": {
-        "display": "历史榜单待补",
+        "display": "历史榜单待补（数据不足）",
         "before": null,
         "after": null,
         "delta": null,
@@ -1935,8 +1229,3677 @@
       "sourceProviders": [
         "AppMagic"
       ],
+      "evidenceLevel": "B：App Store版本历史",
       "rankSource": "待补",
-      "notes": "AppMagic版本 104.6(2)；BULLET X CHAINSAW；SSR Makima、Power，SR Himeno；剧情、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+      "notes": "版本 104.6(2)；BULLET X CHAINSAW；Makima、Power、Himeno及剧情/登录/协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "f289f17a7aed",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "ipType": "游戏",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 111.10(10)；OuteR:Automata；2B、A2、Pascal及剧情、小游戏、登录、协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "ac6ae4721f80",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "ipType": "游戏",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 111.10(10)；OuteR:Automata；2B、A2、Pascal及剧情、小游戏、登录、协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "12d55a48b762",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "ipType": "游戏",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 111.10(10)；OuteR:Automata；2B、A2、Pascal及剧情、小游戏、登录、协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "fd15e231a076",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "ipType": "游戏",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 111.10(10)；OuteR:Automata；2B、A2、Pascal及剧情、小游戏、登录、协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "c5875990a593",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "ipType": "游戏",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 111.10(10)；OuteR:Automata；2B、A2、Pascal及剧情、小游戏、登录、协同活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "49ea825dd05c",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 118.4(17)；Re:CIPE FOR YOU；Emilia、Rem、Ram及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "204a889a25dd",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 118.4(17)；Re:CIPE FOR YOU；Emilia、Rem、Ram及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "28e0047c67b6",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 118.4(17)；Re:CIPE FOR YOU；Emilia、Rem、Ram及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "670ec6270b92",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 118.4(17)；Re:CIPE FOR YOU；Emilia、Rem、Ram及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "9b40dd01396d",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 118.4(17)；Re:CIPE FOR YOU；Emilia、Rem、Ram及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "a84c98f71ab9",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "ipType": "游戏",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 122.8(20)；Aegis The Diver联动小游戏及服装内容。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "5ef68e81851a",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "ipType": "游戏",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 122.8(20)；Aegis The Diver联动小游戏及服装内容。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "1a52b3685f47",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "ipType": "游戏",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 122.8(20)；Aegis The Diver联动小游戏及服装内容。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "33c2a6af98d4",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "ipType": "游戏",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 122.8(20)；Aegis The Diver联动小游戏及服装内容。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "91f2e63bdc8d",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "ipType": "游戏",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 122.8(20)；Aegis The Diver联动小游戏及服装内容。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "b36d4dfcaf01",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 124.6(11)；YOU CAN (NOT) EVADE；Asuka、Rei、Mari及联动Boss/小游戏。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "a58fbcbce3fc",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 124.6(11)；YOU CAN (NOT) EVADE；Asuka、Rei、Mari及联动Boss/小游戏。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "da264da9697a",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 124.6(11)；YOU CAN (NOT) EVADE；Asuka、Rei、Mari及联动Boss/小游戏。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "abbcf55ec044",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 124.6(11)；YOU CAN (NOT) EVADE；Asuka、Rei、Mari及联动Boss/小游戏。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "8df2e236a4e1",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 124.6(11)；YOU CAN (NOT) EVADE；Asuka、Rei、Mari及联动Boss/小游戏。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "e5a6214ff194",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 130.8(13)；SECOND QUEST；Asuka: WILLE、Rei (Tentative Name)、Sakura；并复刻首期。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "73b2452a8238",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 130.8(13)；SECOND QUEST；Asuka: WILLE、Rei (Tentative Name)、Sakura；并复刻首期。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "2676b97bedf4",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 130.8(13)；SECOND QUEST；Asuka: WILLE、Rei (Tentative Name)、Sakura；并复刻首期。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "6977c5f70c0a",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 130.8(13)；SECOND QUEST；Asuka: WILLE、Rei (Tentative Name)、Sakura；并复刻首期。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "b5ee5ec0736c",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 130.8(13)；SECOND QUEST；Asuka: WILLE、Rei (Tentative Name)、Sakura；并复刻首期。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "75c4bf250da9",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "ipType": "游戏",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 134.8(13)；MEMORIES TELLER；EVE、Raven、Lily及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "b1240f7674b3",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "ipType": "游戏",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 134.8(13)；MEMORIES TELLER；EVE、Raven、Lily及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "1f5d2841a0f5",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "ipType": "游戏",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 134.8(13)；MEMORIES TELLER；EVE、Raven、Lily及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "64f5157b4cb2",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "ipType": "游戏",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 134.8(13)；MEMORIES TELLER；EVE、Raven、Lily及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "74da3f879f26",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "ipType": "游戏",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 134.8(13)；MEMORIES TELLER；EVE、Raven、Lily及剧情、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "898b28706ea5",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "ipType": "游戏",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 138.8(14)；REBORN EVIL；Ada、Jill、Claire及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "1105e8885bf7",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "ipType": "游戏",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 138.8(14)；REBORN EVIL；Ada、Jill、Claire及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "3a1bb48a27ff",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "ipType": "游戏",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 138.8(14)；REBORN EVIL；Ada、Jill、Claire及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "b0d261dfade3",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "ipType": "游戏",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 138.8(14)；REBORN EVIL；Ada、Jill、Claire及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "cf4275b04a63",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "ipType": "游戏",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 138.8(14)；REBORN EVIL；Ada、Jill、Claire及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "45d4b19f7df1",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "香港",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=HK"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 143.10(2)；Lie cause Recoil；Chisato、Takina、Kurumi及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "877c9c0e1099",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "台湾",
+      "serverVersion": "港澳台服/待核验",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=TW"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 143.10(2)；Lie cause Recoil；Chisato、Takina、Kurumi及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "d4e1fe497cf7",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 143.10(2)；Lie cause Recoil；Chisato、Takina、Kurumi及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "c2ba3016efee",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 143.10(2)；Lie cause Recoil；Chisato、Takina、Kurumi及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "5c93b825f5fc",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：App Store版本历史；全球客户端；各地区活动边界待逐一复核；版本说明中的上线日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 143.10(2)；Lie cause Recoil；Chisato、Takina、Kurumi及联动活动、小游戏、登录活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "f39d46ca354c",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "鬼滅の刃（Demon Slayer）",
+      "ipFamily": "鬼滅の刃",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-02-24",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.30.0；App图标切换为鬼灭之刃联动版本；活动开始日以后续官方公告复核。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "6726ae447f98",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-04-24",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.34.0；App图标切换为Lycoris Recoil联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "60a2da21dec2",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "この素晴らしい世界に祝福を！（KonoSuba）",
+      "ipFamily": "この素晴らしい世界に祝福を！",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-05-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.35.2；App图标切换为KonoSuba联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "d234e8482dd3",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "初音ミク（Hatsune Miku）",
+      "ipFamily": "初音ミク",
+      "ipType": "虚拟歌手",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-06-05",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.36.2；App图标切换为初音未来联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "7b1af6a76c9a",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "範馬刃牙（Baki Hanma）",
+      "ipFamily": "範馬刃牙",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-09-08",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.42.1；App图标切换为范马刃牙联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "5a0462d4ea86",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "痛いのは嫌なので防御力に極振りしたいと思います。2（BOFURI 2）",
+      "ipFamily": "痛いのは嫌なので防御力に極振りしたいと思います。2",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-10-06",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.44.1；App图标切换为BOFURI 2联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "91f39c4d38cc",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "ロックマン（Mega Man）",
+      "ipFamily": "ロックマン",
+      "ipType": "游戏",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-11-02",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.46.1；App图标切换为Mega Man联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "3366c291cd5a",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "呪術廻戦（Jujutsu Kaisen）",
+      "ipFamily": "呪術廻戦",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2023-11-14",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.47.0；App图标切换为咒术回战联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "ee754db2d28e",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "ホロライブ（hololive）",
+      "ipFamily": "hololive",
+      "ipType": "VTuber",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2024-02-28",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.54.1；App图标切换为hololive联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "c1bac71ae0e8",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2024-04-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 4.56.0；App图标切换为Lycoris Recoil联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "fcc89ec8c59b",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "鬼滅の刃（Demon Slayer）",
+      "ipFamily": "鬼滅の刃",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2024-05-10",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.2.0；App图标切换为鬼灭之刃联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "4bb809a55f63",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2024-08-08",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.7.4；App图标切换为Evangelion联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "2adc638d0e47",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "とある科学の超電磁砲（A Certain Scientific Railgun）",
+      "ipFamily": "とある科学の超電磁砲",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2024-09-27",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.11.0；App图标切换为Railgun联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "0177640ef653",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "吉田沙保里",
+      "ipFamily": "吉田沙保里",
+      "ipType": "人物/体育",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2024-11-07",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.13.1；App图标切换为吉田沙保里联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "c0228195e1d8",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "七つの大罪（The Seven Deadly Sins）",
+      "ipFamily": "七つの大罪",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2025-04-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.23.2；App图标切换为七大罪联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "a293575f31ad",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "ホロライブ（hololive）",
+      "ipFamily": "hololive",
+      "ipType": "VTuber",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2025-07-30",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.31.0；App图标切换为hololive联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "98b3d5da7695",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "葬送のフリーレン（Frieren）",
+      "ipFamily": "葬送のフリーレン",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2025-09-07",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.34.1；App图标切换为葬送的芙莉莲联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "b045e40f8b1a",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "魔法少女まどか☆マギカ（Puella Magi Madoka Magica）",
+      "ipFamily": "魔法少女まどか☆マギカ",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2025-11-06",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.37.1；App图标切换为魔法少女小圆联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "cf61b262a0ee",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2025-12-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.41.0；App图标切换为Lycoris Recoil联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "0c1a0f5590b4",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "アトリエシリーズ（Atelier）",
+      "ipFamily": "アトリエシリーズ",
+      "ipType": "游戏",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2026-02-26",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.45.0；App图标切换为Atelier系列联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "b1a29213a1f3",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2026-03-22",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.46.1；App图标切换为Re:ZERO联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "cf998884f771",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "炎炎ノ消防隊（Fire Force）",
+      "ipFamily": "炎炎ノ消防隊",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2026-04-29",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.49.2；App图标切换为炎炎消防队联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "742c2668ddd4",
+      "productKey": "shironeko",
+      "product": "白猫プロジェクト NEW WORLD'S（Shironeko Project）",
+      "ip": "転生したらスライムだった件（That Time I Got Reincarnated as a Slime）",
+      "ipFamily": "転生したらスライムだった件",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2026-06-15",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 5.52.0；App图标切换为转生史莱姆联动版本。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "9ebb9d76dda2",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2023-10-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 10.4；EVA第13号机、团队玩法及登录奖励；开始日按日本App Store版本日记录。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "0736849bb2ef",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "ブルーロック（Blue Lock）",
+      "ipFamily": "ブルーロック",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-01-01",
+      "end": "2024-01-22",
+      "status": "已结束",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；版本说明明确期间；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 10.7；洁世一等角色外观、主题载具/枪械及登录、组队、选拔活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "004bf4c6570b",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "進撃の巨人（Attack on Titan）",
+      "ipFamily": "進撃の巨人",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-01-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 11.0；艾伦、三笠等角色服装、双形态载具/枪械及活动奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "3a01d23fe073",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "チェンソーマン（Chainsaw Man）",
+      "ipFamily": "チェンソーマン",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-03-28",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 11.4；早川秋、姬野、东山小红、帕瓦服装与主题道具。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "ac3429a630e4",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "転生したらスライムだった件（That Time I Got Reincarnated as a Slime）",
+      "ipFamily": "転生したらスライムだった件",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-04-26",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 11.7；第二弹；利姆鲁、米莉姆、紫苑及主题武器/载具、联动模式。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "68fecfc20328",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "呪術廻戦（Jujutsu Kaisen）",
+      "ipFamily": "呪術廻戦",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-07-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 11.9；五条悟、夏油杰怀玉·玉折主题三形态服装、载具、枪械。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "460e0c63abf8",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "怪獣8号（Kaiju No. 8）",
+      "ipFamily": "怪獣8号",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-07-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 12.0；怪兽8号、亚白米娜、保科宗四郎等限定道具与五人飞行服。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "f20e1c52a0ce",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "DEATH NOTE",
+      "ipFamily": "DEATH NOTE",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-08-15",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 12.1；夜神月、L、弥海砂、琉克及限定服装、主题、头像框。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "d5bcccd1d44e",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "BLEACH",
+      "ipFamily": "BLEACH",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-09-30",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 12.6；黑崎一护、朽木露琪亚、日番谷冬狮郎及主题枪械/载具。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "8ed255996463",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-01-02",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 13.4；绫波丽/明日香双形态载具、武器、服装及组队奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "729f5b43d3d8",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "ipType": "动漫",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-02-13",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 13.8；锦木千束、井之上泷奈、SP摩托与Dual TMP、特殊表情。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "02908813b01b",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "東京喰種（Tokyo Ghoul）",
+      "ipFamily": "東京喰種",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-02-28",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 13.9；金木研主题载具、武器、服装及活动抽取奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "5267b1ba943f",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "鬼滅の刃（Demon Slayer）",
+      "ipFamily": "鬼滅の刃",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-03-25",
+      "end": "2025-04-25",
+      "status": "已结束",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；版本说明明确期间；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 14.0；炭治郎、祢豆子、善逸等18名角色主题内容及100连奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "5a0bba0df7b5",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-04-25",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 14.3；爱蜜莉雅、雷姆/拉姆双形态SP皮肤、武器与载具。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "271bd8efa1a4",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "ポプテピピック（Pop Team Epic）",
+      "ipFamily": "ポプテピピック",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-05-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 14.4；ポプ子/ピピ美主题枪械、同伴、载具及20连奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "9a2caa43f43f",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "葬送のフリーレン（Frieren）",
+      "ipFamily": "葬送のフリーレン",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-05-31",
+      "end": "2025-06-21",
+      "status": "已结束",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；版本说明明确期间；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 14.5；Frieren、Fern、Stark、Himmel及最多35连奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "c61146e0736c",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "ホロライブ（hololive）",
+      "ipFamily": "hololive",
+      "ipType": "VTuber",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-06-24",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 14.7；白上フブキ、兎田ぺこら、白銀ノエル、獅白ぼたん、La+ Darknesss。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "4306d0dc1c27",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "呪術廻戦（Jujutsu Kaisen）",
+      "ipFamily": "呪術廻戦",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-07-12",
+      "end": "2025-07-25",
+      "status": "已结束",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；版本说明明确期间；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 14.9；第四弹；虎杖/宿傩殿堂皮肤与五条悟新道具。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "c3307458f665",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "進撃の巨人（Attack on Titan）",
+      "ipFamily": "進撃の巨人",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-07-30",
+      "end": "2025-08-20",
+      "status": "已结束",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；版本说明明确期间；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 15.0；第八弹；利威尔殿堂内容、50连及满级联动金枪。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "5f67a5cbe805",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "この素晴らしい世界に祝福を！（KonoSuba）",
+      "ipFamily": "この素晴らしい世界に祝福を！",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-08-29",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 15.3；Aqua、Megumin、Darkness及限定皮肤、载具、武器。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "d79dcca1a8cf",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "仮面ライダー（Kamen Rider）",
+      "ipFamily": "仮面ライダー",
+      "ipType": "特摄",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-09-30",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 15.6；Kamen Rider Den-O、Zeztz限定道具与抽取奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "971b7981c2ba",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "東京リベンジャーズ（Tokyo Revengers）",
+      "ipFamily": "東京リベンジャーズ",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-11-07",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 15.9；Mikey、Draken、橘日向、佐野Emma及服装、双人表情。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "f59d577f9b93",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "NARUTO -ナルト- 疾風伝",
+      "ipFamily": "NARUTO -ナルト- 疾風伝",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-01-01",
+      "end": "2026-01-15",
+      "status": "已结束",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；版本说明明确期间；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 16.2；Naruto、Sasuke、Sakura、Kakashi及100连、语音包、武器奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "ccd50da7c5d8",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "ホロライブ（hololive）",
+      "ipFamily": "hololive",
+      "ipType": "VTuber",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-03-02",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 16.7；Band篇；猫又おかゆ、戌神ころね、兎田ぺこら、白銀ノエル、La+ Darknesss。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "46b3ff81fd74",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "東京喰種（Tokyo Ghoul）",
+      "ipFamily": "東京喰種",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-03-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 16.9；金木研、雾岛董香、月山习及最多60连奖励。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "552b1e5b7f98",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "にじさんじ（NIJISANJI）",
+      "ipFamily": "にじさんじ",
+      "ipType": "VTuber",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-04-24",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 17.3；第四弹；笹木咲、葛葉、Lize Helesta、星川Sara及语音包。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "64e3e459758a",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "東京リベンジャーズ（Tokyo Revengers）",
+      "ipFamily": "東京リベンジャーズ",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-05-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日代理；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 17.4；复刻；Mikey、Draken、橘日向、佐野Emma等历代内容返场。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "6c7cec1cb652",
+      "productKey": "knives_out",
+      "product": "荒野行動（Knives Out）",
+      "ip": "BLEACH",
+      "ipFamily": "BLEACH",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-06-01",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；版本说明明确开始日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8C%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 17.7；第二弹；黑崎一护、内在虚、朽木露琪亚、日番谷冬狮郎、四枫院夜一。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "b8ccbe7533b2",
+      "productKey": "puyo_puyo_quest",
+      "product": "ぷよぷよ!!クエスト（Puyo Puyo Quest）",
+      "ip": "転生したらスライムだった件（That Time I Got Reincarnated as a Slime）",
+      "ipFamily": "転生したらスライムだった件",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2025-03-14",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "B：日本App Store版本历史；日本App Store版本确认；App Store版本日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E3%81%B7%E3%82%88%E3%81%B7%E3%82%88%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-%E3%81%B7%E3%82%88%E3%82%AF%E3%82%A8-_%E7%B0%A1%E5%8D%98%E7%88%BD%E5%BF%AB%E3%83%91%E3%82%BA%E3%83%ABrpg%E3%82%B2%E3%83%BC%E3%83%A0/595291824?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "evidenceLevel": "B：日本App Store版本历史",
+      "rankSource": "待补",
+      "notes": "版本 11.7.1；版本说明确认联动开始并切换联动App图标。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "2e6dcac8d395",
+      "productKey": "kagemasu",
+      "product": "陰の実力者になりたくて！マスターオブガーデン（Kagemasu）",
+      "ip": "炎炎ノ消防隊（Fire Force）",
+      "ipFamily": "炎炎ノ消防隊",
+      "ipType": "动漫/漫画",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2024-10-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "A：KADOKAWA官方公告；日本版官方公告确认；官方开始日；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://www.kadokawa.co.jp/topics/12479/"
+      ],
+      "sourceProviders": [
+        "KADOKAWA官方"
+      ],
+      "evidenceLevel": "A：KADOKAWA官方公告",
+      "rankSource": "待补",
+      "notes": "版本 2.12.1；カゲマス世界发生人体发火现象；消防官进入联动原创剧情。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
+    },
+    {
+      "id": "cfdd7bbe6faf",
+      "productKey": "kagemasu",
+      "product": "陰の実力者になりたくて！マスターオブガーデン（Kagemasu）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "ipType": "动漫/轻小说",
+      "region": "日本",
+      "serverVersion": "日本区",
+      "start": "2025-02-20",
+      "end": "2025-03-13",
+      "status": "已结束",
+      "verification": "A：KADOKAWA官方公告；日本版官方公告确认；官方明确期间；历史榜单待补，不计入影响力评分",
+      "free": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补（数据不足）",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://group.kadokawa.co.jp/information/promotional_topics/article-11745.html"
+      ],
+      "sourceProviders": [
+        "KADOKAWA官方"
+      ],
+      "evidenceLevel": "A：KADOKAWA官方公告",
+      "rankSource": "待补",
+      "notes": "版本 3.4.1；原创剧情；Emilia、Rem全新录音参战，并实施纪念活动。该记录用于历史发现与地区版本核验；活动边界和榜单效果将继续回填。",
+      "scoreEligible": false,
+      "historical": true
     }
   ],
   "versions": [

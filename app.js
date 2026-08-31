@@ -183,20 +183,22 @@
       groups.get(ip).push(event);
     }
     return [...groups.entries()].map(([ip, ipEvents]) => {
+      const scoringEvents = ipEvents.filter((event) => event.scoreEligible !== false);
       const projects = new Set(ipEvents.map((event) => `${event.productKey || event.product}|${firstIsoDate(event.start)}|${ip}`));
+      const scoringProjects = new Set(scoringEvents.map((event) => `${event.productKey || event.product}|${firstIsoDate(event.start)}|${ip}`));
       const regions = new Set(ipEvents.map((event) => event.region));
-      const grossingDeltas = ipEvents.map((event) => event.grossing?.delta).filter((value) => typeof value === "number");
-      const freeDeltas = ipEvents.map((event) => event.free?.delta).filter((value) => typeof value === "number");
+      const grossingDeltas = scoringEvents.map((event) => event.grossing?.delta).filter((value) => typeof value === "number");
+      const freeDeltas = scoringEvents.map((event) => event.free?.delta).filter((value) => typeof value === "number");
       const grossingMetric = impactMetric(grossingDeltas);
       const freeMetric = impactMetric(freeDeltas);
       const availableWeight = (grossingMetric ? 0.8 : 0) + (freeMetric ? 0.2 : 0);
       const rawEffect = availableWeight
         ? ((grossingMetric?.score || 0) * 0.8 + (freeMetric?.score || 0) * 0.2) / availableWeight
         : null;
-      const effectSamples = ipEvents.filter((event) => typeof event.grossing?.delta === "number" || typeof event.free?.delta === "number").length;
+      const effectSamples = scoringEvents.filter((event) => typeof event.grossing?.delta === "number" || typeof event.free?.delta === "number").length;
       const confidence = Math.min(1, effectSamples / 3);
       const effectScore = rawEffect === null ? null : rawEffect * (0.75 + 0.25 * confidence);
-      const activityScore = Math.min(1, projects.size / 3) * 100;
+      const activityScore = Math.min(1, scoringProjects.size / 3) * 100;
       const score = effectScore === null ? null : Math.round(effectScore * 0.70 + activityScore * 0.30);
       const grade = scoreGrade(score);
 
