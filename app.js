@@ -165,8 +165,7 @@
       const confidence = Math.min(1, effectSamples / 3);
       const effectScore = rawEffect === null ? null : rawEffect * (0.75 + 0.25 * confidence);
       const activityScore = Math.min(1, projects.size / 3) * 100;
-      const breadthScore = Math.min(1, regions.size / 6) * 100;
-      const score = effectScore === null ? null : Math.round(effectScore * 0.65 + activityScore * 0.20 + breadthScore * 0.15);
+      const score = effectScore === null ? null : Math.round(effectScore * 0.70 + activityScore * 0.30);
       const grade = scoreGrade(score);
 
       const regionHighlights = [...regions].map((region) => {
@@ -190,7 +189,6 @@
         samples: effectSamples,
         effectScore: effectScore === null ? null : Math.round(effectScore),
         activityScore: Math.round(activityScore),
-        breadthScore: Math.round(breadthScore),
         bestGrossingLift: grossingMetric?.best ?? null,
         averageGrossingLift: grossingMetric?.mean ?? null,
         bestFreeLift: freeMetric?.best ?? null,
@@ -200,7 +198,7 @@
       if (a.score === null && b.score !== null) return 1;
       if (a.score !== null && b.score === null) return -1;
       if (a.score !== b.score) return (b.score || 0) - (a.score || 0);
-      return b.projects - a.projects || b.regions - a.regions || a.ip.localeCompare(b.ip);
+      return b.projects - a.projects || (b.effectScore || 0) - (a.effectScore || 0) || a.ip.localeCompare(b.ip);
     });
   }
 
@@ -229,7 +227,7 @@
   function renderIpRankings(rankings) {
     const firstDay = [...data.events.map((event) => firstIsoDate(event.start)).filter(Boolean)].sort()[0] || "";
     const scope = state.region === "all" ? "全部地区" : state.region;
-    elements.rankingScope.textContent = `${scope} · ${firstDay || "当前窗口"} 至 ${data.meta.latestRankDate || "最新"} · 综合联动活跃度、地区覆盖和榜单提升`;
+    elements.rankingScope.textContent = `${scope} · ${firstDay || "当前窗口"} 至 ${data.meta.latestRankDate || "最新"} · 综合榜单表现和近期联动活跃度`;
     if (!rankings.length) {
       elements.ipRankingList.innerHTML = '<div class="empty-state">当前筛选条件下没有可排行的IP。</div>';
       return;
