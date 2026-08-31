@@ -609,6 +609,7 @@
   $("#generated-at").textContent = formatTimestamp(data.meta.generatedAt);
   $("#latest-rank-date").textContent = data.meta.latestRankDate || "暂无";
   $("#definition-text").textContent = `${data.meta.definitions.delta}；${data.meta.definitions.missing}`;
+  $("#history-coverage-text").textContent = `${data.meta.definitions.historyCoverage} ${data.meta.definitions.historyRankPolicy}`;
   populateFilters();
   bindControls();
   render();
