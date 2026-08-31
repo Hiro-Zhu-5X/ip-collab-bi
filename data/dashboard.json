@@ -1,9 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-08-31T10:36:07+09:00",
+    "generatedAt": "2026-08-31T11:38:00+09:00",
     "latestRankDate": "2026-08-27",
     "workbook": "2026年7月起日本IP手游联动.xlsx",
-    "eventCount": 22,
+    "eventCount": 49,
+    "historicalEventCount": 27,
+    "appMagicValidationCount": 3,
     "productCount": 15,
     "versionCount": 90,
     "trendPointCount": 850,
@@ -12,7 +14,8 @@
       "grossing": "App Store iPhone 畅销榜·游戏榜",
       "delta": "联动后排名－联动前排名；负数代表排名上升",
       "missing": "页面读取成功但没有排名显示为未入榜；读取失败显示为未读取；未尝试显示为待抓取",
-      "impactScore": "IP影响力分=70%榜单表现+30%近期联动活跃度；地区覆盖仅作观察维度、不参与评分；榜单表现同时考虑畅销榜与免费下载榜提升"
+      "impactScore": "IP影响力分=70%榜单表现+30%筛选期联动活跃度；地区覆盖仅作观察维度、不参与评分；榜单表现同时考虑畅销榜与免费下载榜提升",
+      "dataSources": "七麦用于App Store榜单主数据；AppMagic用于版本历史、榜单交叉验证及下载/收入估算补充；官方公告用于联动时间核验"
     }
   },
   "regions": [
@@ -146,9 +149,15 @@
         "status": "unpublished"
       },
       "sources": [
-        "https://www.lovelive-anime.jp/news/01_6347.html"
+        "https://www.lovelive-anime.jp/news/01_6347.html",
+        "https://www.qimai.cn/app/rank/appid/927420451/country/jp"
       ],
-      "notes": "官方 Love Live 新闻；联动结束时间为主活动结束时间。；免费分类：动作138→165、角色扮演116→131；畅销分类：动作77→45、角色扮演191→110。总榜均未入榜。"
+      "notes": "官方 Love Live 新闻；联动结束时间为主活动结束时间。；免费分类：动作138→165、角色扮演116→131；畅销分类：动作77→45、角色扮演191→110。总榜均未入榜。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "c60b9c8a73ae",
@@ -177,9 +186,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://www.4gamer.net/games/402/G040245/20260704001/"
+        "https://www.4gamer.net/games/402/G040245/20260704001/",
+        "https://www.qimai.cn/app/rank/appid/1312031248/country/jp"
       ],
-      "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜163→69，畅销总榜33→4。"
+      "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜163→69，畅销总榜33→4。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "5abb9fbb9c39",
@@ -208,9 +223,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://www.4gamer.net/games/442/G044288/20260706029/"
+        "https://www.4gamer.net/games/442/G044288/20260706029/",
+        "https://www.qimai.cn/app/rank/appid/1478990007/country/jp"
       ],
-      "notes": "4Gamer/厂商稿；联动家具活动截止7/27 03:59。；免费总榜未入榜；免费分类卡牌82→79、策略142→128；畅销总榜53→59。"
+      "notes": "4Gamer/厂商稿；联动家具活动截止7/27 03:59。；免费总榜未入榜；免费分类卡牌82→79、策略142→128；畅销总榜53→59。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "e1dac1457579",
@@ -239,9 +260,15 @@
         "status": "unranked"
       },
       "sources": [
-        "https://www.sega.jp/topics/detail/260708_5/"
+        "https://www.sega.jp/topics/detail/260708_5/",
+        "https://www.qimai.cn/app/rank/appid/1314816647/country/jp"
       ],
-      "notes": "主活动/登录奖励结束7/22；召唤札使用期限延至8/2。；畅销总榜未入榜；冒险分类95→34、角色扮演分类未入榜→97。"
+      "notes": "主活动/登录奖励结束7/22；召唤札使用期限延至8/2。；畅销总榜未入榜；冒险分类95→34、角色扮演分类未入榜→97。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "1d8155c9aa67",
@@ -270,9 +297,15 @@
         "status": "unranked"
       },
       "sources": [
-        "https://colopl.co.jp/alicegearaegis/sp/news/details/20260713153000.php"
+        "https://colopl.co.jp/alicegearaegis/sp/news/details/20260713153000.php",
+        "https://www.qimai.cn/app/rank/appid/1245550834/country/jp"
       ],
-      "notes": "Colopl 官方活动页；部分抽奖活动另于7/31结束。；免费总榜未入榜；免费动作分类未入榜→113、模拟未入榜→158；畅销总榜未入榜→57。"
+      "notes": "Colopl 官方活动页；部分抽奖活动另于7/31结束。；免费总榜未入榜；免费动作分类未入榜→113、模拟未入榜→158；畅销总榜未入榜→57。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "7b51911a0172",
@@ -301,9 +334,15 @@
         "status": "unranked"
       },
       "sources": [
-        "https://release.traicy.com/posts/202607091232611/"
+        "https://release.traicy.com/posts/202607091232611/",
+        "https://www.qimai.cn/app/rank/appid/1475221397/country/jp"
       ],
-      "notes": "ENSAPIA/PR TIMES 新闻稿经 TRAICY 发布；原文日期字段有“202026”排版错误，按上下文校正为2026。；七麦三个月曲线未返回可用总榜/分类点位，保留为未入榜。"
+      "notes": "ENSAPIA/PR TIMES 新闻稿经 TRAICY 发布；原文日期字段有“202026”排版错误，按上下文校正为2026。；七麦三个月曲线未返回可用总榜/分类点位，保留为未入榜。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "6d3cba291b5c",
@@ -332,9 +371,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://www.4gamer.net/games/402/G040245/20260718002/"
+        "https://www.4gamer.net/games/402/G040245/20260718002/",
+        "https://www.qimai.cn/app/rank/appid/1312031248/country/jp"
       ],
-      "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜102→84，畅销总榜22→17。"
+      "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜102→84，畅销总榜22→17。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "cbb7e21ad0a6",
@@ -364,9 +409,15 @@
       },
       "sources": [
         "https://prtimes.jp/main/html/rd/p/000000005.000179664.html",
-        "https://koubo.jp/article/100025"
+        "https://koubo.jp/article/100025",
+        "https://www.qimai.cn/app/rank/appid/1511118477/country/jp"
       ],
-      "notes": "PR TIMES 原稿经Koubo转载；第三弹Sanrio联动。；免费曲线未完成校准；畅销总榜未入榜，动作分类亦未入榜。"
+      "notes": "PR TIMES 原稿经Koubo转载；第三弹Sanrio联动。；免费曲线未完成校准；畅销总榜未入榜，动作分类亦未入榜。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "fe24ba3ecd48",
@@ -395,9 +446,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://aiming-inc.com/wp-content/uploads/kagemasu_20260723.pdf"
+        "https://aiming-inc.com/wp-content/uploads/kagemasu_20260723.pdf",
+        "https://www.qimai.cn/app/rank/appid/1629373124/country/jp"
       ],
-      "notes": "Aiming 官方新闻稿PDF；结束时间按公告“8/13维护前”。；免费总榜未入榜→241；畅销总榜未入榜→63。"
+      "notes": "Aiming 官方新闻稿PDF；结束时间按公告“8/13维护前”。；免费总榜未入榜→241；畅销总榜未入榜→63。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "e874e1c34d2a",
@@ -427,9 +484,15 @@
       },
       "sources": [
         "https://x.com/RacingMasterJP/status/2079853961646150025",
-        "https://hokope.com/archives/60502"
+        "https://hokope.com/archives/60502",
+        "https://www.qimai.cn/app/rank/appid/6474962684/country/jp"
       ],
-      "notes": "官方 Racing Master JP X确认限定奖励；结束日由Hololive联动汇总页交叉确认，标为二手补充。；免费总榜未入榜；竞速分类6→6、体育11→9；畅销总榜116→94。"
+      "notes": "官方 Racing Master JP X确认限定奖励；结束日由Hololive联动汇总页交叉确认，标为二手补充。；免费总榜未入榜；竞速分类6→6、体育11→9；畅销总榜116→94。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "ea129ce1e6fb",
@@ -458,9 +521,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://www.sega.jp/topics/detail/260731_6/"
+        "https://www.sega.jp/topics/detail/260731_6/",
+        "https://www.qimai.cn/app/rank/appid/595291824/country/jp"
       ],
-      "notes": "SEGA 官方；部分登录奖励延长至8/18 03:59。；免费总榜未入榜；益智解谜分类127→112、角色扮演44→35；畅销总榜未入榜→111。"
+      "notes": "SEGA 官方；部分登录奖励延长至8/18 03:59。；免费总榜未入榜；益智解谜分类127→112、角色扮演44→35；畅销总榜未入榜→111。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "d553a655349c",
@@ -489,9 +558,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://linegame-official.blog.jp/archives/63327677.html"
+        "https://linegame-official.blog.jp/archives/63327677.html",
+        "https://www.qimai.cn/app/rank/appid/767265270/country/jp"
       ],
-      "notes": "LINE GAME 官方博客；活动各子项目均以维护时间为边界。；免费总榜未入榜；策略分类183→109；畅销总榜未入榜→116，模拟分类87→24、策略95→22。"
+      "notes": "LINE GAME 官方博客；活动各子项目均以维护时间为边界。；免费总榜未入榜；策略分类183→109；畅销总榜未入榜→116，模拟分类87→24、策略95→22。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "c637bf41593d",
@@ -520,9 +595,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://www.4gamer.net/games/402/G040245/20260802009/"
+        "https://www.4gamer.net/games/402/G040245/20260802009/",
+        "https://www.qimai.cn/app/rank/appid/1312031248/country/jp"
       ],
-      "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜71→30，畅销总榜43→3。"
+      "notes": "4Gamer 转引 NetEase Games 厂商稿。；七麦日本区；免费总榜71→30，畅销总榜43→3。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "a5d37584efe8",
@@ -551,9 +632,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT"
+        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT",
+        "https://www.qimai.cn/app/rank/appid/6467825646/country/cn"
       ],
-      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_cn.csv; data/raw/qimai/2026-08-26/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page_free.csv；8/13为联动当天，8/14为首个完整联动日。"
+      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_cn.csv; data/raw/qimai/2026-08-26/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "97923b2480f8",
@@ -582,9 +669,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT"
+        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT",
+        "https://www.qimai.cn/app/rank/appid/1630883882/country/hk"
       ],
-      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_hk.csv; data/raw/qimai/2026-08-26/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page_free.csv；8/13为联动当天，8/14为首个完整联动日。"
+      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_hk.csv; data/raw/qimai/2026-08-26/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "fe1b431db83c",
@@ -597,7 +690,7 @@
       "start": "2026-08-13（维护后）",
       "end": "2026-09-10",
       "status": "进行中（截至2026-08-26）",
-      "verification": "全球公告；当地联动是否同步仍需逐地区官方核验",
+      "verification": "全球公告；当地联动是否同步仍需逐地区官方核验；AppMagic交叉验证：畅销榜33→9（差值 -24），与七麦方向及幅度一致",
       "free": {
         "display": "未入榜（免费下载榜·游戏榜；无差值）",
         "before": null,
@@ -613,9 +706,33 @@
         "status": "numeric"
       },
       "sources": [
-        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT"
+        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT",
+        "https://www.qimai.cn/app/rank/appid/1585915174/country/jp",
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
       ],
-      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_jp.csv; data/raw/qimai/2026-08-26/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page_free.csv；8/13为联动当天，8/14为首个完整联动日。"
+      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_jp.csv; data/raw/qimai/2026-08-26/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦",
+      "appMagicValidation": {
+        "metric": "游戏分类榜",
+        "free": {
+          "beforeDate": "2026-08-12",
+          "before": 446,
+          "afterDate": "2026-08-14",
+          "after": 261
+        },
+        "grossing": {
+          "beforeDate": "2026-08-12",
+          "before": 33,
+          "afterDate": "2026-08-14",
+          "after": 9
+        },
+        "grossingDelta": -24,
+        "consistency": "方向及幅度一致"
+      }
     },
     {
       "id": "7a9afecbc371",
@@ -628,7 +745,7 @@
       "start": "2026-08-13（维护后）",
       "end": "2026-09-10",
       "status": "进行中（截至2026-08-26）",
-      "verification": "全球公告；当地联动是否同步仍需逐地区官方核验",
+      "verification": "全球公告；当地联动是否同步仍需逐地区官方核验；AppMagic交叉验证：畅销榜31→13（差值 -18），与七麦方向及幅度一致",
       "free": {
         "display": "未入榜（免费下载榜·游戏榜；无差值）",
         "before": null,
@@ -644,9 +761,33 @@
         "status": "numeric"
       },
       "sources": [
-        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT"
+        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT",
+        "https://www.qimai.cn/app/rank/appid/1585915174/country/kr",
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
       ],
-      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_kr.csv; data/raw/qimai/2026-08-26/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page_free.csv；8/13为联动当天，8/14为首个完整联动日。"
+      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_kr.csv; data/raw/qimai/2026-08-26/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦",
+      "appMagicValidation": {
+        "metric": "游戏分类榜",
+        "free": {
+          "beforeDate": "2026-08-12",
+          "before": 431,
+          "afterDate": "2026-08-14",
+          "after": 318
+        },
+        "grossing": {
+          "beforeDate": "2026-08-12",
+          "before": 31,
+          "afterDate": "2026-08-14",
+          "after": 13
+        },
+        "grossingDelta": -18,
+        "consistency": "方向及幅度一致"
+      }
     },
     {
       "id": "c54715e5aca6",
@@ -675,9 +816,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT"
+        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT",
+        "https://www.qimai.cn/app/rank/appid/1630883882/country/tw"
       ],
-      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_tw.csv; data/raw/qimai/2026-08-26/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page_free.csv；8/13为联动当天，8/14为首个完整联动日。"
+      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_tw.csv; data/raw/qimai/2026-08-26/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "494de6ecc091",
@@ -690,7 +837,7 @@
       "start": "2026-08-13（维护后）",
       "end": "2026-09-10",
       "status": "进行中（截至2026-08-26）",
-      "verification": "全球公告；当地联动是否同步仍需逐地区官方核验",
+      "verification": "全球公告；当地联动是否同步仍需逐地区官方核验；AppMagic交叉验证：畅销榜131→63（差值 -68），与七麦方向及幅度一致",
       "free": {
         "display": "未入榜（免费下载榜·游戏榜；无差值）",
         "before": null,
@@ -706,9 +853,33 @@
         "status": "numeric"
       },
       "sources": [
-        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT"
+        "https://press.levelinfinite.com/GODDESS-OF-VICTORY-NIKKE-LATEST-COLLABORATION-VERSION-PERSONA-ON-FRONT",
+        "https://www.qimai.cn/app/rank/appid/1585915174/country/us",
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
       ],
-      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_us.csv; data/raw/qimai/2026-08-26/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page_free.csv；8/13为联动当天，8/14为首个完整联动日。"
+      "notes": "七麦 CSV：data/raw/qimai/2026-08-26/nikke_us.csv; data/raw/qimai/2026-08-26/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page_free.csv；8/13为联动当天，8/14为首个完整联动日。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦",
+      "appMagicValidation": {
+        "metric": "游戏分类榜",
+        "free": {
+          "beforeDate": "2026-08-12",
+          "before": 2161,
+          "afterDate": "2026-08-14",
+          "after": 1582
+        },
+        "grossing": {
+          "beforeDate": "2026-08-12",
+          "before": 131,
+          "afterDate": "2026-08-14",
+          "after": 63
+        },
+        "grossingDelta": -68,
+        "consistency": "方向及幅度一致"
+      }
     },
     {
       "id": "f6c32e3f2c89",
@@ -737,9 +908,15 @@
         "status": "numeric"
       },
       "sources": [
-        "https://poker-chase.com/event/collaboration_260819/"
+        "https://poker-chase.com/event/collaboration_260819/",
+        "https://www.qimai.cn/app/rank/appid/1549646582/country/jp"
       ],
-      "notes": "Poker Chase 官方活动页。；免费/畅销总榜均未入榜；免费卡牌33→27、娱乐场20→18；畅销卡牌57→24、娱乐场35→9。"
+      "notes": "Poker Chase 官方活动页。；免费/畅销总榜均未入榜；免费卡牌33→27、娱乐场20→18；畅销卡牌57→24、娱乐场35→9。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "9e4e68165abd",
@@ -769,9 +946,15 @@
       },
       "sources": [
         "https://othellonia.com/event-campaign/ksBs4gJDEUt8Kb9SSEia",
-        "https://gamewith.jp/gamedb/635/articles/62057"
+        "https://gamewith.jp/gamedb/635/articles/62057",
+        "https://www.qimai.cn/app/rank/appid/985100673/country/jp"
       ],
-      "notes": "官方活动页确认开始日；GameWith厂商信息汇总确认结束日。；免费总榜未入榜；桌面分类66→63、角色扮演87→85；畅销总榜158→67。"
+      "notes": "官方活动页确认开始日；GameWith厂商信息汇总确认结束日。；免费总榜未入榜；桌面分类66→63、角色扮演87→85；畅销总榜158→67。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
     },
     {
       "id": "4bc616cc1845",
@@ -800,9 +983,960 @@
         "status": "unpublished"
       },
       "sources": [
-        "https://colopl.co.jp/news/pressrelease/2026082401.php"
+        "https://colopl.co.jp/news/pressrelease/2026082401.php",
+        "https://www.qimai.cn/app/rank/appid/895687962/country/jp"
       ],
-      "notes": "Colopl 官方预告；截至8/27尚未开始，结束日未公布。；联动预告8/31，当前日期8/27，无法读取联动前后点位。"
+      "notes": "Colopl 官方预告；截至8/27尚未开始，结束日未公布。；联动预告8/31，当前日期8/27，无法读取联动前后点位。",
+      "sourceProviders": [
+        "七麦",
+        "官方公告/媒体"
+      ],
+      "rankSource": "七麦"
+    },
+    {
+      "id": "d4e1fe497cf7",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 143.10(2)；Lie cause Recoil；SSR 千束、泷奈，SR 胡桃；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "c2ba3016efee",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 143.10(2)；Lie cause Recoil；SSR 千束、泷奈，SR 胡桃；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "5c93b825f5fc",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "リコリス・リコイル（Lycoris Recoil）",
+      "ipFamily": "リコリス・リコイル",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2026-02-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 143.10(2)；Lie cause Recoil；SSR 千束、泷奈，SR 胡桃；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "3a1bb48a27ff",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 138.8(14)；REBORN EVIL；SSR Ada、Jill，SR Claire；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "b0d261dfade3",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 138.8(14)；REBORN EVIL；SSR Ada、Jill，SR Claire；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "cf4275b04a63",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "バイオハザード（Resident Evil）",
+      "ipFamily": "バイオハザード",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2025-09-23",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 138.8(14)；REBORN EVIL；SSR Ada、Jill，SR Claire；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "1f5d2841a0f5",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 134.8(13)；MEMORIES TELLER；SSR EVE、Raven，SR Lily；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "64f5157b4cb2",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 134.8(13)；MEMORIES TELLER；SSR EVE、Raven，SR Lily；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "74da3f879f26",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Stellar Blade",
+      "ipFamily": "Stellar Blade",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2025-06-11",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 134.8(13)；MEMORIES TELLER；SSR EVE、Raven，SR Lily；联动活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "2676b97bedf4",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 130.8(13)；SECOND QUEST；SSR Asuka: WILLE、Rei (Tentative Name)，SR Sakura；剧情活动及小游戏。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "6977c5f70c0a",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 130.8(13)；SECOND QUEST；SSR Asuka: WILLE、Rei (Tentative Name)，SR Sakura；剧情活动及小游戏。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "b5ee5ec0736c",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2025-02-19",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 130.8(13)；SECOND QUEST；SSR Asuka: WILLE、Rei (Tentative Name)，SR Sakura；剧情活动及小游戏。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "da264da9697a",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 124.6(11)；YOU CAN (NOT) EVADE；SSR Asuka、Rei、Mari；联动活动、小游戏及联动Boss。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "abbcf55ec044",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 124.6(11)；YOU CAN (NOT) EVADE；SSR Asuka、Rei、Mari；联动活动、小游戏及联动Boss。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "8df2e236a4e1",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "エヴァンゲリオン（Evangelion）",
+      "ipFamily": "エヴァンゲリオン",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2024-08-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 124.6(11)；YOU CAN (NOT) EVADE；SSR Asuka、Rei、Mari；联动活动、小游戏及联动Boss。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "1a52b3685f47",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 122.8(20)；Aegis The Diver 联动小游戏及相关服装内容。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "33c2a6af98d4",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 122.8(20)；Aegis The Diver 联动小游戏及相关服装内容。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "91f2e63bdc8d",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "DAVE THE DIVER",
+      "ipFamily": "DAVE THE DIVER",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2024-07-03",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 122.8(20)；Aegis The Diver 联动小游戏及相关服装内容。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "28e0047c67b6",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 118.4(17)；Re:CIPE FOR YOU；SSR Emilia、Rem，SR Ram；剧情活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "670ec6270b92",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 118.4(17)；Re:CIPE FOR YOU；SSR Emilia、Rem，SR Ram；剧情活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "9b40dd01396d",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "Re:ゼロから始める異世界生活（Re:ZERO）",
+      "ipFamily": "Re:ゼロから始める異世界生活",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2024-03-20",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 118.4(17)；Re:CIPE FOR YOU；SSR Emilia、Rem，SR Ram；剧情活动、小游戏及登录活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "12d55a48b762",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 111.10(10)；OuteR:Automata；SSR 2B、A2，SR Pascal；剧情、小游戏、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "fd15e231a076",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 111.10(10)；OuteR:Automata；SSR 2B、A2，SR Pascal；剧情、小游戏、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "c5875990a593",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "NieR:Automata",
+      "ipFamily": "NieR:Automata",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2023-08-31",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 111.10(10)；OuteR:Automata；SSR 2B、A2，SR Pascal；剧情、小游戏、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "877553df5e43",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "チェンソーマン（Chainsaw Man）",
+      "ipFamily": "チェンソーマン",
+      "region": "日本",
+      "serverVersion": "日本版",
+      "start": "2023-02-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 104.6(2)；BULLET X CHAINSAW；SSR Makima、Power，SR Himeno；剧情、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "2ee3248fffc9",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "チェンソーマン（Chainsaw Man）",
+      "ipFamily": "チェンソーマン",
+      "region": "韩国",
+      "serverVersion": "韩国版/待核验",
+      "start": "2023-02-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 104.6(2)；BULLET X CHAINSAW；SSR Makima、Power，SR Himeno；剧情、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
+    },
+    {
+      "id": "6c294db97518",
+      "productKey": "nikke",
+      "product": "NIKKE（胜利女神：妮姬）",
+      "ip": "チェンソーマン（Chainsaw Man）",
+      "ipFamily": "チェンソーマン",
+      "region": "美国",
+      "serverVersion": "全球服",
+      "start": "2023-02-21",
+      "end": "",
+      "status": "已结束（结束日待核验）",
+      "verification": "AppMagic版本历史确认上线版本；同一全球版App ID，地区与结束时间尚未逐一核验",
+      "free": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "grossing": {
+        "display": "历史榜单待补",
+        "before": null,
+        "after": null,
+        "delta": null,
+        "status": "unknown"
+      },
+      "sources": [
+        "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US"
+      ],
+      "sourceProviders": [
+        "AppMagic"
+      ],
+      "rankSource": "待补",
+      "notes": "AppMagic版本 104.6(2)；BULLET X CHAINSAW；SSR Makima、Power，SR Himeno；剧情、登录及协同活动。该记录用于历史联动发现，后续将以官方公告和历史榜单补充验证。"
     }
   ],
   "versions": [
@@ -815,6 +1949,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1245550834",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1245550834/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -829,6 +1964,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1245550834",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1245550834/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -843,6 +1979,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1245550834",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1245550834/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -857,6 +1994,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1245550834",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1245550834/country/jp",
+      "appMagicUrl": "",
       "grossingStatus": "未入榜",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/alice_gear_jp_page.csv; data/raw/qimai/2026-08-27/alice_gear_jp_page_free.csv",
@@ -871,6 +2009,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1245550834",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1245550834/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -885,6 +2024,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1245550834",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1245550834/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -899,6 +2039,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1454663939",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1454663939/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -913,6 +2054,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1490985322",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1490985322/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -927,6 +2069,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1490985322",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1490985322/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -941,6 +2084,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1478990007",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1478990007/country/jp",
+      "appMagicUrl": "",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/arknights_jp_page.csv; data/raw/qimai/2026-08-27/arknights_jp_page_free.csv",
@@ -955,6 +2099,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1490985322",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1490985322/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -969,6 +2114,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1490985322",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1490985322/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -983,6 +2129,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1314816647",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1314816647/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -997,6 +2144,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1314816647",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1314816647/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1011,6 +2159,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1314816647",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1314816647/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1025,6 +2174,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1314816647",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1314816647/country/jp",
+      "appMagicUrl": "",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/d2_megaten_jp_page.csv; data/raw/qimai/2026-08-27/d2_megaten_jp_page_free.csv",
@@ -1039,6 +2189,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1314816647",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1314816647/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1053,6 +2204,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1314816647",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1314816647/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1067,6 +2219,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1629373124",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1629373124/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1081,6 +2234,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1629373124",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1629373124/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1095,6 +2249,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1629373124",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1629373124/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1109,6 +2264,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1629373124",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1629373124/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E9%99%B0%E3%81%AE%E5%AE%9F%E5%8A%9B%E8%80%85%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%8F%E3%81%A6%EF%BC%81%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%AA%E3%83%96%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3/1629373124?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "已读取（有趋势点）",
       "cacheFiles": "data/raw/qimai/2026-08-27/kagemasu_jp_page.csv; data/raw/qimai/2026-08-27/kagemasu_jp_page_free.csv",
@@ -1123,6 +2279,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1629373124",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1629373124/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1137,6 +2294,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1629373124",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1629373124/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1151,6 +2309,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1279207754",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1279207754/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1165,6 +2324,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1312031248",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1312031248/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1179,6 +2339,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1312031248",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1312031248/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1193,6 +2354,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1312031248",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1312031248/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E8%8D%92%E9%87%8E%E8%A1%8C%E5%8B%95-%E3%82%B9%E3%83%9E%E3%83%9B%E7%89%88%E3%83%90%E3%83%88%E3%83%AD%E3%83%AF/1312031248?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "已读取（有趋势点）",
       "cacheFiles": "data/raw/qimai/2026-08-27/knives_out_jp_page.csv; data/raw/qimai/2026-08-27/knives_out_jp_page_free.csv",
@@ -1207,6 +2369,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1312031248",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1312031248/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1221,6 +2384,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1312031248",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1312031248/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1235,6 +2399,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "767265270",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/767265270/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1249,6 +2414,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "767265270",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/767265270/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1263,6 +2429,7 @@
       "timezone": "Asia/Taipei",
       "appId": "767265270",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/767265270/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1277,6 +2444,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "767265270",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/767265270/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/line-%E3%83%AC%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC%C3%97%E3%82%A2%E3%83%8B%E3%83%A1%E3%80%8E%E6%80%AA%E7%8D%A3%EF%BC%98%E5%8F%B7%E3%80%8F%E3%82%B3%E3%83%A9%E3%83%9C/767265270?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/line_rangers_jp_page.csv; data/raw/qimai/2026-08-27/line_rangers_jp_page_free.csv",
@@ -1291,6 +2459,7 @@
       "timezone": "Asia/Seoul",
       "appId": "767265270",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/767265270/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1305,6 +2474,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "767265270",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/767265270/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1319,6 +2489,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1511118477",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1511118477/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1333,6 +2504,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1511118477",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1511118477/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1347,6 +2519,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1511118477",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1511118477/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1361,6 +2534,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1511118477",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1511118477/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E7%8C%AB%E3%81%A8%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3-%E4%BB%B2%E9%96%93%E3%81%A8%E5%8D%94%E5%8A%9B%E3%82%AE%E3%83%AB%E3%83%89%E3%83%90%E3%83%88%E3%83%ABrpg/1511118477?infoCountry=JP",
       "grossingStatus": "未入榜",
       "freeStatus": "未读取（七麦页面没有返回 jp/free 的趋势表格数据）",
       "cacheFiles": "data/raw/qimai/2026-08-27/neko_dragon_jp_page.csv",
@@ -1375,6 +2549,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1511118477",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1511118477/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1389,6 +2564,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1511118477",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1511118477/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1403,6 +2579,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "6467825646",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/6467825646/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-26/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page.csv; data/raw/qimai/2026-08-27/nikke_cn_page_free.csv",
@@ -1417,6 +2594,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1630883882",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1630883882/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "已读取（有趋势点）",
       "cacheFiles": "data/raw/qimai/2026-08-26/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page.csv; data/raw/qimai/2026-08-27/nikke_hk_page_free.csv",
@@ -1431,6 +2609,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1630883882",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1630883882/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-26/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page.csv; data/raw/qimai/2026-08-27/nikke_tw_page_free.csv",
@@ -1445,6 +2624,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1585915174",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1585915174/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-26/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page.csv; data/raw/qimai/2026-08-27/nikke_jp_page_free.csv",
@@ -1459,6 +2639,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1585915174",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1585915174/country/kr",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=KR",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-26/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page.csv; data/raw/qimai/2026-08-27/nikke_kr_page_free.csv",
@@ -1473,6 +2654,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1585915174",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1585915174/country/us",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E5%8B%9D%E5%88%A9%E3%81%AE%E5%A5%B3%E7%A5%9E-nikke/1585915174?infoCountry=US",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-26/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page.csv; data/raw/qimai/2026-08-27/nikke_us_page_free.csv",
@@ -1487,6 +2669,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1475221397",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1475221397/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1501,6 +2684,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1475221397",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1475221397/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1515,6 +2699,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1475221397",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1475221397/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1529,6 +2714,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1475221397",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1475221397/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E3%83%9D%E3%82%B1%E3%82%B3%E3%83%AD%E3%83%84%E3%82%A4%E3%83%B3%E3%80%80%E3%81%8B%E3%82%8F%E3%81%84%E3%81%84%E3%81%B5%E3%81%9F%E3%81%94%E3%81%AE%E3%82%A2%E3%83%90%E3%82%BF%E3%83%BC%E7%9D%80%E3%81%9B%E6%9B%BF%E3%81%88%E3%82%B2%E3%83%BC%E3%83%A0/1475221397?infoCountry=JP",
       "grossingStatus": "未入榜",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/pokecolo_twin_jp_page.csv; data/raw/qimai/2026-08-27/pokecolo_twin_jp_page_free.csv",
@@ -1543,6 +2729,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1475221397",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1475221397/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1557,6 +2744,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1475221397",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1475221397/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1571,6 +2759,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1549646582",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1549646582/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1585,6 +2774,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "1549646582",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1549646582/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1599,6 +2789,7 @@
       "timezone": "Asia/Taipei",
       "appId": "1549646582",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1549646582/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1613,6 +2804,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "1549646582",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1549646582/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E3%83%9D%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%81%E3%82%A7%E3%82%A4%E3%82%B9%E2%80%90poker-chase%E2%80%90%E3%83%86%E3%82%AD%E3%82%B5%E3%82%B9%E3%83%9B%E3%83%BC%E3%83%AB%E3%83%87%E3%83%A0/1549646582?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "已读取（有趋势点）",
       "cacheFiles": "data/raw/qimai/2026-08-27/poker_chase_jp_page.csv; data/raw/qimai/2026-08-27/poker_chase_jp_page_free.csv",
@@ -1627,6 +2819,7 @@
       "timezone": "Asia/Seoul",
       "appId": "1549646582",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1549646582/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1641,6 +2834,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "1549646582",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1549646582/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1655,6 +2849,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "595291824",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/595291824/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1669,6 +2864,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "595291824",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/595291824/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1683,6 +2879,7 @@
       "timezone": "Asia/Taipei",
       "appId": "595291824",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/595291824/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1697,6 +2894,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "595291824",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/595291824/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E3%81%B7%E3%82%88%E3%81%B7%E3%82%88%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-%E3%81%B7%E3%82%88%E3%82%AF%E3%82%A8-_%E7%B0%A1%E5%8D%98%E7%88%BD%E5%BF%AB%E3%83%91%E3%82%BA%E3%83%ABrpg%E3%82%B2%E3%83%BC%E3%83%A0/595291824?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/puyo_puyo_quest_jp_page.csv; data/raw/qimai/2026-08-27/puyo_puyo_quest_jp_page_free.csv",
@@ -1711,6 +2909,7 @@
       "timezone": "Asia/Seoul",
       "appId": "595291824",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/595291824/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1725,6 +2924,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "595291824",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/595291824/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1739,6 +2939,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "1498874997",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/1498874997/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1753,6 +2954,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "6474962684",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/6474962684/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1767,6 +2969,7 @@
       "timezone": "Asia/Taipei",
       "appId": "6474962684",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/6474962684/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1781,6 +2984,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "6474962684",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/6474962684/country/jp",
+      "appMagicUrl": "",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "已读取（有趋势点）",
       "cacheFiles": "data/raw/qimai/2026-08-27/racing_master_jp_page.csv; data/raw/qimai/2026-08-27/racing_master_jp_page_free.csv",
@@ -1795,6 +2999,7 @@
       "timezone": "Asia/Seoul",
       "appId": "6474962684",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/6474962684/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1809,6 +3014,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "6474962684",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/6474962684/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1823,6 +3029,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "985100673",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/985100673/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1837,6 +3044,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "985100673",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/985100673/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1851,6 +3059,7 @@
       "timezone": "Asia/Taipei",
       "appId": "985100673",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/985100673/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1865,6 +3074,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "985100673",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/985100673/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E9%80%86%E8%BB%A2%E3%82%AA%E3%82%BB%E3%83%AD%E3%83%8B%E3%82%A2/985100673?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/reverse_othellonia_jp_page.csv; data/raw/qimai/2026-08-27/reverse_othellonia_jp_page_free.csv",
@@ -1879,6 +3089,7 @@
       "timezone": "Asia/Seoul",
       "appId": "985100673",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/985100673/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1893,6 +3104,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "985100673",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/985100673/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1907,6 +3119,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "895687962",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/895687962/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1921,6 +3134,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "895687962",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/895687962/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1935,6 +3149,7 @@
       "timezone": "Asia/Taipei",
       "appId": "895687962",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/895687962/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1949,6 +3164,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "895687962",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/895687962/country/jp",
+      "appMagicUrl": "https://appmagic.rocks/iphone/%E7%99%BD%E7%8C%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/895687962?infoCountry=JP",
       "grossingStatus": "已读取（有趋势点）",
       "freeStatus": "未入榜",
       "cacheFiles": "data/raw/qimai/2026-08-27/shironeko_jp_page.csv; data/raw/qimai/2026-08-27/shironeko_jp_page_free.csv",
@@ -1963,6 +3179,7 @@
       "timezone": "Asia/Seoul",
       "appId": "895687962",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/895687962/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1977,6 +3194,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "895687962",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/895687962/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -1991,6 +3209,7 @@
       "timezone": "Asia/Shanghai",
       "appId": "927420451",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/927420451/country/cn",
+      "appMagicUrl": "",
       "grossingStatus": "未读取（七麦页面没有返回 cn/sales 的趋势表格数据）",
       "freeStatus": "未读取（七麦页面没有返回 cn/free 的趋势表格数据）",
       "cacheFiles": "",
@@ -2005,6 +3224,7 @@
       "timezone": "Asia/Hong_Kong",
       "appId": "968953976",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/968953976/country/hk",
+      "appMagicUrl": "",
       "grossingStatus": "未入榜",
       "freeStatus": "未读取（七麦页面没有返回 hk/free 的趋势表格数据）",
       "cacheFiles": "data/raw/qimai/2026-08-27/unison_league_hk_page.csv",
@@ -2019,6 +3239,7 @@
       "timezone": "Asia/Taipei",
       "appId": "968953976",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/968953976/country/tw",
+      "appMagicUrl": "",
       "grossingStatus": "未读取（七麦页面未切换到“畅销”榜单）",
       "freeStatus": "未读取（七麦页面未切换到“免费”榜单）",
       "cacheFiles": "",
@@ -2033,6 +3254,7 @@
       "timezone": "Asia/Tokyo",
       "appId": "927420451",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/927420451/country/jp",
+      "appMagicUrl": "",
       "grossingStatus": "待抓取",
       "freeStatus": "待抓取",
       "cacheFiles": "",
@@ -2047,6 +3269,7 @@
       "timezone": "Asia/Seoul",
       "appId": "968953976",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/968953976/country/kr",
+      "appMagicUrl": "",
       "grossingStatus": "未读取（七麦页面未切换到“畅销”榜单）",
       "freeStatus": "未读取（七麦页面未切换到“免费”榜单）",
       "cacheFiles": "",
@@ -2061,6 +3284,7 @@
       "timezone": "America/Los_Angeles",
       "appId": "968953976",
       "qimaiUrl": "https://www.qimai.cn/app/rank/appid/968953976/country/us",
+      "appMagicUrl": "",
       "grossingStatus": "未读取（七麦页面未切换到“畅销”榜单）",
       "freeStatus": "未读取（七麦页面未切换到“免费”榜单）",
       "cacheFiles": "",

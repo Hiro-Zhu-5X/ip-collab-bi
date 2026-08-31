@@ -12,6 +12,8 @@
     region: $("#region-filter"),
     product: $("#product-filter"),
     ip: $("#ip-filter"),
+    startDate: $("#start-date-filter"),
+    endDate: $("#end-date-filter"),
     search: $("#search-filter"),
     reset: $("#reset-filters"),
     summary: $("#filter-summary"),
@@ -30,7 +32,21 @@
     trendTooltip: $("#trend-tooltip"),
   };
 
-  const state = { region: "all", product: "all", ip: "all", search: "", trendKey: "" };
+  const observedDates = [
+    ...data.events.map((event) => firstIsoDate(event.start)),
+    ...data.trends.map((point) => point.date),
+  ].filter(Boolean).sort();
+  const minimumDate = observedDates[0] || "";
+  const maximumDate = observedDates.at(-1) || data.meta.latestRankDate || "";
+  const recentStart = maximumDate ? new Date(`${maximumDate}T00:00:00Z`) : null;
+  if (recentStart) recentStart.setUTCDate(recentStart.getUTCDate() - 89);
+  const recentStartText = recentStart ? recentStart.toISOString().slice(0, 10) : "";
+  const defaultStartDate = minimumDate && recentStartText ? (minimumDate > recentStartText ? minimumDate : recentStartText) : minimumDate;
+  const defaultEndDate = maximumDate;
+  const state = {
+    region: "all", product: "all", ip: "all", search: "", trendKey: "",
+    startDate: defaultStartDate, endDate: defaultEndDate,
+  };
   const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
   const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
   const numberFormat = new Intl.NumberFormat("zh-CN");
@@ -46,6 +62,21 @@
 
   function firstIsoDate(value) {
     return String(value || "").match(/\d{4}-\d{2}-\d{2}/)?.[0] || "";
+  }
+
+  function eventInPeriod(event) {
+    const start = firstIsoDate(event.start);
+    const end = firstIsoDate(event.end) || start;
+    if (!start) return !state.startDate && !state.endDate;
+    if (state.endDate && start > state.endDate) return false;
+    if (state.startDate && end < state.startDate) return false;
+    return true;
+  }
+
+  function sourceLabel(url) {
+    if (/qimai\.cn/i.test(url)) return "七麦";
+    if (/appmagic\.rocks/i.test(url)) return "AppMagic";
+    return "官方/媒体";
   }
 
   function formatTimestamp(value) {
@@ -89,6 +120,12 @@
     for (const ip of ipFamilies) {
       elements.ip.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(ip)}">${escapeHtml(ip)}</option>`);
     }
+    for (const input of [elements.startDate, elements.endDate]) {
+      input.min = minimumDate;
+      input.max = maximumDate;
+    }
+    elements.startDate.value = state.startDate;
+    elements.endDate.value = state.endDate;
   }
 
   function filteredEvents() {
@@ -97,6 +134,7 @@
       if (state.region !== "all" && event.region !== state.region) return false;
       if (state.product !== "all" && event.productKey !== state.product) return false;
       if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
+      if (!eventInPeriod(event)) return false;
       if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
       return true;
     });
@@ -104,17 +142,11 @@
 
   function filteredVersions() {
     const query = state.search.trim().toLocaleLowerCase("zh-CN");
-    const relatedProducts = new Set(data.events.filter((event) => {
-      if (state.region !== "all" && event.region !== state.region) return false;
-      if (state.product !== "all" && event.productKey !== state.product) return false;
-      if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
-      if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
-      return true;
-    }).map((event) => event.productKey));
+    const relatedProducts = new Set(filteredEvents().map((event) => event.productKey));
     return data.versions.filter((version) => {
       if (state.region !== "all" && version.region !== state.region) return false;
       if (state.product !== "all" && version.productKey !== state.product) return false;
-      if ((state.ip !== "all" || query) && !relatedProducts.has(version.productKey)) return false;
+      if ((state.ip !== "all" || query || state.startDate || state.endDate) && !relatedProducts.has(version.productKey)) return false;
       return true;
     });
   }
@@ -225,9 +257,8 @@
   }
 
   function renderIpRankings(rankings) {
-    const firstDay = [...data.events.map((event) => firstIsoDate(event.start)).filter(Boolean)].sort()[0] || "";
     const scope = state.region === "all" ? "全部地区" : state.region;
-    elements.rankingScope.textContent = `${scope} · ${firstDay || "当前窗口"} 至 ${data.meta.latestRankDate || "最新"} · 综合榜单表现和近期联动活跃度`;
+    elements.rankingScope.textContent = `${scope} · ${state.startDate || minimumDate || "最早"} 至 ${state.endDate || maximumDate || "最新"} · 综合榜单表现和筛选期联动活跃度`;
     if (!rankings.length) {
       elements.ipRankingList.innerHTML = '<div class="empty-state">当前筛选条件下没有可排行的IP。</div>';
       return;
@@ -307,18 +338,21 @@
     elements.eventEmpty.hidden = sorted.length > 0;
     elements.eventBody.innerHTML = sorted.map((event) => {
       const sources = event.sources.length
-        ? event.sources.map((source, index) => `<a href="${escapeHtml(source)}" target="_blank" rel="noopener">来源 ${index + 1}</a>`).join("")
+        ? event.sources.map((source) => `<a href="${escapeHtml(source)}" target="_blank" rel="noopener">${sourceLabel(source)}</a>`).join("")
         : '<span class="table-secondary">暂无链接</span>';
       const kind = eventStatusKind(event);
+      const validation = event.appMagicValidation
+        ? `<div class="cross-validation"><strong>AppMagic核对</strong> 畅销榜 ${event.appMagicValidation.grossing.before}→${event.appMagicValidation.grossing.after}（${event.appMagicValidation.grossingDelta > 0 ? "+" : ""}${event.appMagicValidation.grossingDelta}），${escapeHtml(event.appMagicValidation.consistency)}</div>`
+        : "";
       return `
         <tr>
           <td><span class="table-primary">${escapeHtml(event.region)}</span><span class="table-secondary">${escapeHtml(event.serverVersion)}</span></td>
           <td><span class="table-primary">${escapeHtml(event.product)}</span><span class="table-secondary">${escapeHtml(event.ip)}</span></td>
-          <td><span class="table-primary">${escapeHtml(event.start)}</span><span class="table-secondary">至 ${escapeHtml(event.end)}</span></td>
+          <td><span class="table-primary">${escapeHtml(event.start)}</span><span class="table-secondary">${event.end ? `至 ${escapeHtml(event.end)}` : "结束日待补"}</span></td>
           <td><span class="status-chip ${kind}">${escapeHtml(event.status)}</span></td>
           <td>${rankChangeHtml(event.free)}</td>
           <td>${rankChangeHtml(event.grossing)}</td>
-          <td><div class="verification">${escapeHtml(event.verification)}</div><div class="source-list">${sources}</div></td>
+          <td><div class="verification">${escapeHtml(event.verification)}</div>${validation}<div class="source-list">${sources}</div></td>
         </tr>`;
     }).join("");
   }
@@ -334,7 +368,7 @@
         <td>${escapeHtml(version.appId || "—")}</td>
         <td><span class="status-chip ${statusClass(version.freeStatus)}">${escapeHtml(version.freeStatus || "待抓取")}</span></td>
         <td><span class="status-chip ${statusClass(version.grossingStatus)}">${escapeHtml(version.grossingStatus || "待抓取")}</span></td>
-        <td>${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">打开页面</a>` : "—"}</td>
+        <td><div class="source-links">${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">七麦</a>` : ""}${version.appMagicUrl ? `<a href="${escapeHtml(version.appMagicUrl)}" target="_blank" rel="noopener">AppMagic</a>` : ""}${!version.qimaiUrl && !version.appMagicUrl ? "—" : ""}</div></td>
       </tr>`).join("");
   }
 
@@ -344,6 +378,8 @@
     for (const point of data.trends) {
       if (state.region !== "all" && point.region !== state.region) continue;
       if (state.product !== "all" && point.productKey !== state.product) continue;
+      if (state.startDate && point.date < state.startDate) continue;
+      if (state.endDate && point.date > state.endDate) continue;
       if ((state.ip !== "all" || state.search.trim()) && !relatedProducts.has(point.productKey)) continue;
       const key = `${point.productKey}|${point.region}`;
       if (!groups.has(key)) groups.set(key, []);
@@ -407,7 +443,7 @@
 
     const points = group.points;
     const first = points[0];
-    elements.trendSubtitle.textContent = `${first.product} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date}`;
+    elements.trendSubtitle.textContent = `${first.product} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · 数据源：七麦`;
     const width = Math.max(container.clientWidth || 720, 360);
     const height = width < 560 ? 300 : 330;
     const margin = { top: 18, right: 18, bottom: 36, left: 54 };
@@ -430,7 +466,7 @@
     });
     const formatDay = (value) => value.slice(5).replace("-", "/");
 
-    const selectedEvents = data.events.filter((event) => event.productKey === first.productKey && event.region === first.region);
+    const selectedEvents = filteredEvents().filter((event) => event.productKey === first.productKey && event.region === first.region);
     const bands = selectedEvents.map((event) => {
       const start = firstIsoDate(event.start);
       const end = firstIsoDate(event.end) || start;
@@ -507,7 +543,8 @@
     const region = state.region === "all" ? "全部地区" : state.region;
     const product = state.product === "all" ? "全部产品" : (productByKey.get(state.product) || state.product);
     const ip = state.ip === "all" ? "全部IP" : state.ip;
-    elements.summary.textContent = `${region} · ${product} · ${ip} · ${events.length} 条地区联动记录 · ${versions.length} 个地区版本配置`;
+    const period = `${state.startDate || minimumDate || "最早"} 至 ${state.endDate || maximumDate || "最新"}`;
+    elements.summary.textContent = `${period} · ${region} · ${product} · ${ip} · ${events.length} 条地区联动记录 · ${versions.length} 个地区版本配置`;
   }
 
   function render() {
@@ -527,16 +564,36 @@
     elements.region.addEventListener("change", () => { state.region = elements.region.value; state.trendKey = ""; render(); });
     elements.product.addEventListener("change", () => { state.product = elements.product.value; state.trendKey = ""; render(); });
     elements.ip.addEventListener("change", () => { state.ip = elements.ip.value; state.trendKey = ""; render(); });
+    elements.startDate.addEventListener("change", () => {
+      state.startDate = elements.startDate.value;
+      if (state.endDate && state.startDate > state.endDate) {
+        state.endDate = state.startDate;
+        elements.endDate.value = state.endDate;
+      }
+      state.trendKey = "";
+      render();
+    });
+    elements.endDate.addEventListener("change", () => {
+      state.endDate = elements.endDate.value;
+      if (state.startDate && state.endDate < state.startDate) {
+        state.startDate = state.endDate;
+        elements.startDate.value = state.startDate;
+      }
+      state.trendKey = "";
+      render();
+    });
     elements.search.addEventListener("input", () => { state.search = elements.search.value; render(); });
     elements.trendSelector.addEventListener("change", () => {
       state.trendKey = elements.trendSelector.value;
       renderTrend(trendGroups().find((group) => group.key === state.trendKey));
     });
     elements.reset.addEventListener("click", () => {
-      Object.assign(state, { region: "all", product: "all", ip: "all", search: "", trendKey: "" });
+      Object.assign(state, { region: "all", product: "all", ip: "all", search: "", trendKey: "", startDate: defaultStartDate, endDate: defaultEndDate });
       elements.region.value = "all";
       elements.product.value = "all";
       elements.ip.value = "all";
+      elements.startDate.value = defaultStartDate;
+      elements.endDate.value = defaultEndDate;
       elements.search.value = "";
       render();
     });

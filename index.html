@@ -6,7 +6,7 @@
   <meta name="description" content="日本娱乐 IP 与手游联动地区表现 BI">
   <title>日本 IP × 手游联动 BI</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260831-score1">
+  <link rel="stylesheet" href="styles.css?v=20260831-history1">
 </head>
 <body>
   <header class="topbar">
@@ -29,6 +29,7 @@
         <p class="eyebrow">GLOBAL MOBILE COLLAB TRACKER</p>
         <h1 id="page-title">地区联动与榜单影响</h1>
         <p class="intro-copy">按地区查看不同产品的联动项目，并比较联动前后的免费下载榜·游戏榜与畅销榜·游戏榜变化。</p>
+        <p class="data-source-note"><strong>数据来源</strong> 七麦：榜单主数据 · AppMagic：交叉验证与历史补充 · 官方公告：联动时间核验</p>
       </div>
       <div class="data-date">
         <span>榜单最新日期</span>
@@ -63,6 +64,14 @@
             <option value="all">全部IP</option>
           </select>
         </label>
+        <label>
+          <span>开始日期</span>
+          <input id="start-date-filter" type="date">
+        </label>
+        <label>
+          <span>结束日期</span>
+          <input id="end-date-filter" type="date">
+        </label>
         <label class="search-field">
           <span>关键词</span>
           <input id="search-filter" type="search" placeholder="输入名称搜索">
@@ -73,12 +82,12 @@
 
     <section class="kpi-grid" aria-label="关键指标">
       <article class="kpi-card">
-        <span>近期活跃IP</span>
+        <span>筛选期活跃IP</span>
         <strong id="kpi-events">—</strong>
         <small id="kpi-events-note">按IP家族去重</small>
       </article>
       <article class="kpi-card">
-        <span>近期联动项目</span>
+        <span>筛选期联动项目</span>
         <strong id="kpi-products">—</strong>
         <small>同一项目跨地区只计一次</small>
       </article>
@@ -98,8 +107,8 @@
       <div class="section-heading">
         <div>
           <p class="section-kicker">IP MOMENTUM</p>
-          <h2 id="ip-ranking-title">近期IP影响力排行榜</h2>
-          <p id="ranking-scope" class="section-note">综合榜单表现和近期联动活跃度</p>
+          <h2 id="ip-ranking-title">筛选期IP影响力排行榜</h2>
+          <p id="ranking-scope" class="section-note">综合榜单表现和筛选期联动活跃度</p>
         </div>
         <div class="ranking-grades" aria-label="影响力分级">
           <span class="grade phenomenon">现象级 75+</span>
@@ -112,7 +121,7 @@
         <strong>评分标准</strong>
         <span><b>70%</b> 榜单表现</span>
         <span class="score-plus" aria-hidden="true">＋</span>
-        <span><b>30%</b> 近期联动活跃度</span>
+        <span><b>30%</b> 筛选期联动活跃度</span>
         <span class="score-detail">榜单表现内部：畅销榜80%＋免费下载榜20%</span>
         <span class="score-exclusion">地区覆盖仅展示，不计分</span>
       </aside>
@@ -199,7 +208,7 @@
               <th>App ID</th>
               <th>免费下载榜·游戏榜</th>
               <th>畅销榜·游戏榜</th>
-              <th>七麦页面</th>
+              <th>数据源页面</th>
             </tr>
           </thead>
           <tbody id="coverage-table-body"></tbody>
@@ -212,9 +221,10 @@
   <footer>
     <strong>口径说明</strong>
     <span id="definition-text">联动后排名－联动前排名；负数代表排名上升。</span>
+    <span class="footer-source">历史记录可能先由AppMagic版本说明发现；未完成地区与榜单核验的项目会明确标注。</span>
   </footer>
 
-  <script src="data/dashboard.js?v=20260831-ip2"></script>
-  <script src="app.js?v=20260831-ip2"></script>
+  <script src="data/dashboard.js?v=20260831-history1"></script>
+  <script src="app.js?v=20260831-history1"></script>
 </body>
 </html>
