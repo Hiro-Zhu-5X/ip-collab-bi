@@ -131,7 +131,7 @@
     if (String(value).startsWith("已读取")) return "read";
     if (String(value).startsWith("未入榜")) return "unranked";
     if (String(value).startsWith("未读取")) return "unread";
-    if (String(value).startsWith("待抓取")) return "pending";
+    if (String(value).startsWith("待抓取") || String(value).startsWith("待配置")) return "pending";
     return "";
   }
 
@@ -670,7 +670,7 @@
   $("#generated-at").textContent = formatTimestamp(data.meta.generatedAt);
   $("#latest-rank-date").textContent = data.meta.latestRankDate || "暂无";
   $("#definition-text").textContent = `${data.meta.definitions.delta}；${data.meta.definitions.missing}`;
-  $("#history-coverage-text").textContent = `${data.meta.definitions.historyCoverage} ${data.meta.definitions.historyRankPolicy}`;
+  $("#history-coverage-text").textContent = `${data.meta.definitions.historyCoverage} ${data.meta.definitions.historyRankPolicy} ${data.meta.definitions.historyRankComparison || ""}`;
   populateFilters();
   bindControls();
   render();
