@@ -7,6 +7,18 @@
     return;
   }
 
+  const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
+  const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
+  const versionByPair = new Map(data.versions.map((version) => [
+    `${version.productKey}|${version.marketCode}`,
+    version,
+  ]));
+  for (const point of data.trends) {
+    const version = versionByPair.get(`${point.productKey}|${point.marketCode}`);
+    point.product = version?.product || productByKey.get(point.productKey) || point.productKey;
+    point.region = version?.region || regionByCode.get(point.marketCode) || point.marketCode;
+  }
+
   const $ = (selector) => document.querySelector(selector);
   const elements = {
     region: $("#region-filter"),
@@ -58,8 +70,6 @@
     region: "all", product: "all", ip: "all", search: "", trendKey: "",
     startDate: defaultStartDate, endDate: defaultEndDate,
   };
-  const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
-  const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
   const numberFormat = new Intl.NumberFormat("zh-CN");
 
   function escapeHtml(value) {
