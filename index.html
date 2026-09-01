@@ -157,10 +157,16 @@
             <h2 id="trend-title">榜单趋势</h2>
             <p id="trend-subtitle" class="section-note">自动选择筛选范围内数据最完整的产品与地区</p>
           </div>
-          <label class="compact-select">
-            <span class="sr-only">趋势产品与地区</span>
-            <select id="trend-selector"></select>
-          </label>
+          <div class="trend-filters" aria-label="榜单趋势筛选">
+            <label class="compact-select">
+              <span>产品</span>
+              <select id="trend-product-selector"></select>
+            </label>
+            <label class="compact-select">
+              <span>地区</span>
+              <select id="trend-region-selector"></select>
+            </label>
+          </div>
         </div>
         <div class="legend" aria-label="榜单图例">
           <span><i class="legend-line free"></i>免费下载榜·游戏榜</span>
@@ -245,6 +251,6 @@
   </footer>
 
   <script src="data/dashboard.js?v=20260831-custom-history"></script>
-  <script src="app.js?v=20260831-rank2"></script>
+  <script src="app.js?v=20260901-trend-split1"></script>
 </body>
 </html>

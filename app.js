@@ -32,7 +32,8 @@
     impactList: $("#impact-list"),
     ipRankingList: $("#ip-ranking-list"),
     rankingScope: $("#ranking-scope"),
-    trendSelector: $("#trend-selector"),
+    trendProductSelector: $("#trend-product-selector"),
+    trendRegionSelector: $("#trend-region-selector"),
     trendChart: $("#trend-chart"),
     trendSubtitle: $("#trend-subtitle"),
     trendTooltip: $("#trend-tooltip"),
@@ -441,17 +442,46 @@
       .sort((a, b) => b.seriesCount - a.seriesCount || b.numericCount - a.numericCount || b.points.length - a.points.length || a.key.localeCompare(b.key));
   }
 
-  function rebuildTrendSelector() {
+  function rebuildTrendSelectors() {
     const groups = trendGroups();
-    if (!groups.some((group) => group.key === state.trendKey)) state.trendKey = groups[0]?.key || "";
-    elements.trendSelector.innerHTML = groups.length
-      ? groups.map((group) => {
-          const first = group.points[0];
-          return `<option value="${escapeHtml(group.key)}" ${group.key === state.trendKey ? "selected" : ""}>${escapeHtml(first.product)}｜${escapeHtml(first.region)}</option>`;
-        }).join("")
-      : '<option value="">当前筛选没有趋势点</option>';
-    elements.trendSelector.disabled = !groups.length;
-    renderTrend(groups.find((group) => group.key === state.trendKey));
+    if (!groups.length) {
+      state.trendKey = "";
+      elements.trendProductSelector.innerHTML = '<option value="">当前筛选没有产品</option>';
+      elements.trendRegionSelector.innerHTML = '<option value="">当前筛选没有地区</option>';
+      elements.trendProductSelector.disabled = true;
+      elements.trendRegionSelector.disabled = true;
+      renderTrend();
+      return;
+    }
+
+    const currentGroup = groups.find((group) => group.key === state.trendKey);
+    let selectedProduct = currentGroup?.points[0]?.productKey || "";
+    const productGroups = new Map();
+    for (const group of groups) {
+      const first = group.points[0];
+      if (!productGroups.has(first.productKey)) productGroups.set(first.productKey, group);
+    }
+    if (!productGroups.has(selectedProduct)) selectedProduct = productGroups.keys().next().value || "";
+
+    elements.trendProductSelector.innerHTML = [...productGroups.entries()].map(([productKey, group]) => {
+      const product = group.points[0].product;
+      return `<option value="${escapeHtml(productKey)}" ${productKey === selectedProduct ? "selected" : ""}>${escapeHtml(product)}</option>`;
+    }).join("");
+
+    const regionGroups = groups.filter((group) => group.points[0].productKey === selectedProduct);
+    let selectedRegion = currentGroup?.points[0]?.productKey === selectedProduct ? currentGroup.points[0].region : "";
+    if (!regionGroups.some((group) => group.points[0].region === selectedRegion)) {
+      selectedRegion = regionGroups[0]?.points[0]?.region || "";
+    }
+    const selectedGroup = regionGroups.find((group) => group.points[0].region === selectedRegion);
+    state.trendKey = selectedGroup?.key || "";
+    elements.trendRegionSelector.innerHTML = regionGroups.map((group) => {
+      const region = group.points[0].region;
+      return `<option value="${escapeHtml(region)}" ${region === selectedRegion ? "selected" : ""}>${escapeHtml(region)}</option>`;
+    }).join("");
+    elements.trendProductSelector.disabled = false;
+    elements.trendRegionSelector.disabled = !regionGroups.length;
+    renderTrend(selectedGroup);
   }
 
   function lineSegments(points, field, x, y) {
@@ -597,7 +627,7 @@
     renderImpact(events);
     renderEvents(events);
     renderCoverage(versions);
-    rebuildTrendSelector();
+    rebuildTrendSelectors();
     updateFilterSummary(events, versions);
   }
 
@@ -645,9 +675,20 @@
     elements.startRange.addEventListener("change", render);
     elements.endRange.addEventListener("change", render);
     elements.search.addEventListener("input", () => { state.search = elements.search.value; render(); });
-    elements.trendSelector.addEventListener("change", () => {
-      state.trendKey = elements.trendSelector.value;
-      renderTrend(trendGroups().find((group) => group.key === state.trendKey));
+    elements.trendProductSelector.addEventListener("change", () => {
+      const selectedProduct = elements.trendProductSelector.value;
+      state.trendKey = trendGroups().find((group) => group.points[0].productKey === selectedProduct)?.key || "";
+      rebuildTrendSelectors();
+    });
+    elements.trendRegionSelector.addEventListener("change", () => {
+      const selectedProduct = elements.trendProductSelector.value;
+      const selectedRegion = elements.trendRegionSelector.value;
+      const group = trendGroups().find((candidate) => {
+        const first = candidate.points[0];
+        return first.productKey === selectedProduct && first.region === selectedRegion;
+      });
+      state.trendKey = group?.key || "";
+      renderTrend(group);
     });
     elements.reset.addEventListener("click", () => {
       Object.assign(state, { region: "all", product: "all", ip: "all", search: "", trendKey: "", startDate: defaultStartDate, endDate: defaultEndDate });

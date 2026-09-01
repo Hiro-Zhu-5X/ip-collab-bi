@@ -515,7 +515,28 @@ input[type="date"] {
 .trend-panel { position: relative; min-height: 460px; }
 .impact-panel { min-height: 460px; }
 
-.compact-select select { min-width: 220px; max-width: 330px; }
+.trend-filters {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.compact-select {
+  display: grid;
+  gap: 5px;
+}
+
+.compact-select span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.compact-select select { min-width: 150px; max-width: 260px; }
+.trend-filters .compact-select:first-child select { min-width: 220px; }
 
 .legend {
   display: flex;
@@ -669,7 +690,10 @@ footer strong { color: var(--ink); }
   .kpi-card strong { font-size: 25px; }
   .section-heading { flex-direction: column; align-items: stretch; }
   .section-heading.compact { flex-direction: row; align-items: center; }
-  .compact-select select { min-width: 0; max-width: none; }
+  .trend-filters { justify-content: stretch; }
+  .compact-select { flex: 1 1 180px; }
+  .compact-select select,
+  .trend-filters .compact-select:first-child select { width: 100%; min-width: 0; max-width: none; }
   .ranking-grades { justify-content: flex-start; }
   .score-standard { align-items: flex-start; flex-direction: column; gap: 5px; }
   .score-plus { display: none; }
