@@ -195,7 +195,7 @@ input:focus-visible { outline: 3px solid rgba(47, 111, 237, 0.24); outline-offse
 
 .filters {
   display: grid;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  grid-template-columns: repeat(5, minmax(145px, 1fr));
   gap: 14px;
 }
 

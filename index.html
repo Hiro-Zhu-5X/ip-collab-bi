@@ -6,7 +6,7 @@
   <meta name="description" content="日本娱乐 IP 与手游联动地区表现 BI">
   <title>日本 IP × 手游联动 BI</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260831-range1">
+  <link rel="stylesheet" href="styles.css?v=20260902-platform1">
 </head>
 <body>
   <header class="topbar">
@@ -28,8 +28,8 @@
       <div>
         <p class="eyebrow">GLOBAL MOBILE COLLAB TRACKER</p>
         <h1 id="page-title">地区联动与榜单影响</h1>
-        <p class="intro-copy">按地区查看不同产品的近期与历史联动，并比较联动前后的免费下载榜·游戏榜与畅销榜·游戏榜变化。当前独立覆盖中、港、台、日、韩、美与 SEA-6。</p>
-        <p class="data-source-note"><strong>数据来源</strong> 七麦：榜单主数据 · AppMagic：交叉验证与历史补充 · 官方公告：联动时间核验</p>
+        <p class="intro-copy">按平台与地区查看不同产品的近期及历史联动，并比较联动前后的免费下载榜·游戏榜与畅销榜·游戏榜变化。当前独立覆盖中、港、台、日、韩、美与 SEA-6。</p>
+        <p class="data-source-note"><strong>数据来源</strong> iOS：七麦优先、AppMagic补缺 · Android：AppMagic Google Play 游戏分类榜 · 官方公告：联动时间核验</p>
       </div>
       <div class="data-date">
         <span>榜单最新日期</span>
@@ -75,6 +75,14 @@
       </div>
       <div class="filters">
         <label>
+          <span>平台</span>
+          <select id="platform-filter">
+            <option value="all">全部平台</option>
+            <option value="ios">iOS</option>
+            <option value="android">Android</option>
+          </select>
+        </label>
+        <label>
           <span>地区</span>
           <select id="region-filter">
             <option value="all">全部地区</option>
@@ -109,10 +117,10 @@
       <article class="kpi-card">
         <span>筛选期联动项目</span>
         <strong id="kpi-products">—</strong>
-        <small>同一项目跨地区只计一次</small>
+        <small>同一项目跨平台与地区只计一次</small>
       </article>
       <article class="kpi-card">
-        <span>已读取产品×地区</span>
+        <span>已读取平台×产品×地区</span>
         <strong id="kpi-read">—</strong>
         <small id="kpi-read-note">—</small>
       </article>
@@ -163,6 +171,10 @@
               <select id="trend-product-selector"></select>
             </label>
             <label class="compact-select">
+              <span>平台</span>
+              <select id="trend-platform-selector"></select>
+            </label>
+            <label class="compact-select">
               <span>地区</span>
               <select id="trend-region-selector"></select>
             </label>
@@ -201,7 +213,7 @@
         <table>
           <thead>
             <tr>
-              <th>地区</th>
+              <th>平台 / 地区</th>
               <th>产品 / IP</th>
               <th>联动时间</th>
               <th>状态</th>
@@ -231,7 +243,7 @@
             <tr>
               <th>产品</th>
               <th>地区 / 版本</th>
-              <th>App ID</th>
+              <th>平台 / Store ID</th>
               <th>免费下载榜·游戏榜</th>
               <th>畅销榜·游戏榜</th>
               <th>数据源页面</th>
@@ -250,7 +262,7 @@
     <span id="history-coverage-text" class="footer-source">正在读取历史库覆盖范围…</span>
   </footer>
 
-  <script src="data/dashboard.js?v=8581ed524a03"></script>
-  <script src="app.js?v=20260901-compact1"></script>
+  <script src="data/dashboard.js?v=f5d4ff7c8064"></script>
+  <script src="app.js?v=20260902-platform1"></script>
 </body>
 </html>

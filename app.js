@@ -10,17 +10,19 @@
   const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
   const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
   const versionByPair = new Map(data.versions.map((version) => [
-    `${version.productKey}|${version.marketCode}`,
+    `${version.platform || "ios"}|${version.productKey}|${version.marketCode}`,
     version,
   ]));
   for (const point of data.trends) {
-    const version = versionByPair.get(`${point.productKey}|${point.marketCode}`);
+    point.platform = point.platform || "ios";
+    const version = versionByPair.get(`${point.platform}|${point.productKey}|${point.marketCode}`);
     point.product = version?.product || productByKey.get(point.productKey) || point.productKey;
     point.region = version?.region || regionByCode.get(point.marketCode) || point.marketCode;
   }
 
   const $ = (selector) => document.querySelector(selector);
   const elements = {
+    platform: $("#platform-filter"),
     region: $("#region-filter"),
     product: $("#product-filter"),
     ip: $("#ip-filter"),
@@ -45,6 +47,7 @@
     ipRankingList: $("#ip-ranking-list"),
     rankingScope: $("#ranking-scope"),
     trendProductSelector: $("#trend-product-selector"),
+    trendPlatformSelector: $("#trend-platform-selector"),
     trendRegionSelector: $("#trend-region-selector"),
     trendChart: $("#trend-chart"),
     trendSubtitle: $("#trend-subtitle"),
@@ -67,7 +70,7 @@
   const maximumTime = maximumDate ? Date.parse(`${maximumDate}T00:00:00Z`) : minimumTime;
   const dateRangeDays = Math.max(0, Math.round((maximumTime - minimumTime) / dayMilliseconds));
   const state = {
-    region: "all", product: "all", ip: "all", search: "", trendKey: "",
+    platform: "all", region: "all", product: "all", ip: "all", search: "", trendKey: "",
     startDate: defaultStartDate, endDate: defaultEndDate,
   };
   const numberFormat = new Intl.NumberFormat("zh-CN");
@@ -142,6 +145,7 @@
     if (String(value).startsWith("已读取")) return "read";
     if (String(value).startsWith("未入榜")) return "unranked";
     if (String(value).startsWith("未读取")) return "unread";
+    if (String(value).startsWith("未提供")) return "unread";
     if (String(value).startsWith("待抓取") || String(value).startsWith("待配置")) return "pending";
     return "";
   }
@@ -181,6 +185,7 @@
   function filteredEvents() {
     const query = state.search.trim().toLocaleLowerCase("zh-CN");
     return data.events.filter((event) => {
+      if (state.platform !== "all" && (event.platform || "ios") !== state.platform) return false;
       if (state.region !== "all" && event.region !== state.region) return false;
       if (state.product !== "all" && event.productKey !== state.product) return false;
       if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
@@ -194,9 +199,12 @@
     const query = state.search.trim().toLocaleLowerCase("zh-CN");
     const relatedProducts = new Set(filteredEvents().map((event) => event.productKey));
     return data.versions.filter((version) => {
+      if (state.platform !== "all" && (version.platform || "ios") !== state.platform) return false;
       if (state.region !== "all" && version.region !== state.region) return false;
       if (state.product !== "all" && version.productKey !== state.product) return false;
-      if ((state.ip !== "all" || query || state.startDate || state.endDate) && !relatedProducts.has(version.productKey)) return false;
+      const requiresEventMatch = state.ip !== "all" || query
+        || (state.product === "all" && (state.startDate || state.endDate));
+      if (requiresEventMatch && !relatedProducts.has(version.productKey)) return false;
       return true;
     });
   }
@@ -237,6 +245,7 @@
       const projects = new Set(ipEvents.map((event) => `${event.productKey || event.product}|${firstIsoDate(event.start)}|${ip}`));
       const scoringProjects = new Set(scoringEvents.map((event) => `${event.productKey || event.product}|${firstIsoDate(event.start)}|${ip}`));
       const regions = new Set(ipEvents.map((event) => event.region));
+      const regionPlatforms = new Set(ipEvents.map((event) => `${event.platform || "ios"}|${event.region}`));
       const grossingDeltas = scoringEvents.map((event) => event.grossing?.delta).filter((value) => typeof value === "number");
       const freeDeltas = scoringEvents.map((event) => event.free?.delta).filter((value) => typeof value === "number");
       const grossingMetric = impactMetric(grossingDeltas);
@@ -252,12 +261,13 @@
       const score = effectScore === null ? null : Math.round(effectScore * 0.70 + activityScore * 0.30);
       const grade = scoreGrade(score);
 
-      const regionHighlights = [...regions].map((region) => {
-        const regionEvents = ipEvents.filter((event) => event.region === region);
+      const regionHighlights = [...regionPlatforms].map((value) => {
+        const [platform, region] = value.split("|");
+        const regionEvents = ipEvents.filter((event) => (event.platform || "ios") === platform && event.region === region);
         const grossing = regionEvents.map((event) => event.grossing?.delta).filter((value) => typeof value === "number").sort((a, b) => a - b)[0];
         const free = regionEvents.map((event) => event.free?.delta).filter((value) => typeof value === "number").sort((a, b) => a - b)[0];
         const delta = typeof grossing === "number" ? grossing : free;
-        return { region, delta, metric: typeof grossing === "number" ? "畅销" : "免费" };
+        return { platform, region, delta, metric: typeof grossing === "number" ? "畅销" : "免费" };
       }).sort((a, b) => {
         if (typeof a.delta !== "number") return 1;
         if (typeof b.delta !== "number") return -1;
@@ -295,7 +305,8 @@
     const best = rankings.find((ranking) => ranking.score !== null);
 
     $("#kpi-events").textContent = numberFormat.format(rankings.length);
-    $("#kpi-events-note").textContent = state.region === "all" ? "全部地区 · 按IP家族去重" : `${state.region} · 按IP家族去重`;
+    const platformScope = state.platform === "all" ? "全部平台" : (state.platform === "android" ? "Android" : "iOS");
+    $("#kpi-events-note").textContent = `${platformScope} · ${state.region === "all" ? "全部地区" : state.region} · 按IP家族去重`;
     $("#kpi-products").textContent = numberFormat.format(projects.size);
     $("#kpi-read").textContent = numberFormat.format(readVersions.length);
     $("#kpi-read-note").textContent = `筛选内共 ${versions.length} 个配置`;
@@ -310,7 +321,8 @@
 
   function renderIpRankings(rankings) {
     const scope = state.region === "all" ? "全部地区" : state.region;
-    elements.rankingScope.textContent = `${scope} · ${state.startDate || minimumDate || "最早"} 至 ${state.endDate || maximumDate || "最新"} · 综合榜单表现和筛选期联动活跃度`;
+    const platformScope = state.platform === "all" ? "全部平台" : (state.platform === "android" ? "Android" : "iOS");
+    elements.rankingScope.textContent = `${platformScope} · ${scope} · ${state.startDate || minimumDate || "最早"} 至 ${state.endDate || maximumDate || "最新"} · 综合榜单表现和筛选期联动活跃度`;
     if (!rankings.length) {
       elements.ipRankingList.innerHTML = '<div class="empty-state">当前筛选条件下没有可排行的IP。</div>';
       return;
@@ -322,7 +334,7 @@
         const effect = typeof item.delta === "number"
           ? `${item.delta < 0 ? "↑" : item.delta > 0 ? "↓" : "→"}${Math.abs(item.delta)}`
           : "无数字";
-        return `<span>${escapeHtml(item.region)} ${effect}</span>`;
+        return `<span>${escapeHtml(item.region)} · ${item.platform === "android" ? "Android" : "iOS"} ${effect}</span>`;
       }).join("");
       return `
         <article class="ip-rank-row">
@@ -375,7 +387,7 @@
           <div class="impact-label">
             <div class="impact-name">
               <strong>${escapeHtml(event.product)}</strong>
-              <span>${escapeHtml(event.region)} · ${escapeHtml(event.ip)}</span>
+              <span>${event.platform === "android" ? "Android" : "iOS"} · ${escapeHtml(event.region)} · ${escapeHtml(event.ip)}</span>
             </div>
             <span class="impact-delta ${decline ? "decline" : ""}">${decline ? "↓" : "↑"}${Math.abs(delta)} 位</span>
           </div>
@@ -398,7 +410,7 @@
         : "";
       return `
         <tr>
-          <td><span class="table-primary">${escapeHtml(event.region)}</span><span class="table-secondary">${escapeHtml(event.serverVersion)}</span></td>
+          <td><span class="table-primary">${event.platform === "android" ? "Android" : "iOS"} · ${escapeHtml(event.region)}</span><span class="table-secondary">${escapeHtml(event.serverVersion)}</span></td>
           <td><span class="table-primary">${escapeHtml(event.product)}</span><span class="table-secondary">${escapeHtml(event.ip)}</span></td>
           <td><span class="table-primary">${escapeHtml(event.start)}</span><span class="table-secondary">${event.end ? `至 ${escapeHtml(event.end)}` : "结束日待补"}</span></td>
           <td><span class="status-chip ${kind}">${escapeHtml(event.status)}</span></td>
@@ -410,17 +422,17 @@
   }
 
   function renderCoverage(versions) {
-    const sorted = [...versions].sort((a, b) => a.region.localeCompare(b.region) || a.product.localeCompare(b.product));
+    const sorted = [...versions].sort((a, b) => (a.platform || "ios").localeCompare(b.platform || "ios") || a.region.localeCompare(b.region) || a.product.localeCompare(b.product));
     elements.coverageCount.textContent = `${sorted.length} 项`;
     elements.coverageEmpty.hidden = sorted.length > 0;
     elements.coverageBody.innerHTML = sorted.map((version) => `
       <tr>
         <td><span class="table-primary">${escapeHtml(version.product)}</span><span class="table-secondary">${escapeHtml(version.productKey)}</span></td>
         <td><span class="table-primary">${escapeHtml(version.region)}</span><span class="table-secondary">${escapeHtml(version.serverVersion)}</span></td>
-        <td>${escapeHtml(version.appId || "—")}</td>
+        <td><span class="table-primary">${version.platform === "android" ? "Android" : "iOS"}</span><span class="table-secondary">${escapeHtml(version.storeId || version.appId || "—")}</span></td>
         <td><span class="status-chip ${statusClass(version.freeStatus)}">${escapeHtml(version.freeStatus || "待抓取")}</span></td>
         <td><span class="status-chip ${statusClass(version.grossingStatus)}">${escapeHtml(version.grossingStatus || "待抓取")}</span></td>
-        <td><div class="source-links">${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">七麦</a>` : ""}${version.appMagicUrl ? `<a href="${escapeHtml(version.appMagicUrl)}" target="_blank" rel="noopener">AppMagic</a>` : ""}${!version.qimaiUrl && !version.appMagicUrl ? "—" : ""}</div></td>
+        <td><div class="source-links">${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">七麦</a>` : ""}${version.appMagicUrl ? `<a href="${escapeHtml(version.appMagicUrl)}" target="_blank" rel="noopener">AppMagic</a>` : ""}${version.storeUrl ? `<a href="${escapeHtml(version.storeUrl)}" target="_blank" rel="noopener">${version.platform === "android" ? "Google Play" : "App Store"}</a>` : ""}${!version.qimaiUrl && !version.appMagicUrl && !version.storeUrl ? "—" : ""}</div></td>
       </tr>`).join("");
   }
 
@@ -428,12 +440,13 @@
     const groups = new Map();
     const relatedProducts = new Set(filteredEvents().map((event) => event.productKey));
     for (const point of data.trends) {
+      if (state.platform !== "all" && point.platform !== state.platform) continue;
       if (state.region !== "all" && point.region !== state.region) continue;
       if (state.product !== "all" && point.productKey !== state.product) continue;
       if (state.startDate && point.date < state.startDate) continue;
       if (state.endDate && point.date > state.endDate) continue;
       if ((state.ip !== "all" || state.search.trim()) && !relatedProducts.has(point.productKey)) continue;
-      const key = `${point.productKey}|${point.region}`;
+      const key = `${point.platform}|${point.productKey}|${point.region}`;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(point);
     }
@@ -457,8 +470,10 @@
     if (!groups.length) {
       state.trendKey = "";
       elements.trendProductSelector.innerHTML = '<option value="">当前筛选没有产品</option>';
+      elements.trendPlatformSelector.innerHTML = '<option value="">当前筛选没有平台</option>';
       elements.trendRegionSelector.innerHTML = '<option value="">当前筛选没有地区</option>';
       elements.trendProductSelector.disabled = true;
+      elements.trendPlatformSelector.disabled = true;
       elements.trendRegionSelector.disabled = true;
       renderTrend();
       return;
@@ -478,8 +493,18 @@
       return `<option value="${escapeHtml(productKey)}" ${productKey === selectedProduct ? "selected" : ""}>${escapeHtml(product)}</option>`;
     }).join("");
 
-    const regionGroups = groups.filter((group) => group.points[0].productKey === selectedProduct);
-    let selectedRegion = currentGroup?.points[0]?.productKey === selectedProduct ? currentGroup.points[0].region : "";
+    const platformGroups = groups.filter((group) => group.points[0].productKey === selectedProduct);
+    let selectedPlatform = currentGroup?.points[0]?.productKey === selectedProduct ? currentGroup.points[0].platform : "";
+    if (!platformGroups.some((group) => group.points[0].platform === selectedPlatform)) {
+      selectedPlatform = platformGroups[0]?.points[0]?.platform || "";
+    }
+    const platformOptions = [...new Map(platformGroups.map((group) => [group.points[0].platform, group])).entries()];
+    elements.trendPlatformSelector.innerHTML = platformOptions.map(([platform]) => (
+      `<option value="${escapeHtml(platform)}" ${platform === selectedPlatform ? "selected" : ""}>${platform === "android" ? "Android" : "iOS"}</option>`
+    )).join("");
+
+    const regionGroups = platformGroups.filter((group) => group.points[0].platform === selectedPlatform);
+    let selectedRegion = currentGroup?.points[0]?.productKey === selectedProduct && currentGroup?.points[0]?.platform === selectedPlatform ? currentGroup.points[0].region : "";
     if (!regionGroups.some((group) => group.points[0].region === selectedRegion)) {
       selectedRegion = regionGroups[0]?.points[0]?.region || "";
     }
@@ -490,6 +515,7 @@
       return `<option value="${escapeHtml(region)}" ${region === selectedRegion ? "selected" : ""}>${escapeHtml(region)}</option>`;
     }).join("");
     elements.trendProductSelector.disabled = false;
+    elements.trendPlatformSelector.disabled = !platformOptions.length;
     elements.trendRegionSelector.disabled = !regionGroups.length;
     renderTrend(selectedGroup);
   }
@@ -524,7 +550,8 @@
 
     const points = group.points;
     const first = points[0];
-    elements.trendSubtitle.textContent = `${first.product} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · 数据源：七麦`;
+    const sources = [...new Set(points.flatMap((point) => [point.freeSource, point.grossingSource]).filter(Boolean))].join(" + ") || "待核验";
+    elements.trendSubtitle.textContent = `${first.product} · ${first.platform === "android" ? "Android" : "iOS"} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · 数据源：${sources}`;
     const width = Math.max(container.clientWidth || 720, 360);
     const height = width < 560 ? 300 : 330;
     const margin = { top: 18, right: 18, bottom: 36, left: 54 };
@@ -547,7 +574,7 @@
     });
     const formatDay = (value) => value.slice(5).replace("-", "/");
 
-    const selectedEvents = filteredEvents().filter((event) => event.productKey === first.productKey && event.region === first.region);
+    const selectedEvents = filteredEvents().filter((event) => (event.platform || "ios") === first.platform && event.productKey === first.productKey && event.region === first.region);
     const bands = selectedEvents.map((event) => {
       const start = firstIsoDate(event.start);
       const end = firstIsoDate(event.end) || start;
@@ -621,11 +648,12 @@
   }
 
   function updateFilterSummary(events, versions) {
+    const platform = state.platform === "all" ? "全部平台" : (state.platform === "android" ? "Android" : "iOS");
     const region = state.region === "all" ? "全部地区" : state.region;
     const product = state.product === "all" ? "全部产品" : (productByKey.get(state.product) || state.product);
     const ip = state.ip === "all" ? "全部IP" : state.ip;
     const period = `${state.startDate || minimumDate || "最早"} 至 ${state.endDate || maximumDate || "最新"}`;
-    elements.summary.textContent = `${period} · ${region} · ${product} · ${ip} · ${events.length} 条地区联动记录 · ${versions.length} 个地区版本配置`;
+    elements.summary.textContent = `${period} · ${platform} · ${region} · ${product} · ${ip} · ${events.length} 条平台×地区联动记录 · ${versions.length} 个平台×地区版本配置`;
   }
 
   function render() {
@@ -642,6 +670,7 @@
   }
 
   function bindControls() {
+    elements.platform.addEventListener("change", () => { state.platform = elements.platform.value; state.trendKey = ""; render(); });
     elements.region.addEventListener("change", () => { state.region = elements.region.value; state.trendKey = ""; render(); });
     elements.product.addEventListener("change", () => { state.product = elements.product.value; state.trendKey = ""; render(); });
     elements.ip.addEventListener("change", () => { state.ip = elements.ip.value; state.trendKey = ""; render(); });
@@ -690,18 +719,29 @@
       state.trendKey = trendGroups().find((group) => group.points[0].productKey === selectedProduct)?.key || "";
       rebuildTrendSelectors();
     });
+    elements.trendPlatformSelector.addEventListener("change", () => {
+      const selectedProduct = elements.trendProductSelector.value;
+      const selectedPlatform = elements.trendPlatformSelector.value;
+      state.trendKey = trendGroups().find((group) => {
+        const first = group.points[0];
+        return first.productKey === selectedProduct && first.platform === selectedPlatform;
+      })?.key || "";
+      rebuildTrendSelectors();
+    });
     elements.trendRegionSelector.addEventListener("change", () => {
       const selectedProduct = elements.trendProductSelector.value;
+      const selectedPlatform = elements.trendPlatformSelector.value;
       const selectedRegion = elements.trendRegionSelector.value;
       const group = trendGroups().find((candidate) => {
         const first = candidate.points[0];
-        return first.productKey === selectedProduct && first.region === selectedRegion;
+        return first.productKey === selectedProduct && first.platform === selectedPlatform && first.region === selectedRegion;
       });
       state.trendKey = group?.key || "";
       renderTrend(group);
     });
     elements.reset.addEventListener("click", () => {
-      Object.assign(state, { region: "all", product: "all", ip: "all", search: "", trendKey: "", startDate: defaultStartDate, endDate: defaultEndDate });
+      Object.assign(state, { platform: "all", region: "all", product: "all", ip: "all", search: "", trendKey: "", startDate: defaultStartDate, endDate: defaultEndDate });
+      elements.platform.value = "all";
       elements.region.value = "all";
       elements.product.value = "all";
       elements.ip.value = "all";
