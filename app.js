@@ -7,6 +7,26 @@
     return;
   }
 
+  if (!Array.isArray(data.trends) && Array.isArray(data.trendsPacked)) {
+    const dictionaries = data.trendDictionaries || {};
+    const platforms = dictionaries.platforms || [];
+    const products = dictionaries.products || [];
+    const markets = dictionaries.markets || [];
+    const sources = dictionaries.sources || [];
+    data.trends = data.trendsPacked.map((row) => ({
+      platform: platforms[row[0]] || "ios",
+      productKey: products[row[1]] || "",
+      marketCode: markets[row[2]] || "",
+      date: row[3] || "",
+      free: row[4],
+      grossing: row[5],
+      freeSource: row[6] >= 0 ? sources[row[6]] || "" : "",
+      grossingSource: row[7] >= 0 ? sources[row[7]] || "" : "",
+    }));
+    delete data.trendsPacked;
+  }
+  if (!Array.isArray(data.trends)) data.trends = [];
+
   const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
   const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
   const platformByCode = new Map((data.meta.platforms || []).map((platform) => [platform.code, platform.name]));
