@@ -28,8 +28,8 @@
       <div>
         <p class="eyebrow">GLOBAL MOBILE COLLAB TRACKER</p>
         <h1 id="page-title">地区联动与榜单影响</h1>
-        <p class="intro-copy">按平台与地区查看不同产品的近期及历史联动，并比较联动前后的免费下载榜·游戏榜与畅销榜·游戏榜变化。当前独立覆盖中、港、台、日、韩、美与 SEA-6。</p>
-        <p class="data-source-note"><strong>数据来源</strong> iOS：七麦优先、AppMagic补缺 · Android：AppMagic Google Play 游戏分类榜 · 官方公告：联动时间核验</p>
+        <p class="intro-copy">按平台与地区查看不同产品的近期及历史联动，并比较联动前后的免费下载榜·游戏榜与畅销榜·游戏榜变化。当前独立覆盖中、港、台、日、韩、美与 SEA-6，并将中国小游戏按具体渠道独立统计。</p>
+        <p class="data-source-note"><strong>数据来源</strong> iOS：七麦优先、AppMagic补缺 · Android：AppMagic Google Play 游戏分类榜 · 微信小游戏：应用宝公开畅销榜、MomoRank Top 10核对 · 官方公告：联动时间核验</p>
       </div>
       <div class="data-date">
         <span>榜单最新日期</span>
@@ -78,8 +78,6 @@
           <span>平台</span>
           <select id="platform-filter">
             <option value="all">全部平台</option>
-            <option value="ios">iOS</option>
-            <option value="android">Android</option>
           </select>
         </label>
         <label>
@@ -259,10 +257,11 @@
   <footer>
     <strong>口径说明</strong>
     <span id="definition-text">联动后排名－联动前排名；负数代表排名上升。</span>
+    <span id="minigame-coverage-text" class="footer-source">正在读取小游戏覆盖口径…</span>
     <span id="history-coverage-text" class="footer-source">正在读取历史库覆盖范围…</span>
   </footer>
 
-  <script src="data/dashboard.js?v=f5d4ff7c8064"></script>
-  <script src="app.js?v=20260902-platform1"></script>
+  <script src="data/dashboard.js?v=f70acc3a50eb"></script>
+  <script src="app.js?v=20260903-minigame3"></script>
 </body>
 </html>

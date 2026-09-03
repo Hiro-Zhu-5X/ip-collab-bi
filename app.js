@@ -9,6 +9,7 @@
 
   const regionByCode = new Map(data.regions.map((region) => [region.code, region.name]));
   const productByKey = new Map(data.products.map((product) => [product.key, product.name]));
+  const platformByCode = new Map((data.meta.platforms || []).map((platform) => [platform.code, platform.name]));
   const versionByPair = new Map(data.versions.map((version) => [
     `${version.platform || "ios"}|${version.productKey}|${version.marketCode}`,
     version,
@@ -125,7 +126,15 @@
   function sourceLabel(url) {
     if (/qimai\.cn/i.test(url)) return "七麦";
     if (/appmagic\.rocks/i.test(url)) return "AppMagic";
+    if (/sj\.qq\.com\/wechat-game/i.test(url)) return "应用宝小游戏榜";
+    if (/momorank\.com/i.test(url)) return "MomoRank";
+    if (/taptap\.cn/i.test(url)) return "TapTap";
+    if (/scla\.com\.cn/i.test(url)) return "版权方公告";
     return "官方/媒体";
+  }
+
+  function platformName(code) {
+    return platformByCode.get(code || "ios") || code || "iOS";
   }
 
   function formatTimestamp(value) {
@@ -146,6 +155,7 @@
     if (String(value).startsWith("未入榜")) return "unranked";
     if (String(value).startsWith("未读取")) return "unread";
     if (String(value).startsWith("未提供")) return "unread";
+    if (String(value).startsWith("公开范围外")) return "pending";
     if (String(value).startsWith("待抓取") || String(value).startsWith("待配置")) return "pending";
     return "";
   }
@@ -160,6 +170,9 @@
   }
 
   function populateFilters() {
+    for (const platform of data.meta.platforms || []) {
+      elements.platform.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(platform.code)}">${escapeHtml(platform.name)}</option>`);
+    }
     for (const region of data.regions) {
       elements.region.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(region.name)}">${escapeHtml(region.name)}</option>`);
     }
@@ -197,13 +210,22 @@
 
   function filteredVersions() {
     const query = state.search.trim().toLocaleLowerCase("zh-CN");
-    const relatedProducts = new Set(filteredEvents().map((event) => event.productKey));
+    const relatedProducts = new Set(data.events.filter((event) => {
+      if (state.platform !== "all" && (event.platform || "ios") !== state.platform) return false;
+      if (state.region !== "all" && event.region !== state.region) return false;
+      if (state.product !== "all" && event.productKey !== state.product) return false;
+      if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
+      if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
+      return true;
+    }).map((event) => event.productKey));
     return data.versions.filter((version) => {
       if (state.platform !== "all" && (version.platform || "ios") !== state.platform) return false;
       if (state.region !== "all" && version.region !== state.region) return false;
       if (state.product !== "all" && version.productKey !== state.product) return false;
-      const requiresEventMatch = state.ip !== "all" || query
-        || (state.product === "all" && (state.startDate || state.endDate));
+      // Coverage describes the latest channel-read state, not an event in the
+      // selected period. Only filters that semantically target an event/IP
+      // should narrow it through the period-filtered event set.
+      const requiresEventMatch = state.ip !== "all" || query;
       if (requiresEventMatch && !relatedProducts.has(version.productKey)) return false;
       return true;
     });
@@ -305,7 +327,7 @@
     const best = rankings.find((ranking) => ranking.score !== null);
 
     $("#kpi-events").textContent = numberFormat.format(rankings.length);
-    const platformScope = state.platform === "all" ? "全部平台" : (state.platform === "android" ? "Android" : "iOS");
+    const platformScope = state.platform === "all" ? "全部平台" : platformName(state.platform);
     $("#kpi-events-note").textContent = `${platformScope} · ${state.region === "all" ? "全部地区" : state.region} · 按IP家族去重`;
     $("#kpi-products").textContent = numberFormat.format(projects.size);
     $("#kpi-read").textContent = numberFormat.format(readVersions.length);
@@ -321,7 +343,7 @@
 
   function renderIpRankings(rankings) {
     const scope = state.region === "all" ? "全部地区" : state.region;
-    const platformScope = state.platform === "all" ? "全部平台" : (state.platform === "android" ? "Android" : "iOS");
+    const platformScope = state.platform === "all" ? "全部平台" : platformName(state.platform);
     elements.rankingScope.textContent = `${platformScope} · ${scope} · ${state.startDate || minimumDate || "最早"} 至 ${state.endDate || maximumDate || "最新"} · 综合榜单表现和筛选期联动活跃度`;
     if (!rankings.length) {
       elements.ipRankingList.innerHTML = '<div class="empty-state">当前筛选条件下没有可排行的IP。</div>';
@@ -334,7 +356,7 @@
         const effect = typeof item.delta === "number"
           ? `${item.delta < 0 ? "↑" : item.delta > 0 ? "↓" : "→"}${Math.abs(item.delta)}`
           : "无数字";
-        return `<span>${escapeHtml(item.region)} · ${item.platform === "android" ? "Android" : "iOS"} ${effect}</span>`;
+        return `<span>${escapeHtml(item.region)} · ${escapeHtml(platformName(item.platform))} ${effect}</span>`;
       }).join("");
       return `
         <article class="ip-rank-row">
@@ -387,7 +409,7 @@
           <div class="impact-label">
             <div class="impact-name">
               <strong>${escapeHtml(event.product)}</strong>
-              <span>${event.platform === "android" ? "Android" : "iOS"} · ${escapeHtml(event.region)} · ${escapeHtml(event.ip)}</span>
+              <span>${escapeHtml(platformName(event.platform))} · ${escapeHtml(event.region)} · ${escapeHtml(event.ip)}</span>
             </div>
             <span class="impact-delta ${decline ? "decline" : ""}">${decline ? "↓" : "↑"}${Math.abs(delta)} 位</span>
           </div>
@@ -410,7 +432,7 @@
         : "";
       return `
         <tr>
-          <td><span class="table-primary">${event.platform === "android" ? "Android" : "iOS"} · ${escapeHtml(event.region)}</span><span class="table-secondary">${escapeHtml(event.serverVersion)}</span></td>
+          <td><span class="table-primary">${escapeHtml(platformName(event.platform))} · ${escapeHtml(event.region)}</span><span class="table-secondary">${escapeHtml(event.serverVersion)}</span></td>
           <td><span class="table-primary">${escapeHtml(event.product)}</span><span class="table-secondary">${escapeHtml(event.ip)}</span></td>
           <td><span class="table-primary">${escapeHtml(event.start)}</span><span class="table-secondary">${event.end ? `至 ${escapeHtml(event.end)}` : "结束日待补"}</span></td>
           <td><span class="status-chip ${kind}">${escapeHtml(event.status)}</span></td>
@@ -429,10 +451,10 @@
       <tr>
         <td><span class="table-primary">${escapeHtml(version.product)}</span><span class="table-secondary">${escapeHtml(version.productKey)}</span></td>
         <td><span class="table-primary">${escapeHtml(version.region)}</span><span class="table-secondary">${escapeHtml(version.serverVersion)}</span></td>
-        <td><span class="table-primary">${version.platform === "android" ? "Android" : "iOS"}</span><span class="table-secondary">${escapeHtml(version.storeId || version.appId || "—")}</span></td>
+        <td><span class="table-primary">${escapeHtml(platformName(version.platform))}</span><span class="table-secondary">${escapeHtml(version.storeId || version.appId || "—")}</span></td>
         <td><span class="status-chip ${statusClass(version.freeStatus)}">${escapeHtml(version.freeStatus || "待抓取")}</span></td>
         <td><span class="status-chip ${statusClass(version.grossingStatus)}">${escapeHtml(version.grossingStatus || "待抓取")}</span></td>
-        <td><div class="source-links">${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">七麦</a>` : ""}${version.appMagicUrl ? `<a href="${escapeHtml(version.appMagicUrl)}" target="_blank" rel="noopener">AppMagic</a>` : ""}${version.storeUrl ? `<a href="${escapeHtml(version.storeUrl)}" target="_blank" rel="noopener">${version.platform === "android" ? "Google Play" : "App Store"}</a>` : ""}${!version.qimaiUrl && !version.appMagicUrl && !version.storeUrl ? "—" : ""}</div></td>
+        <td><div class="source-links">${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">七麦</a>` : ""}${version.appMagicUrl ? `<a href="${escapeHtml(version.appMagicUrl)}" target="_blank" rel="noopener">AppMagic</a>` : ""}${version.rankUrl ? `<a href="${escapeHtml(version.rankUrl)}" target="_blank" rel="noopener">渠道榜单</a>` : ""}${version.storeUrl ? `<a href="${escapeHtml(version.storeUrl)}" target="_blank" rel="noopener">${String(version.platform).endsWith("_minigame") ? "小游戏页" : (version.platform === "android" ? "Google Play" : "App Store")}</a>` : ""}${!version.qimaiUrl && !version.appMagicUrl && !version.rankUrl && !version.storeUrl ? "—" : ""}</div></td>
       </tr>`).join("");
   }
 
@@ -500,7 +522,7 @@
     }
     const platformOptions = [...new Map(platformGroups.map((group) => [group.points[0].platform, group])).entries()];
     elements.trendPlatformSelector.innerHTML = platformOptions.map(([platform]) => (
-      `<option value="${escapeHtml(platform)}" ${platform === selectedPlatform ? "selected" : ""}>${platform === "android" ? "Android" : "iOS"}</option>`
+      `<option value="${escapeHtml(platform)}" ${platform === selectedPlatform ? "selected" : ""}>${escapeHtml(platformName(platform))}</option>`
     )).join("");
 
     const regionGroups = platformGroups.filter((group) => group.points[0].platform === selectedPlatform);
@@ -551,7 +573,7 @@
     const points = group.points;
     const first = points[0];
     const sources = [...new Set(points.flatMap((point) => [point.freeSource, point.grossingSource]).filter(Boolean))].join(" + ") || "待核验";
-    elements.trendSubtitle.textContent = `${first.product} · ${first.platform === "android" ? "Android" : "iOS"} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · 数据源：${sources}`;
+    elements.trendSubtitle.textContent = `${first.product} · ${platformName(first.platform)} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · 数据源：${sources}`;
     const width = Math.max(container.clientWidth || 720, 360);
     const height = width < 560 ? 300 : 330;
     const margin = { top: 18, right: 18, bottom: 36, left: 54 };
@@ -567,11 +589,10 @@
     const y = (rank) => margin.top + ((rank - minRank) / Math.max(1, maxRank - minRank)) * plotHeight;
 
     const yTicks = Array.from({ length: 5 }, (_, index) => Math.round(minRank + (maxRank - minRank) * index / 4));
-    const xTickCount = width < 560 ? 3 : 5;
-    const xTicks = Array.from({ length: xTickCount }, (_, index) => {
-      const pointIndex = Math.round((points.length - 1) * index / Math.max(1, xTickCount - 1));
-      return points[pointIndex];
-    });
+    const xTickCount = Math.min(points.length, width < 560 ? 3 : 5);
+    const xTicks = [...new Set(Array.from({ length: xTickCount }, (_, index) => (
+      Math.round((points.length - 1) * index / Math.max(1, xTickCount - 1))
+    )))].map((pointIndex) => points[pointIndex]);
     const formatDay = (value) => value.slice(5).replace("-", "/");
 
     const selectedEvents = filteredEvents().filter((event) => (event.platform || "ios") === first.platform && event.productKey === first.productKey && event.region === first.region);
@@ -648,7 +669,7 @@
   }
 
   function updateFilterSummary(events, versions) {
-    const platform = state.platform === "all" ? "全部平台" : (state.platform === "android" ? "Android" : "iOS");
+    const platform = state.platform === "all" ? "全部平台" : platformName(state.platform);
     const region = state.region === "all" ? "全部地区" : state.region;
     const product = state.product === "all" ? "全部产品" : (productByKey.get(state.product) || state.product);
     const ip = state.ip === "all" ? "全部IP" : state.ip;
@@ -762,6 +783,7 @@
   $("#latest-rank-date").textContent = data.meta.latestRankDate || "暂无";
   $("#definition-text").textContent = `${data.meta.definitions.delta}；${data.meta.definitions.missing}`;
   $("#history-coverage-text").textContent = `${data.meta.definitions.historyCoverage} ${data.meta.definitions.historyRankPolicy} ${data.meta.definitions.historyRankComparison || ""} ${data.meta.definitions.historyRankAttribution || ""}`;
+  $("#minigame-coverage-text").textContent = data.meta.definitions.minigameCoverage || "小游戏渠道数据尚未接入。";
   populateFilters();
   bindControls();
   render();
