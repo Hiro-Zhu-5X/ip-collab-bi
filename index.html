@@ -181,8 +181,10 @@
         <div class="legend" aria-label="榜单图例">
           <span id="trend-secondary-label"><i class="legend-line free"></i>免费下载 / 人气热门榜</span>
           <span><i class="legend-line grossing"></i>畅销榜·游戏榜</span>
+          <span><i class="legend-window"></i>联动时间</span>
           <span class="rank-hint">排名数字越小越好</span>
         </div>
+        <div id="trend-event-summary" class="trend-event-summary" aria-live="polite"></div>
         <div id="trend-chart" class="chart-area" role="img" aria-label="榜单趋势折线图"></div>
         <div id="trend-tooltip" class="chart-tooltip" hidden></div>
       </article>
@@ -217,7 +219,6 @@
               <th>状态</th>
               <th id="event-secondary-label">免费下载 / 人气热门榜</th>
               <th>畅销榜·游戏榜</th>
-              <th>核验与来源</th>
             </tr>
           </thead>
           <tbody id="event-table-body"></tbody>
@@ -262,6 +263,6 @@
   </footer>
 
   <script src="data/dashboard.js?v=9d09d322be4b"></script>
-  <script src="app.js?v=20260904-minigame-popular1"></script>
+  <script src="app.js?v=20260904-filtered-trend1"></script>
 </body>
 </html>

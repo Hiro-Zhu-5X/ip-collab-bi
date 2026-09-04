@@ -72,6 +72,7 @@
     trendRegionSelector: $("#trend-region-selector"),
     trendChart: $("#trend-chart"),
     trendSubtitle: $("#trend-subtitle"),
+    trendEventSummary: $("#trend-event-summary"),
     trendTooltip: $("#trend-tooltip"),
     scoreSecondaryLabel: $("#score-secondary-label"),
     trendSecondaryLabel: $("#trend-secondary-label"),
@@ -147,16 +148,6 @@
     return true;
   }
 
-  function sourceLabel(url) {
-    if (/qimai\.cn/i.test(url)) return "七麦";
-    if (/appmagic\.rocks/i.test(url)) return "AppMagic";
-    if (/sj\.qq\.com\/wechat-game/i.test(url)) return "应用宝小游戏榜";
-    if (/momorank\.com/i.test(url)) return "MomoRank";
-    if (/taptap\.cn/i.test(url)) return "TapTap";
-    if (/scla\.com\.cn/i.test(url)) return "版权方公告";
-    return "官方/媒体";
-  }
-
   function platformName(code) {
     return platformByCode.get(code || "ios") || code || "iOS";
   }
@@ -209,19 +200,6 @@
   }
 
   function populateFilters() {
-    for (const platform of data.meta.platforms || []) {
-      elements.platform.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(platform.code)}">${escapeHtml(platform.name)}</option>`);
-    }
-    for (const region of data.regions) {
-      elements.region.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(region.name)}">${escapeHtml(region.name)}</option>`);
-    }
-    for (const product of data.products) {
-      elements.product.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(product.key)}">${escapeHtml(product.name)}</option>`);
-    }
-    const ipFamilies = [...new Set(data.events.map((event) => event.ipFamily || event.ip))].sort((a, b) => a.localeCompare(b));
-    for (const ip of ipFamilies) {
-      elements.ip.insertAdjacentHTML("beforeend", `<option value="${escapeHtml(ip)}">${escapeHtml(ip)}</option>`);
-    }
     for (const input of [elements.startDate, elements.endDate]) {
       input.min = minimumDate;
       input.max = maximumDate;
@@ -234,40 +212,89 @@
     syncRangeControls();
   }
 
-  function filteredEvents() {
+  function eventMatches(event, ignoredDimension = "") {
     const query = state.search.trim().toLocaleLowerCase("zh-CN");
-    return data.events.filter((event) => {
-      if (state.platform !== "all" && (event.platform || "ios") !== state.platform) return false;
-      if (state.region !== "all" && event.region !== state.region) return false;
-      if (state.product !== "all" && event.productKey !== state.product) return false;
-      if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
-      if (!eventInPeriod(event)) return false;
-      if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
-      return true;
-    });
+    if (ignoredDimension !== "platform" && state.platform !== "all" && (event.platform || "ios") !== state.platform) return false;
+    if (ignoredDimension !== "region" && state.region !== "all" && event.region !== state.region) return false;
+    if (ignoredDimension !== "product" && state.product !== "all" && event.productKey !== state.product) return false;
+    if (ignoredDimension !== "ip" && state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
+    if (!eventInPeriod(event)) return false;
+    if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
+    return true;
+  }
+
+  function facetOptions(dimension) {
+    const values = new Set();
+    for (const event of data.events) {
+      if (!eventMatches(event, dimension)) continue;
+      if (dimension === "platform") values.add(event.platform || "ios");
+      if (dimension === "region") values.add(event.region);
+      if (dimension === "product") values.add(event.productKey);
+      if (dimension === "ip") values.add(event.ipFamily || event.ip);
+    }
+
+    if (dimension === "platform") {
+      const order = new Map((data.meta.platforms || []).map((platform, index) => [platform.code, index]));
+      return [...values].filter(Boolean).sort((a, b) => (order.get(a) ?? 999) - (order.get(b) ?? 999) || a.localeCompare(b));
+    }
+    if (dimension === "region") {
+      const order = new Map(data.regions.map((region, index) => [region.name, index]));
+      return [...values].filter(Boolean).sort((a, b) => (order.get(a) ?? 999) - (order.get(b) ?? 999) || a.localeCompare(b));
+    }
+    if (dimension === "product") {
+      return [...values].filter(Boolean).sort((a, b) => (productByKey.get(a) || a).localeCompare(productByKey.get(b) || b));
+    }
+    return [...values].filter(Boolean).sort((a, b) => a.localeCompare(b));
+  }
+
+  function facetLabel(dimension, value) {
+    if (dimension === "platform") return platformName(value);
+    if (dimension === "product") return productByKey.get(value) || value;
+    return value;
+  }
+
+  function syncFacetFilters() {
+    const definitions = [
+      ["platform", elements.platform, "全部平台"],
+      ["region", elements.region, "全部地区"],
+      ["product", elements.product, "全部产品"],
+      ["ip", elements.ip, "全部IP"],
+    ];
+
+    // Date and keyword changes can invalidate several active facets at once.
+    // Repeat until every retained selection exists in the same result set.
+    for (let pass = 0; pass < definitions.length; pass += 1) {
+      let changed = false;
+      for (const [dimension] of definitions) {
+        if (state[dimension] === "all") continue;
+        if (!facetOptions(dimension).includes(state[dimension])) {
+          state[dimension] = "all";
+          changed = true;
+        }
+      }
+      if (!changed) break;
+    }
+
+    for (const [dimension, select, allLabel] of definitions) {
+      const options = facetOptions(dimension);
+      select.innerHTML = `<option value="all">${allLabel}</option>${options.map((value) => (
+        `<option value="${escapeHtml(value)}">${escapeHtml(facetLabel(dimension, value))}</option>`
+      )).join("")}`;
+      select.value = state[dimension];
+    }
+  }
+
+  function filteredEvents() {
+    return data.events.filter((event) => eventMatches(event));
   }
 
   function filteredVersions() {
-    const query = state.search.trim().toLocaleLowerCase("zh-CN");
-    const relatedProducts = new Set(data.events.filter((event) => {
-      if (state.platform !== "all" && (event.platform || "ios") !== state.platform) return false;
-      if (state.region !== "all" && event.region !== state.region) return false;
-      if (state.product !== "all" && event.productKey !== state.product) return false;
-      if (state.ip !== "all" && (event.ipFamily || event.ip) !== state.ip) return false;
-      if (query && !`${event.product} ${event.ip} ${event.ipFamily || ""}`.toLocaleLowerCase("zh-CN").includes(query)) return false;
-      return true;
-    }).map((event) => event.productKey));
-    return data.versions.filter((version) => {
-      if (state.platform !== "all" && (version.platform || "ios") !== state.platform) return false;
-      if (state.region !== "all" && version.region !== state.region) return false;
-      if (state.product !== "all" && version.productKey !== state.product) return false;
-      // Coverage describes the latest channel-read state, not an event in the
-      // selected period. Only filters that semantically target an event/IP
-      // should narrow it through the period-filtered event set.
-      const requiresEventMatch = state.ip !== "all" || query;
-      if (requiresEventMatch && !relatedProducts.has(version.productKey)) return false;
-      return true;
-    });
+    const combinations = new Set(filteredEvents().map((event) => (
+      `${event.platform || "ios"}|${event.productKey}|${event.region}`
+    )));
+    return data.versions.filter((version) => combinations.has(
+      `${version.platform || "ios"}|${version.productKey}|${version.region}`
+    ));
   }
 
   function average(values) {
@@ -462,13 +489,7 @@
     elements.eventCount.textContent = `${sorted.length} 条`;
     elements.eventEmpty.hidden = sorted.length > 0;
     elements.eventBody.innerHTML = sorted.map((event) => {
-      const sources = event.sources.length
-        ? event.sources.map((source) => `<a href="${escapeHtml(source)}" target="_blank" rel="noopener">${sourceLabel(source)}</a>`).join("")
-        : '<span class="table-secondary">暂无链接</span>';
       const kind = eventStatusKind(event);
-      const validation = event.appMagicValidation
-        ? `<div class="cross-validation"><strong>AppMagic核对</strong> 畅销榜 ${event.appMagicValidation.grossing.before}→${event.appMagicValidation.grossing.after}（${event.appMagicValidation.grossingDelta > 0 ? "+" : ""}${event.appMagicValidation.grossingDelta}），${escapeHtml(event.appMagicValidation.consistency)}</div>`
-        : "";
       return `
         <tr>
           <td><span class="table-primary">${escapeHtml(platformName(event.platform))} · ${escapeHtml(event.region)}</span><span class="table-secondary">${escapeHtml(event.serverVersion)}</span></td>
@@ -477,7 +498,6 @@
           <td><span class="status-chip ${kind}">${escapeHtml(event.status)}</span></td>
           <td>${rankChangeHtml(event.free)}</td>
           <td>${rankChangeHtml(event.grossing)}</td>
-          <td><div class="verification">${escapeHtml(event.verification)}</div>${validation}<div class="source-list">${sources}</div></td>
         </tr>`;
     }).join("");
   }
@@ -499,15 +519,17 @@
 
   function trendGroups() {
     const groups = new Map();
-    const relatedProducts = new Set(filteredEvents().map((event) => event.productKey));
+    const relatedCombinations = new Set(filteredEvents().map((event) => (
+      `${event.platform || "ios"}|${event.productKey}|${event.region}`
+    )));
     for (const point of data.trends) {
       if (state.platform !== "all" && point.platform !== state.platform) continue;
       if (state.region !== "all" && point.region !== state.region) continue;
       if (state.product !== "all" && point.productKey !== state.product) continue;
       if (state.startDate && point.date < state.startDate) continue;
       if (state.endDate && point.date > state.endDate) continue;
-      if ((state.ip !== "all" || state.search.trim()) && !relatedProducts.has(point.productKey)) continue;
       const key = `${point.platform}|${point.productKey}|${point.region}`;
+      if (!relatedCombinations.has(key)) continue;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(point);
     }
@@ -605,6 +627,7 @@
     elements.trendTooltip.hidden = true;
     if (!group?.points?.length) {
       elements.trendSubtitle.textContent = "当前筛选范围没有可绘制的趋势点";
+      elements.trendEventSummary.innerHTML = "";
       container.innerHTML = `<svg viewBox="0 0 720 320" aria-label="没有趋势数据"><text class="empty-label" x="360" y="160" text-anchor="middle">暂无${escapeHtml(secondaryMetricLabel(state.platform))}或畅销榜排名</text></svg>`;
       return;
     }
@@ -613,14 +636,28 @@
     const first = points[0];
     const secondaryLabel = secondaryMetricLabel(first.platform);
     const sources = [...new Set(points.flatMap((point) => [point.freeSource, point.grossingSource]).filter(Boolean))].join(" + ") || "待核验";
-    elements.trendSubtitle.textContent = `${first.product} · ${platformName(first.platform)} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · 数据源：${sources}`;
+    const selectedEvents = filteredEvents()
+      .filter((event) => (event.platform || "ios") === first.platform && event.productKey === first.productKey && event.region === first.region)
+      .sort((a, b) => firstIsoDate(a.start).localeCompare(firstIsoDate(b.start)) || a.ip.localeCompare(b.ip));
+    elements.trendSubtitle.textContent = `${first.product} · ${platformName(first.platform)} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · ${selectedEvents.length} 个联动 · 数据源：${sources}`;
+    elements.trendEventSummary.innerHTML = selectedEvents.length
+      ? `<strong>联动时间</strong>${selectedEvents.map((event, index) => {
+        const start = firstIsoDate(event.start) || event.start || "开始日待补";
+        const end = firstIsoDate(event.end) || event.end || "结束日待补";
+        return `<span><b>${index + 1}</b>${escapeHtml(event.ip)}：${escapeHtml(start)} — ${escapeHtml(end)}</span>`;
+      }).join("")}`
+      : '<span>当前趋势范围没有对应联动记录</span>';
     const width = Math.max(container.clientWidth || 720, 360);
     const height = width < 560 ? 300 : 330;
-    const margin = { top: 18, right: 18, bottom: 36, left: 54 };
+    const margin = { top: selectedEvents.length ? 46 : 18, right: 18, bottom: 36, left: 54 };
     const plotWidth = width - margin.left - margin.right;
     const plotHeight = height - margin.top - margin.bottom;
     const dates = points.map((point) => new Date(`${point.date}T00:00:00Z`));
     const ranks = points.flatMap((point) => [point.free, point.grossing]).filter((value) => typeof value === "number");
+    if (!ranks.length) {
+      container.innerHTML = `<svg viewBox="0 0 720 320" aria-label="没有趋势数据"><text class="empty-label" x="360" y="160" text-anchor="middle">所选项目没有可绘制的榜单排名</text></svg>`;
+      return;
+    }
     const minTime = Math.min(...dates.map(Number));
     const maxTime = Math.max(...dates.map(Number));
     const minRank = Math.max(1, Math.floor(Math.min(...ranks) * 0.9));
@@ -635,8 +672,7 @@
     )))].map((pointIndex) => points[pointIndex]);
     const formatDay = (value) => value.slice(5).replace("-", "/");
 
-    const selectedEvents = filteredEvents().filter((event) => (event.platform || "ios") === first.platform && event.productKey === first.productKey && event.region === first.region);
-    const bands = selectedEvents.map((event) => {
+    const bands = selectedEvents.map((event, index) => {
       const start = firstIsoDate(event.start);
       const end = firstIsoDate(event.end) || start;
       if (!start) return "";
@@ -645,7 +681,16 @@
       if (bandEnd < minTime || bandStart > maxTime) return "";
       const left = x(new Date(bandStart));
       const right = x(new Date(bandEnd));
-      return `<rect class="event-band" x="${left.toFixed(1)}" y="${margin.top}" width="${Math.max(2, right - left).toFixed(1)}" height="${plotHeight}"><title>${escapeHtml(event.ip)} 联动期</title></rect>`;
+      const labelY = 15 + (index % 2) * 15;
+      const startInside = Number(new Date(`${start}T00:00:00Z`)) >= minTime && Number(new Date(`${start}T00:00:00Z`)) <= maxTime;
+      const endInside = firstIsoDate(event.end) && Number(new Date(`${firstIsoDate(event.end)}T00:00:00Z`)) >= minTime && Number(new Date(`${firstIsoDate(event.end)}T00:00:00Z`)) <= maxTime;
+      const startMarker = startInside
+        ? `<line class="event-boundary start" x1="${left.toFixed(1)}" x2="${left.toFixed(1)}" y1="${margin.top}" y2="${margin.top + plotHeight}"></line><text class="event-marker-label" x="${Math.min(width - margin.right - 42, left + 4).toFixed(1)}" y="${labelY}">#${index + 1} 开始</text>`
+        : "";
+      const endMarker = endInside && right - left > 1
+        ? `<line class="event-boundary end" x1="${right.toFixed(1)}" x2="${right.toFixed(1)}" y1="${margin.top}" y2="${margin.top + plotHeight}"></line><text class="event-marker-label end" x="${Math.max(margin.left + 42, right - 4).toFixed(1)}" y="${labelY}" text-anchor="end">#${index + 1} 结束</text>`
+        : "";
+      return `<rect class="event-band" x="${left.toFixed(1)}" y="${margin.top}" width="${Math.max(2, right - left).toFixed(1)}" height="${plotHeight}"><title>#${index + 1} ${escapeHtml(event.ip)}：${escapeHtml(start)} — ${escapeHtml(firstIsoDate(event.end) || "结束日待补")}</title></rect>${startMarker}${endMarker}`;
     }).join("");
 
     const grid = yTicks.map((tick) => `
@@ -718,6 +763,7 @@
   }
 
   function render() {
+    syncFacetFilters();
     const events = filteredEvents();
     const versions = filteredVersions();
     const rankings = buildIpRankings(events);
