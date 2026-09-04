@@ -73,6 +73,10 @@
     trendChart: $("#trend-chart"),
     trendSubtitle: $("#trend-subtitle"),
     trendTooltip: $("#trend-tooltip"),
+    scoreSecondaryLabel: $("#score-secondary-label"),
+    trendSecondaryLabel: $("#trend-secondary-label"),
+    eventSecondaryLabel: $("#event-secondary-label"),
+    coverageSecondaryLabel: $("#coverage-secondary-label"),
   };
 
   const observedDates = [
@@ -155,6 +159,21 @@
 
   function platformName(code) {
     return platformByCode.get(code || "ios") || code || "iOS";
+  }
+
+  function secondaryMetricLabel(platform) {
+    if (platform === "wechat_minigame") return "人气榜";
+    if (platform === "douyin_minigame") return "热门榜";
+    if (platform === "all") return "免费下载 / 小游戏人气热门榜";
+    return "免费下载榜·游戏榜";
+  }
+
+  function updateMetricLabels() {
+    const label = secondaryMetricLabel(state.platform);
+    elements.scoreSecondaryLabel.textContent = `榜单表现内部：畅销榜80%＋${label}20%`;
+    elements.trendSecondaryLabel.innerHTML = `<i class="legend-line free"></i>${escapeHtml(label)}`;
+    elements.eventSecondaryLabel.textContent = label;
+    elements.coverageSecondaryLabel.textContent = label;
   }
 
   function formatTimestamp(value) {
@@ -395,7 +414,7 @@
             <dl>
               <div><dt>畅销最佳</dt><dd>${liftLabel(ranking.bestGrossingLift)}</dd></div>
               <div><dt>畅销均值</dt><dd>${liftLabel(ranking.averageGrossingLift)}</dd></div>
-              <div><dt>免费最佳</dt><dd>${liftLabel(ranking.bestFreeLift)}</dd></div>
+              <div><dt>${escapeHtml(secondaryMetricLabel(state.platform))}最佳</dt><dd>${liftLabel(ranking.bestFreeLift)}</dd></div>
             </dl>
           </div>
         </article>`;
@@ -474,7 +493,7 @@
         <td><span class="table-primary">${escapeHtml(platformName(version.platform))}</span><span class="table-secondary">${escapeHtml(version.storeId || version.appId || "—")}</span></td>
         <td><span class="status-chip ${statusClass(version.freeStatus)}">${escapeHtml(version.freeStatus || "待抓取")}</span></td>
         <td><span class="status-chip ${statusClass(version.grossingStatus)}">${escapeHtml(version.grossingStatus || "待抓取")}</span></td>
-        <td><div class="source-links">${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">七麦</a>` : ""}${version.appMagicUrl ? `<a href="${escapeHtml(version.appMagicUrl)}" target="_blank" rel="noopener">AppMagic</a>` : ""}${version.rankUrl ? `<a href="${escapeHtml(version.rankUrl)}" target="_blank" rel="noopener">渠道榜单</a>` : ""}${version.storeUrl ? `<a href="${escapeHtml(version.storeUrl)}" target="_blank" rel="noopener">${String(version.platform).endsWith("_minigame") ? "小游戏页" : (version.platform === "android" ? "Google Play" : "App Store")}</a>` : ""}${!version.qimaiUrl && !version.appMagicUrl && !version.rankUrl && !version.storeUrl ? "—" : ""}</div></td>
+        <td><div class="source-links">${version.qimaiUrl ? `<a href="${escapeHtml(version.qimaiUrl)}" target="_blank" rel="noopener">七麦</a>` : ""}${version.appMagicUrl ? `<a href="${escapeHtml(version.appMagicUrl)}" target="_blank" rel="noopener">AppMagic</a>` : ""}${version.popularityUrl ? `<a href="${escapeHtml(version.popularityUrl)}" target="_blank" rel="noopener">${version.platform === "wechat_minigame" ? "人气榜" : "热门榜"}</a>` : ""}${version.rankUrl ? `<a href="${escapeHtml(version.rankUrl)}" target="_blank" rel="noopener">渠道畅销榜</a>` : ""}${version.storeUrl ? `<a href="${escapeHtml(version.storeUrl)}" target="_blank" rel="noopener">${String(version.platform).endsWith("_minigame") ? "小游戏页" : (version.platform === "android" ? "Google Play" : "App Store")}</a>` : ""}${!version.qimaiUrl && !version.appMagicUrl && !version.popularityUrl && !version.rankUrl && !version.storeUrl ? "—" : ""}</div></td>
       </tr>`).join("");
   }
 
@@ -586,12 +605,13 @@
     elements.trendTooltip.hidden = true;
     if (!group?.points?.length) {
       elements.trendSubtitle.textContent = "当前筛选范围没有可绘制的趋势点";
-      container.innerHTML = '<svg viewBox="0 0 720 320" aria-label="没有趋势数据"><text class="empty-label" x="360" y="160" text-anchor="middle">暂无免费下载榜或畅销榜游戏分类排名</text></svg>';
+      container.innerHTML = `<svg viewBox="0 0 720 320" aria-label="没有趋势数据"><text class="empty-label" x="360" y="160" text-anchor="middle">暂无${escapeHtml(secondaryMetricLabel(state.platform))}或畅销榜排名</text></svg>`;
       return;
     }
 
     const points = group.points;
     const first = points[0];
+    const secondaryLabel = secondaryMetricLabel(first.platform);
     const sources = [...new Set(points.flatMap((point) => [point.freeSource, point.grossingSource]).filter(Boolean))].join(" + ") || "待核验";
     elements.trendSubtitle.textContent = `${first.product} · ${platformName(first.platform)} · ${first.region} · ${points[0].date} 至 ${points.at(-1).date} · 数据源：${sources}`;
     const width = Math.max(container.clientWidth || 720, 360);
@@ -672,7 +692,7 @@
           element.setAttribute("visibility", "hidden");
         }
       }
-      elements.trendTooltip.innerHTML = `<strong>${escapeHtml(nearest.date)}</strong><span><b>免费下载榜</b><em>${nearest.free ?? "未入榜"}</em></span><span><b>畅销榜</b><em>${nearest.grossing ?? "未入榜"}</em></span>`;
+      elements.trendTooltip.innerHTML = `<strong>${escapeHtml(nearest.date)}</strong><span><b>${escapeHtml(secondaryLabel)}</b><em>${nearest.free ?? "未入榜"}</em></span><span><b>畅销榜</b><em>${nearest.grossing ?? "未入榜"}</em></span>`;
       elements.trendTooltip.hidden = false;
       const panelRect = container.closest(".trend-panel").getBoundingClientRect();
       const tooltipX = Math.min(event.clientX - panelRect.left + 12, panelRect.width - 200);
@@ -701,6 +721,7 @@
     const events = filteredEvents();
     const versions = filteredVersions();
     const rankings = buildIpRankings(events);
+    updateMetricLabels();
     renderKpis(events, versions, rankings);
     renderIpRankings(rankings);
     renderImpact(events);

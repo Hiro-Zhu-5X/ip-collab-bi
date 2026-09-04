@@ -28,8 +28,8 @@
       <div>
         <p class="eyebrow">GLOBAL MOBILE COLLAB TRACKER</p>
         <h1 id="page-title">地区联动与榜单影响</h1>
-        <p class="intro-copy">按平台与地区查看不同产品的近期及历史联动，并比较联动前后的免费下载榜·游戏榜与畅销榜·游戏榜变化。当前独立覆盖中、港、台、日、韩、美与 SEA-6，并将中国小游戏按具体渠道独立统计。</p>
-        <p class="data-source-note"><strong>数据来源</strong> iOS：七麦优先、AppMagic补缺 · 海外 Android：AppMagic Google Play 游戏分类榜 · 中国大陆 Android：官网/商店/TapTap及新闻媒体公开证据（跨平台指标单独标注且不计标准排名评分） · 微信小游戏：应用宝畅销Top 20、MomoRank畅销Top 10核对 · 抖音小游戏：MomoRank畅销Top 10 · 官方公告：联动时间核验</p>
+        <p class="intro-copy">按平台与地区查看不同产品的近期及历史联动，并比较联动前后的流量与畅销表现：APP使用免费下载榜，微信小游戏使用人气榜，抖音小游戏使用热门榜。当前独立覆盖中、港、台、日、韩、美与 SEA-6。</p>
+        <p class="data-source-note"><strong>数据来源</strong> iOS：七麦优先、AppMagic补缺 · 海外 Android：AppMagic Google Play 游戏分类榜 · 中国大陆 Android：官网/商店/TapTap及新闻媒体公开证据（跨平台指标单独标注且不计标准排名评分） · 微信小游戏：MomoRank人气Top 10、应用宝畅销Top 20 · 抖音小游戏：MomoRank热门/畅销Top 10 · 官方公告：联动时间核验</p>
       </div>
       <div class="data-date">
         <span>榜单最新日期</span>
@@ -148,7 +148,7 @@
         <span><b>70%</b> 榜单表现</span>
         <span class="score-plus" aria-hidden="true">＋</span>
         <span><b>30%</b> 筛选期联动活跃度</span>
-        <span class="score-detail">榜单表现内部：畅销榜80%＋免费下载榜20%</span>
+        <span id="score-secondary-label" class="score-detail">榜单表现内部：畅销榜80%＋免费下载/人气热门榜20%</span>
         <span class="score-exclusion">地区覆盖仅展示，不计分</span>
       </aside>
       <div id="ip-ranking-list" class="ip-ranking-list" aria-live="polite"></div>
@@ -179,7 +179,7 @@
           </div>
         </div>
         <div class="legend" aria-label="榜单图例">
-          <span><i class="legend-line free"></i>免费下载榜·游戏榜</span>
+          <span id="trend-secondary-label"><i class="legend-line free"></i>免费下载 / 人气热门榜</span>
           <span><i class="legend-line grossing"></i>畅销榜·游戏榜</span>
           <span class="rank-hint">排名数字越小越好</span>
         </div>
@@ -215,7 +215,7 @@
               <th>产品 / IP</th>
               <th>联动时间</th>
               <th>状态</th>
-              <th>免费下载榜·游戏榜</th>
+              <th id="event-secondary-label">免费下载 / 人气热门榜</th>
               <th>畅销榜·游戏榜</th>
               <th>核验与来源</th>
             </tr>
@@ -242,7 +242,7 @@
               <th>产品</th>
               <th>地区 / 版本</th>
               <th>平台 / Store ID</th>
-              <th>免费下载榜·游戏榜</th>
+              <th id="coverage-secondary-label">免费下载 / 人气热门榜</th>
               <th>畅销榜·游戏榜</th>
               <th>数据源页面</th>
             </tr>
@@ -261,7 +261,7 @@
     <span id="history-coverage-text" class="footer-source">正在读取历史库覆盖范围…</span>
   </footer>
 
-  <script src="data/dashboard.js?v=2f45fe3faae7"></script>
-  <script src="app.js?v=20260903-packed1"></script>
+  <script src="data/dashboard.js?v=87e19582119a"></script>
+  <script src="app.js?v=20260904-minigame-popular1"></script>
 </body>
 </html>
